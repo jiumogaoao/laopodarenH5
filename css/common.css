@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+  padding: 0px;
+  margin: 0px;
+  outline: none;
+  border: 0px;
+  box-sizing: border-box;
+  box-shadow: none;
+  border-radius: 0px;
+  background-color: transparent;
+  background-image: none;
+  -webkit-appearance: none; }
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
+color: #fff; 
+font-family:"Microsoft YaHei";
+font-size:25px;
+} 
+input:-moz-placeholder, textarea:-moz-placeholder { 
+color: #fff; 
+font-family:"Microsoft YaHei";
+font-size:25px;
+} 
+input::-moz-placeholder, textarea::-moz-placeholder { 
+color: #fff; 
+font-family:"Microsoft YaHei";
+font-size:25px;
+} 
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
+color: #fff; 
+font-family:"Microsoft YaHei";
+font-size:25px;
+} 
+img{
+	display:block;}
+html {
+  width: 640px;
+  height: 100%;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+  font-family:"Microsoft YaHei"}
+
+body {
+  width: 640px;
+  height:100%;
+  position: relative; }
