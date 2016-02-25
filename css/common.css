@@ -45,3 +45,27 @@ body {
   width: 640px;
   height:100%;
   position: relative; }
+#all{
+	 width: 640px;
+  height:100%;
+  position: relative; 
+  overflow:hidden;
+	}
+#main{
+	 width: 640px;
+  height:100%;
+  position: relative; 
+  overflow:hidden;
+	}
+#pageNew{
+	 width: 640px;
+  height:100%;
+  position:absolute; 
+  overflow:hidden;
+	}
+#pageOld{
+	 width: 640px;
+  height:100%;
+  position:absolute; 
+  overflow:hidden;
+	}

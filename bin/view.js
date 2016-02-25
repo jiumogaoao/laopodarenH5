@@ -66,7 +66,7 @@
 					$("#pageOld").html(mainString);
 				}
 				if(callback){callback()};
-			}
+			})
 		},
 		reflash:function(data){
 			var reflashString=_.template(obj.main.tem)({data:data});
