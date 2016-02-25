@@ -60,7 +60,11 @@
 				obj.main.tem=temReturn;
 				var mainString=_.template(obj.main.tem)({data:data});
 				$("#pageNew").html(mainString);
-				sugest[type](state);
+				if(state){
+					sugest[type](state);
+				}else{
+					$("#pageOld").html(mainString);
+				}
 				if(callback){callback()};
 			}
 		},
@@ -71,21 +75,21 @@
 	}
 	var sugest={
 			side:function(state){
-				if(state){
+				if(state==1){
 
 				}else{
 
 				}
 			},
 			top:function(state){
-				if(state){
+				if(state==1){
 
 				}else{
 
 				}
 			},
 			size:function(state){
-				if(state){
+				if(state==1){
 
 				}else{
 

@@ -3,28 +3,39 @@
 (function ($, obj, config) {
     var routeArry = {};
     window.domAll = $('<div id="domAll"></div>');
-
+    var pageArry=[];
     function changePage() {
         
         var hash = "index";
         if (location.hash) {
             hash = location.hash.replace("#", "");
-            hash = hash.split("?")[0];
         }
+        var state = 0;
+        if(pageArry.length){
+            state=1;
+        }
+        if(state&&hash==_.last(pageArry)){
+            state = -1;
+        }else{
+          pageArry.push(hash);  
+        }
+        hash = hash.split("?")[0];
         var hashArry = hash.split("/");
 
         function runRoute() {
             app.pop.off();
-            var dataObj = {};
+            var dataObj = {
+                state:state,
+                par:{},
+                name:hashArry[0]
+            };
             if (routeArry[hashArry[0]].par) {
-                var dataArry = routeArry[hashArry[0]].par.split("/");
+                var dataArry = routeArry[hashArry[0]].par;
                 for (var i = 0; i < dataArry.length; i++) {
-                    dataObj[dataArry[i]] = hashArry[i + 1];
+                    dataObj.par[dataArry[i]] = hashArry[i + 1];
                 }
             };
-
                 routeArry[hashArry[0]].fn(dataObj);
-            
         };
 
         if (routeArry[hashArry[0]]) {
@@ -91,5 +102,9 @@
         } else {
             changePage();
         }
+    };
+    obj.back = function(){
+        pageArry=_.initial(pageArry);
+        window.location.hash=_.last(pageArry);
     };
 })($, app.control, config);
