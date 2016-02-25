@@ -1,4 +1,5 @@
 (function ($, obj, config) {
+	var typeArry=[];
 	function getTem(tem,fn){
 		if(domAll.find("#"+tem).length){
 			if(fn){
@@ -61,7 +62,13 @@
 				var mainString=_.template(obj.main.tem)({data:data});
 				$("#pageNew").html(mainString);
 				if(state){
-					sugest[type](state);
+					if(state==1){
+						typeArry.push(type);
+						sugest[type](state);
+					}else{
+						sugest[_.last(typeArry)](state);
+						typeArry=_.initial(typeArry);
+					}
 				}else{
 					$("#pageOld").html(mainString);
 				}
