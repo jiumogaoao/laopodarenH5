@@ -1,6 +1,5 @@
 // JavaScript Document
-;
-(function ($, obj, config) {
+;(function ($, obj, config) {
     var routeArry = {};
     window.domAll = $('<div id="domAll"></div>');
     var pageArry=[];
@@ -13,7 +12,7 @@
         if(pageArry.length){
             state=1;
         }
-        if(state&&hash==_.last(pageArry)){
+        if(state&&hash===_.last(pageArry)){
             state = -1;
         }else{
           pageArry.push(hash);  
@@ -33,9 +32,9 @@
                 for (var i = 0; i < dataArry.length; i++) {
                     dataObj.par[dataArry[i]] = hashArry[i + 1];
                 }
-            };
+            }
                 routeArry[hashArry[0]].fn(dataObj);
-        };
+        }
 
         if (routeArry[hashArry[0]]) {
             runRoute();
@@ -56,7 +55,7 @@
                     runRoute();
                 }
             });
-        };
+        }
     }
 
     window.addEventListener("hashchange", function () {
@@ -67,7 +66,7 @@
         }
         var hashArry = hash.split("/");
         changePage();
-    })
+    });
     var set = function (data) {
         if (data && data.name) {
             routeArry[data.name] = {
@@ -83,7 +82,7 @@
     obj.init = function (loadDom) {
         if (loadDom) {
             $.ajax({
-                url: "view/domAll.html",
+                url: "html/domAll.html",
                 data: {v: config.version},
                 dataType: "html",
                 cache: true,

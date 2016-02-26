@@ -35,7 +35,7 @@
         off:function(){
 
         }
-    }
+    };
     app.cache = function (key, value, remove) {
         if (value && typeof(value) === "object") {
             localStorage.setItem("lvbh_" + key, JSON.stringify(value));
