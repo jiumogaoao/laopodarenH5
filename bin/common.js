@@ -1,15 +1,16 @@
 // JavaScript Document
 ;(function () {
+    window.app = {};
 	function resize(){
+    app.size=$(window).width()/640;
 	$("html").css({
-		"-webkit-transform":"scale("+($(window).width()/640)+")",
-		"transform":"scale("+($(window).width()/640)+")",
+		"-webkit-transform":"scale("+app.size+")",
+		"transform":"scale("+app.size+")",
 		"height":(($(window).height()/$(window).width())*640)+"px"
 		});
 	}
 	resize();
 	$(window).on("resize",resize);
-    window.app = {};
     app.uuid = function () {
         return 'xxxxxxxx-xxxx-xxxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
             var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);

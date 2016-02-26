@@ -5,7 +5,6 @@
     window.domAll = $('<div id="domAll"></div>');
     var pageArry=[];
     function changePage() {
-        
         var hash = "index";
         if (location.hash) {
             hash = location.hash.replace("#", "");
