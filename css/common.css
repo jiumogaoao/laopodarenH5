@@ -12,48 +12,50 @@
   background-image: none;
   -webkit-appearance: none; }
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
-color: #fff; 
+color: #bbbbbc; 
 font-family:"Microsoft YaHei";
 font-size:25px;
 } 
 input:-moz-placeholder, textarea:-moz-placeholder { 
-color: #fff; 
+color: #bbbbbc; 
 font-family:"Microsoft YaHei";
 font-size:25px;
 } 
 input::-moz-placeholder, textarea::-moz-placeholder { 
-color: #fff; 
+color: #bbbbbc; 
 font-family:"Microsoft YaHei";
 font-size:25px;
 } 
 input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
-color: #fff; 
+color: #bbbbbc; 
 font-family:"Microsoft YaHei";
 font-size:25px;
 } 
 img{
 	display:block;}
 html {
-  width: 640px;
+  width: 750px;
   height: 100%;
   -webkit-transform-origin: top left;
   transform-origin: top left;
   font-family:"Microsoft YaHei"}
-
+.clear{
+  clear: both;
+}
 body {
-  width: 640px;
+  width: 750px;
   height:100%;
   position: relative; 
   background-color: #fff;
 }
 #all{
-	 width: 640px;
+	 width: 750px;
   height:100%;
   position: relative; 
   overflow:hidden;
 	}
 #main{
-	 width: 640px;
+	 width: 750px;
   position: absolute; 
   top:0px;
   left: 0px;
@@ -61,7 +63,7 @@ body {
   overflow:hidden;
 	}
 #pageNew{
-	 width: 640px;
+	 width: 750px;
   height:100%;
   position:absolute; 
   overflow:hidden;
@@ -70,7 +72,7 @@ body {
   opacity: 0;
 	}
 #pageOld{
-	 width: 640px;
+	 width: 750px;
   height:100%;
   position:absolute; 
   overflow:hidden;
@@ -81,7 +83,7 @@ body {
   display: none;
 }
 #head{
-	width: 640px;
+	width: 750px;
 	position:absolute;
 	top:-100%;
 	left:0px;
@@ -89,12 +91,22 @@ body {
 	z-index:10;
 	}
 #foot{
-	width: 640px;
+	width: 750px;
 	position:absolute;
 	bottom:-100%;
 	left:0px;
 	z-index:10;
 	opacity:0;
 	}
-
-
+#sideFrame{
+  position: absolute;
+  top: 0px;
+  left: -614px;
+  bottom: 0px;
+  width: 614px;
+  z-index: 11;
+}
+#sideFrame img{
+  width: 100%;
+  height: 100%;
+}

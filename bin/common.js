@@ -2,11 +2,11 @@
 ;(function () {
     window.app = {};
 	function resize(){
-    app.size=$(window).width()/640;
+    app.size=$(window).width()/750;
 	$("html").css({
 		"-webkit-transform":"scale("+app.size+")",
 		"transform":"scale("+app.size+")",
-		"height":(($(window).height()/$(window).width())*640)+"px"
+		"height":(($(window).height()/$(window).width())*750)+"px"
 		});
 	}
 	resize();

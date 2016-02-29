@@ -3,6 +3,7 @@
 	var segestDelay="";
 	var headDelay="";
 	var footDelay="";
+	var sideDelay="";
 	function pageChange(){
 		$("#pageOld").attr("id","pageHide");
 						$("#pageHide").attr("style","");
@@ -40,7 +41,7 @@
 			getTem(tem,function(temReturn){
 				var headString = _.template(temReturn)({data:data});
 				$("#head").html(headString);
-				$("#head").attr("style","top:-"+$("#head").height()/app.size+"px");
+				$("#head").attr("style","top:-"+($("#head").height()/app.size-1)+"px");
 				$("#main").css("top",$("#head").height()/app.size);
 				$("#head").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)", "transition-duration": "1000ms","transform":"translate(0px, 100%) translateZ(0px)","opacity": 1});
 				headDelay=setTimeout(function(){
@@ -68,7 +69,7 @@
 			getTem(tem,function(temReturn){
 				var headString = _.template(temReturn)({data:data});
 				$("#foot").html(headString);
-				$("#foot").attr("style","bottom:-"+$("#foot").height()/app.size+"px");
+				$("#foot").attr("style","bottom:-"+($("#foot").height()/app.size+1)+"px");
 				$("#main").css("bottom",$("#foot").height()/app.size);
 				$("#foot").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)", "transition-duration": "1000ms","transform":"translate(0px, -100%) translateZ(0px)","opacity": 1});
 				footDelay=setTimeout(function(){
@@ -88,6 +89,20 @@
 					callback();
 				}	
 				},1000);
+		}
+	};
+	obj.side={
+		show:function(fn){
+			$("#main,#sideFrame").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)","transition-duration": "1000ms","transform":"translate(614px, 0px) translateZ(0px)"});
+			sideDelay=setTimeout(function(){
+				if(fn){fn();}
+			},1000);
+		},
+		hide:function(fn){
+			$("#main,#sideFrame").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)","transition-duration": "1000ms","transform":"translate(0px, 0px) translateZ(0px)"});
+			sideDelay=setTimeout(function(){
+				if(fn){fn();}
+			},1000);
 		}
 	};
 	obj.main={
@@ -125,11 +140,13 @@
 			},
 			side:function(state){
 				if(state===1){
-					$("#pageNew").attr("style","z-index:3;left:640px");
-					$("#pageNew").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)", "transition-duration": "1000ms","transform":"translate(-100%, 0px) translateZ(0px)","opacity": 1});
+					$("#pageNew").attr("style","z-index:3;transform:translate(100%, 0px) translateZ(0px)");
 					segestDelay=setTimeout(function(){
-						pageChange();
-					},1000);
+						$("#pageNew").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)", "transition-duration": "1000ms","transform":"translate(0px, 0px) translateZ(0px)","opacity": 1});
+						segestDelay=setTimeout(function(){
+							pageChange();
+						},1000);
+					},50);
 				}else{
 					$("#pageNew").attr("style","opacity: 1;");
 					$("#pageOld").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)", "transition-duration": "1000ms","transform":"translate(100%, 0px) translateZ(0px)","opacity": 0});

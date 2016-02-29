@@ -28,6 +28,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
+        <meta charset="utf-8">
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
@@ -35,8 +36,27 @@
 
         <title>Hello World</title>
         <link href="css/common.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
-        <link href="css/page/page.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
-        <link href="css/module/module.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/page/index.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/module/headIcon.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/module/fullScreanInput.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/module/text.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/module/button.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/module/head.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/module/labelInput.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/page/forgetKey.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/module/select.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/page/regest.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/page/saveCode.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/page/phoneCode.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/page/regestSuccess.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/module/foot.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/page/messageList.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/module/list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/page/linkmanList.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/module/dropDown.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/page/actionList.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/module/tag.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+        <link href="css/page/detail.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
     </head>
     <body>
 
@@ -46,6 +66,9 @@
 	<div id="main">
     	<div id="pageNew"></div>
         <div id="pageOld"></div>
+    </div>
+    <div id="sideFrame">
+        <img src="img/side.jpg"/>
     </div>
     <div id="foot"></div>
     <div id="pop"></div>
@@ -69,4 +92,4 @@
 <script type="text/javascript" src="bin/run.js"></script>
 <script type="text/javascript" src="include/moment.js"></script>
 <script type="text/javascript" src="include/jquery.form.js"></script>
-<script type="text/javascript" src="include/touch.js"></script>
+<script type="text/javascript" src="bin/touch.js"></script>

@@ -1,0 +1,12 @@
+.fullScreanInput_module{
+	background-color: #f9fafb;
+	height: 89px;
+	width: 100%;
+}
+.fullScreanInput_module input{
+	height: 89px;
+	width: 100%;
+	text-align: center;
+	color: #464748;
+	font-size: 28px;
+}

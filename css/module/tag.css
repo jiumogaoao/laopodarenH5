@@ -1,0 +1,34 @@
+.tag_module{
+	border-top: 1px solid #dedfe0;
+	border-bottom:1px solid #dedfe0;
+	margin-top: 40px;
+	background-color:#fff; 
+}
+.tag_module .tagPoint{
+	height: 87px;
+}
+.tag_module .left{
+	float: left;
+	margin-top: 24px;
+	margin-left: 35px;
+}
+.tag_module .right{
+	float: left;
+	margin-left: 37px;
+	height: 87px;
+	border-bottom:1px solid #dedfe0;
+	width: 624px;
+	position: relative;
+}
+.tag_module .title{
+	font-size: 33px;
+	color: #000;
+	position: absolute;
+	top:20px;
+	left: 3px;
+}
+.tag_module .icon{
+	position: absolute;
+	top:30px;
+	right: 30px;
+}

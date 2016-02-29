@@ -66,5 +66,4 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks("grunt-contrib-cssmin");
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.registerTask('default', ['jshint','clean','copy','cssmin','uglify','concat','imagemin']);
-	grunt.registerTask('watch', ['jshint']);
 }

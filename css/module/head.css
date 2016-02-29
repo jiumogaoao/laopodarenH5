@@ -1,0 +1,89 @@
+.head_module{
+	width: 100%;
+	height: 128px;
+	background-color: #12b7f5;
+	position: relative;
+	color: #fff;
+}
+.head_module .left{
+	position: absolute;
+	bottom: 30px;
+	left: 18px;
+	font-size: 32px;
+	z-index: 3;
+}
+.head_module .leftIcon{
+	float: left;
+	line-height: 44px;
+}
+.head_module .leftText{
+	float: left;
+}
+.head_module .title{
+	width: 100%;
+	position: absolute;
+	left: 0px;
+	bottom:28px;
+	text-align: center;
+	font-size: 34px;
+	font-weight: bolder;
+}
+.head_module.iconNavButton_head .left{
+	bottom: 7px;
+}
+.head_module.iconNavButton_head .left .leftIcon{
+	width: 74px;
+	height:74px;
+	border-radius: 74px;
+}
+.head_module.iconNavButton_head .nav{
+	width: 240px;
+	height: 60px;
+	position: absolute;
+	left: 255px;
+	bottom:15px;
+}
+.head_module.iconNavButton_head .navPoint{
+	width: 120px;
+	height: 60px;
+	line-height: 58px;
+	text-align: center;
+	color: #fff;
+	float: left;
+	border-bottom:2px solid #fff;
+	border-top: 2px solid #fff;
+	font-size: 26px;
+}
+.head_module.iconNavButton_head .navPoint.hl{
+	background-color: #fff;
+	color: #12b7f5;
+}
+.head_module.iconNavButton_head .navLeft{
+	border-left: 2px solid #fff;
+	border-radius: 15px 0px 0px 15px;
+}
+.head_module.iconNavButton_head .navRight{
+	border-right: 2px solid #fff;
+	border-radius: 0px 15px 15px 0px;
+}
+.head_module.iconNavButton_head .right{
+	font-size: 37px;
+	font-weight: bolder;
+	position: absolute;
+	right: 27px;
+	bottom: 26px;
+	z-index: 3;
+}
+.head_module.iconNavButton_head.iconTitleButton_head .right{
+	font-weight:normal;
+	font-size: 32px;
+}
+.head_module.buttonTitleIcon_head .rightPoint{
+	float: right;
+	margin-left: 31px;
+}
+.head_module.buttonTitleIcon_head .right{
+	position: absolute;
+	right: 15px;
+	bottom:18px;
+}

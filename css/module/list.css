@@ -1,0 +1,111 @@
+.list_module{
+	width:1218px;
+	height: 132px;
+}
+.list_module .left{
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	float: left;
+	margin-top:16px;
+	margin-left: 24px; 
+}
+.list_module .right{
+	width: 602px;
+	height: 132px;
+	border-bottom: 1px solid #dedfe0;
+	float: left;
+	margin-left: 25px; 
+	position: relative;
+}
+.list_module .right .title{
+	color: #000;
+	font-size: 32px;
+	position: absolute;
+	top:28px;
+	left: 2px;
+}
+.list_module .right .dsc{
+	color: #777777;
+	font-size: 26px;
+	position: absolute;
+	bottom:28px;
+	left: 2px;
+}
+.list_module .right .time{
+	color: #777777;
+	font-size: 18px;
+	position: absolute;
+	top:36px;
+	right: 27px;
+}
+.list_module .right .num{
+	padding: 10px 14px;
+	background-color: #f74c31;
+	color: #fff;
+	font-size: 20px;
+	position: absolute;
+	bottom:22px;
+	right: 25px;
+	border-radius: 50px;
+}
+.list_module .hide{
+	float: left;
+	border-bottom: 1px solid #dedfe0;
+}
+.list_module .setTop{
+	width: 132px;
+	height: 131px;
+	background-color: #c7c7cc;
+	color: #fff;
+	text-align: center;
+	line-height: 131px;
+	font-size: 32px;
+	float: left;
+}
+.list_module .setRead{
+	width: 204px;
+	height: 131px;
+	background-color: #ff9c00;
+	color: #fff;
+	text-align: center;
+	line-height: 131px;
+	font-size: 32px;
+	float: left;
+}
+.list_module .remove{
+	width: 130px;
+	height: 131px;
+	background-color: #ff3b30;
+	color: #fff;
+	text-align: center;
+	line-height: 131px;
+	font-size: 32px;
+	float: left;
+}
+.list_module.listM_module{
+	height: 114px;
+}
+.list_module.listM_module .left{
+	width: 80px;
+	height: 80px;
+	margin-top:18px;
+	margin-left: 24px;
+}
+.list_module.listM_module .right{
+	height: 113px;
+	margin-left: 24px;
+}
+.list_module.listM_module .title{
+	top:19px;
+}
+.list_module.listM_module .dsc{
+	bottom: 19px;
+}
+.list_module.listM_module .state{
+	color: #bbbbbb;
+	font-size: 16px;
+	position: absolute;
+	bottom:63px;
+	right: 26px;
+}

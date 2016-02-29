@@ -1,0 +1,22 @@
+.button_module{
+	text-align: center;
+	border-radius: 5px;
+	color: #fff;
+	font-weight: bolder;
+}
+.button_module.buttonL_module{
+	width: 680px;
+	height: 88px;
+	line-height: 88px;
+	font-size: 30px;
+}
+.button_module.buttonBlue_module{
+	background-color: #00aced;
+}
+.button_module.buttonDeepBlue_module{
+	background-color: #0079ff;
+}
+.button_module.buttonGay_module{
+	background-color: #e9ebec;
+	color: #cccccc;
+}

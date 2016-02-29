@@ -3,8 +3,14 @@ app.control.set({
 	par:[],
 	fn:function(data){
 		function viewDone(){
-			$(".index_page .a").unbind("tap").bind("tap",function(){
-				window.location.hash="pageB";
+			$(".index_page #forgetKey").unbind("tap").bind("tap",function(){
+				window.location.hash="forgetKey";
+			});
+			$(".index_page #regest").unbind("tap").bind("tap",function(){
+				window.location.hash="regest";
+			});
+			$(".index_page #login").unbind("tap").bind("tap",function(){
+				window.location.hash="messageList";
 			});
 		}
 		app.view.head.hide();
