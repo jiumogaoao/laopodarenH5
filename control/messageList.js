@@ -42,6 +42,9 @@ app.control.set({
 					app.view.side.show();
 				}
 			});
+			$(".head_module .navRight").unbind("tap").bind("tap",function(){
+				window.location.hash="phone";
+			});
 		}
 		function footDone(){
 			$(".foot_module .navPoint.center").unbind("tap").bind("tap",function(){

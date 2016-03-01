@@ -91,12 +91,24 @@
 				},1000);
 		}
 	};
-	obj.side={
-		show:function(fn){
-			$("#main,#sideFrame").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)","transition-duration": "1000ms","transform":"translate(614px, 0px) translateZ(0px)"});
+	function sideShow(fn){
+		$("#main,#sideFrame").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)","transition-duration": "1000ms","transform":"translate(614px, 0px) translateZ(0px)"});
 			sideDelay=setTimeout(function(){
 				if(fn){fn();}
 			},1000);
+	};
+	obj.side={
+		show:function(fn){
+			if($("#sideFrame").attr("haveload")==="1"){
+				sideShow(fn);
+			}else{
+				getTem("side_tem",function(tem){
+					var sideStr=_.template(tem)({});
+					$("#sideFrame").html(sideStr);
+					$("#sideFrame").attr("haveload","1");
+					sideShow(fn);
+				});
+			}
 		},
 		hide:function(fn){
 			$("#main,#sideFrame").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)","transition-duration": "1000ms","transform":"translate(0px, 0px) translateZ(0px)"});
