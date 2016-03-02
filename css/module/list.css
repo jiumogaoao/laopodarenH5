@@ -49,6 +49,11 @@
 	right: 25px;
 	border-radius: 50px;
 }
+.list_module .right .phone{
+	position: absolute;
+	top:38px;
+	right: 47px;
+}
 .list_module .hide{
 	float: left;
 	border-bottom: 1px solid #dedfe0;
@@ -108,4 +113,67 @@
 	position: absolute;
 	bottom:63px;
 	right: 26px;
+}
+.list_module.listS_module{
+	height: 124px;
+}
+.list_module.listS_module .left{
+	margin-top: 12px;
+}
+.list_module.listS_module .right{
+	height: 124px;
+}
+.list_module.listS_module .title{
+	top:24px;
+}
+.list_module.listS_module .dsc{
+	bottom:24px;
+}
+.list_module.listXS_module{
+	height: 104px;
+}
+.list_module.listXS_module .right{
+	height: 104px;
+}
+.list_module.listXS_module .right .phone{
+	top:26px;
+}
+.list_module.listXS_module .left{
+	width: 70px;
+	height: 70px;
+}
+.list_module.listS_module.listSingle_module .title{
+	top:45px;
+}
+.list_module.listS_module.listSingle_module .tag{
+	position: absolute;
+	top:50px;
+	right: 47px;
+}
+.list_module.listL_module{
+	height: 142px
+}
+.list_module.listL_module .right{
+	height: 142px;
+}
+.list_module.listL_module .right .title{
+	top:22px;
+}
+.list_module.listL_module .right .dsc{
+	bottom:10px;
+}
+.list_module.listL_module .right .request{
+	font-size: 24px;
+	color: #000;
+	position: absolute;
+	top:68px;
+	left: 0px;
+}
+.list_module.listL_module .right .state{
+	position: absolute;
+	top:56px;
+	right: 42px;
+}
+.list_module.listM_module.listSingle_module .right .title{
+	top:33px;
 }

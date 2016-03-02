@@ -21,3 +21,10 @@
 .text_module.textYellow_module{
 	color: #fe841a;
 }
+.text_module.listTitle{
+	height: 50px;
+	width: 100%;
+	line-height: 50px;
+	background-color: #f7f7f8;
+	text-indent: 35px;
+}

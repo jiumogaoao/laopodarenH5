@@ -1,10 +1,12 @@
 app.control.set({
-	name:"detail",
+	name:"phoneList",
 	par:[],
 	fn:function(data){
 		function viewDone(){
-			var myScroll = new IScroll('#detail', {  });
-			
+			var myScroll = new IScroll('#phoneListMain', {  });
+			$(".phoneList_page .topPoint").unbind("tap").bind("tap",function(){
+				window.location.hash="phoneListSub";
+			});
 		}
 		function headDone(){
 			$(".head_module .left").unbind("tap").bind("tap",function(){

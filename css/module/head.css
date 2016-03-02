@@ -87,3 +87,11 @@
 	right: 15px;
 	bottom:18px;
 }
+.head_module.buttonTitleButton_head .right{
+	font-weight:normal;
+	font-size: 32px;
+	position: absolute;
+	right: 27px;
+	bottom: 26px;
+	z-index: 3;
+}

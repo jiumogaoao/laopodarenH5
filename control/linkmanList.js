@@ -22,7 +22,19 @@ app.control.set({
 					$("body").attr("sideOpen","0");
 					app.view.side.hide();
 				}
-			});
+			}); 
+			$(".linkmanList_page #newFriend").unbind("tap").bind("tap",function(){
+				window.location.hash="newFriend";
+			}); 
+			$(".linkmanList_page #care").unbind("tap").bind("tap",function(){
+				window.location.hash="care";
+			}); 
+			$(".linkmanList_page #group").unbind("tap").bind("tap",function(){
+				window.location.hash="group";
+			}); 
+			$(".linkmanList_page #public").unbind("tap").bind("tap",function(){
+				window.location.hash="public";
+			}); 
 		}
 		function headDone(){
 			$(".head_module .left").unbind("tap").bind("tap",function(){

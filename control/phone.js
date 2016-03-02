@@ -18,6 +18,9 @@ app.control.set({
 			$(".phone_page #phone").unbind("tap").bind("tap",function(){
 				window.location.hash="phoneList";
 			});
+			$(".phone_page #directory").unbind("tap").bind("tap",function(){
+				window.location.hash="directoryList";
+			});
 		}
 		function headDone(){
 			$(".head_module .left").unbind("tap").bind("tap",function(){
