@@ -32,3 +32,22 @@
 	top:30px;
 	right: 30px;
 }
+.tag_module.tagL_module .tagPoint{
+	height: 132px;
+}
+.tag_module.tagL_module .left{
+	margin-left: 29px;
+	margin-top: 14px;
+}
+.tag_module.tagL_module .right{
+	margin-left: 33px;
+	width: 588px;
+	height: 132px;
+}
+.tag_module.tagL_module .title{
+	line-height: 132px;
+	top:0px;
+}
+.tag_module.tagL_module .icon{
+	top:55px;
+}
