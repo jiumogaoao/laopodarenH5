@@ -16,6 +16,15 @@ app.control.set({
 					app.view.side.hide();
 				}
 			});
+			$(".actionList_page #zone").unbind("tap").bind("tap",function(){
+				window.location.hash="zone";
+			});
+			$(".actionList_page #near").unbind("tap").bind("tap",function(){
+				window.location.hash="near";
+			});
+			$(".actionList_page #interest").unbind("tap").bind("tap",function(){
+				window.location.hash="interest";
+			});
 		}
 		function headDone(){
 			$(".head_module .left").unbind("tap").bind("tap",function(){
