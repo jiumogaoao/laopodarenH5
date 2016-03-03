@@ -1,0 +1,34 @@
+.zoneIcon{
+	background-image: url(../../img/zone.png);
+	background-repeat: no-repeat;
+}
+.zoneIcon.view{
+	width: 63px;
+    height: 63px;
+    background-position: -3px -435px;
+}
+.zoneIcon.headBg{
+	width: 135px;
+    height: 35px;
+    background-position: 0px -78px;
+}
+.zoneIcon.headFont{
+	width: 100px;
+    height: 37px;
+    background-position: -11px -125px;
+}
+.zoneIcon.star{
+	width: 13px;
+    height: 13px;
+    background-position: -14px -172px;
+}
+.zoneIcon.pic{
+	width: 45px;
+    height: 40px;
+    background-position: -87px -177px;
+}
+.zoneIcon.add{
+	width: 55px;
+    height: 56px;
+    background-position: -6px -5px;
+}
