@@ -3,7 +3,7 @@ app.control.set({
 	par:[],
 	fn:function(data){
 		function viewDone(){
-			//var myScroll = new IScroll('#publicMain', {  });
+			var myScroll = new IScroll('#zoneMain', {  });
 			$(".head_module .left").unbind("tap").bind("tap",function(){
 				app.control.back();
 			});
