@@ -85,7 +85,7 @@ body {
 #head{
 	width: 750px;
 	position:absolute;
-	top:-100%;
+	top:0px;
 	left:0px;
   opacity:0;
 	z-index:10;
@@ -93,7 +93,7 @@ body {
 #foot{
 	width: 750px;
 	position:absolute;
-	bottom:-100%;
+	bottom:0px;
 	left:0px;
 	z-index:10;
 	opacity:0;
