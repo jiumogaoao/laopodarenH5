@@ -10,6 +10,7 @@ app.control.set({
 				window.location.hash="regest";
 			});
 			$(".index_page #login").unbind("tap").bind("tap",function(){
+				$(".index_page input").attr("disabled","disabled");
 				window.location.hash="messageList";
 			});
 		}

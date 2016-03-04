@@ -1,5 +1,5 @@
 .zoneIcon{
-	background-image: url(../../img/zone.png);
+	background-image: url(../img/zone.png);
 	background-repeat: no-repeat;
 }
 .zoneIcon.view{
@@ -62,11 +62,30 @@
     height: 38px;
     background-position: -90px -436px;
 }
+.zoneIcon.remove{
+    width: 27px;
+    height: 34px;
+    background-position: -109px -348px;
+}
 .zone_module{
     background-color: #fff;
     margin-top: 29px;
     border-bottom: 1px solid #cfcfcf;
     width: 100%;
+    padding-bottom: 30px;
+    position: relative;
+}
+.zone_module .answer{
+    font-size: 27px;
+    color: #295998;
+    position: absolute;
+    top:47px;
+    right: 25px;
+}
+.zone_module .remove{
+    position: absolute;
+    top:44px;
+    right: 38px;
 }
 .zone_module .top{
     width: 100%;
@@ -173,7 +192,6 @@
 .zone_module .bottom .talkFrame{
     margin: auto;
     margin-top: 30px;
-    margin-bottom: 30px;
     width: 710px;
     height: 56px;
     border:1px solid #c6c6c6;

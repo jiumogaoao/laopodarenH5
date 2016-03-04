@@ -36,14 +36,14 @@
 	height:74px;
 	border-radius: 74px;
 }
-.head_module.iconNavButton_head .nav{
+.head_module.iconNavButton_head .nav,.head_module.buttonNavIcon_head .nav{
 	width: 240px;
 	height: 60px;
 	position: absolute;
 	left: 255px;
 	bottom:15px;
 }
-.head_module.iconNavButton_head .navPoint{
+.head_module.iconNavButton_head .navPoint,.head_module.buttonNavIcon_head .navPoint{
 	width: 120px;
 	height: 60px;
 	line-height: 58px;
@@ -54,15 +54,15 @@
 	border-top: 2px solid #fff;
 	font-size: 26px;
 }
-.head_module.iconNavButton_head .navPoint.hl{
+.head_module.iconNavButton_head .navPoint.hl,.head_module.buttonNavIcon_head .navPoint.hl{
 	background-color: #fff;
 	color: #12b7f5;
 }
-.head_module.iconNavButton_head .navLeft{
+.head_module.iconNavButton_head .navLeft,.head_module.buttonNavIcon_head .navLeft{
 	border-left: 2px solid #fff;
 	border-radius: 15px 0px 0px 15px;
 }
-.head_module.iconNavButton_head .navRight{
+.head_module.iconNavButton_head .navRight,.head_module.buttonNavIcon_head .navRight{
 	border-right: 2px solid #fff;
 	border-radius: 0px 15px 15px 0px;
 }
@@ -78,11 +78,11 @@
 	font-weight:normal;
 	font-size: 32px;
 }
-.head_module.buttonTitleIcon_head .rightPoint{
+.head_module.buttonTitleIcon_head .rightPoint,.head_module.buttonNavIcon_head .rightPoint{
 	float: right;
 	margin-left: 31px;
 }
-.head_module.buttonTitleIcon_head .right{
+.head_module.buttonTitleIcon_head .right,.head_module.buttonNavIcon_head .right{
 	position: absolute;
 	right: 15px;
 	bottom:18px;

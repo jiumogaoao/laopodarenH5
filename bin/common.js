@@ -1,5 +1,6 @@
 // JavaScript Document
 ;(function () {
+    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
     window.app = {};
 	function resize(){
     app.size=$(window).width()/750;
