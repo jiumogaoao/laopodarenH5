@@ -177,3 +177,46 @@
 .list_module.listM_module.listSingle_module .right .title{
 	top:33px;
 }
+.list_module.listXL_module{
+	height: 170px;
+}
+.list_module.listXL_module .right{
+	height: 170px;
+	width: 540px;
+}
+.list_module.listXL_module .left{
+	width: 140px;
+	height: 140px;
+	margin-top:15px;
+	margin-left:45px;
+}
+.list_module.listXL_module .right .title{
+	top:42px;
+}
+.list_module.listXL_module .right .tag{
+	position: absolute;
+    top: 70px;
+    right: 30px;
+}
+.list_module.listXXS_module{
+	height: 88px;
+}
+.list_module.listXXS_module .right{
+	height: 88px;
+	margin-left: 42px;
+	width: 624px;
+}
+.list_module.listXXS_module .left{
+	width: 44px;
+	height: 44px;
+	margin-top: 25px;
+	margin-left: 40px;
+}
+.list_module.listXXS_module .title{
+	top:27px;
+}
+.list_module.listXXS_module .tag{
+	position: absolute;
+    top: 30px;
+    right: 30px;
+}
