@@ -220,3 +220,43 @@
     top: 30px;
     right: 30px;
 }
+.list_module.listXL_module .button{
+	width: 94px;
+	height: 52px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 25px;
+	color: #00a5e0;
+	border:1px solid #c8c7cc;
+	position: absolute;
+	top:40px;
+	right: 20px;
+}
+.list_module.listXXL_module{
+	height: 210px;
+}
+.list_module.listXXL_module .left{
+	width: 180px;
+	height: 180px;
+	margin-top: 15px;
+	margin-left: 30px;
+	border-radius: 0px;
+}
+.list_module.listXXL_module .right{
+	height: 210px;
+}
+.list_module.listXXL_module .numberFrame{
+	position: absolute;
+	right: 125px;
+	bottom: 28px;
+}
+.list_module.listXXL_module .readNum{
+	float: left;
+}
+.list_module.listXXL_module .number{
+	float: left;
+	color: #bbbbbb;
+}
+.list_module.listXXL_module .talkNum{
+	float: left;
+}
