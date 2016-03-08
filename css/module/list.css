@@ -10,6 +10,9 @@
 	margin-top:16px;
 	margin-left: 24px; 
 }
+.list_module.nodeg .left{
+	border-radius: 0px;
+}
 .list_module .right{
 	width: 602px;
 	height: 132px;

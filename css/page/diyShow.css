@@ -111,6 +111,9 @@
 	width: 33.3%;
 	float: left;
 }
+.diyShow_page #style .point{
+	height: 325px;
+}
 .diyShow_page #redpackage .pic,.diyShow_page #style .pic{
 	width: 230px;
 	height: 262px;

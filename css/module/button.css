@@ -26,7 +26,11 @@
 	background-color: #e9ebec;
 	color: #cccccc;
 }
+.button_module.buttonYellow_module{
+	background-color: #fcd73e;
+	color: #7a4903;
+}
 .button_module.buttonBlueBorder_module{
 	border:4px solid #24b6ed;
-	color: #24b6ed;
+	color: #cccccc;
 }
