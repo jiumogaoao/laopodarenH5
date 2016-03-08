@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+.myDetail_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #ecedf1;
+}
+.myDetail_page #myDetailMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	overflow: hidden;
+}
+.myDetail_page #myDetailRoll{
+	width: 100%;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}

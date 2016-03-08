@@ -140,6 +140,11 @@
 						obj.side.hide();
 						window.location.hash="set";
 					});
+					$("#sideFrame #myDetail").unbind("tap").bind("tap",function(){
+						$("body").attr("sideopen","0");
+						obj.side.hide();
+						window.location.hash="myDetail";
+					});
 					$("#sideFrame").attr("haveload","1");
 					sideShow(fn);
 				});
