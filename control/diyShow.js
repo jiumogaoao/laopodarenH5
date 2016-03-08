@@ -16,6 +16,6 @@ app.control.set({
 		}
 		app.view.head.hide(headDone);
 		app.view.foot.show("diyShow_foot",{},footDone);
-		app.view.main.sugest("diyShow_page",data,data.state,"size",viewDone);
+		app.view.main.sugest("diyShow_page",data,data.state,"side",viewDone);
 	}
 });

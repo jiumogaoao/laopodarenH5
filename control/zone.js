@@ -28,6 +28,6 @@ app.control.set({
 		}
 		app.view.head.hide(headDone);
 		app.view.foot.hide(footDone);
-		app.view.main.sugest("zone_page",data,data.state,"size",viewDone);
+		app.view.main.sugest("zone_page",data,data.state,"side",viewDone);
 	}
 });

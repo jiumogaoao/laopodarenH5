@@ -19,6 +19,6 @@ app.control.set({
 		}
 		app.view.head.show("buttonNavIcon_head",{"hl":"0","right":[{id:"",src:"img/headAdd.jpg"}]},headDone);
 		app.view.foot.hide(footDone);
-		app.view.main.sugest("album_page",data,data.state,"size",viewDone);
+		app.view.main.sugest("album_page",data,data.state,"side",viewDone);
 	}
 });

@@ -1,5 +1,5 @@
 app.control.set({
-	name:"collect",
+	name:"set",
 	par:[],
 	fn:function(data){
 		function viewDone(){
@@ -14,8 +14,8 @@ app.control.set({
 		function footDone(){
 
 		}
-		app.view.head.show("buttonTitleIcon_head",{"title":"我的收藏 &or;",right:[{id:"",src:"img/headAdd.jpg"}]},headDone);
+		app.view.head.show("title_head",{"title":"设置"},headDone);
 		app.view.foot.hide(footDone);
-		app.view.main.sugest("collect_page",data,data.state,"side",viewDone);
+		app.view.main.sugest("set_page",data,data.state,"side",viewDone);
 	}
 });

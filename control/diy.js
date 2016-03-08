@@ -16,6 +16,6 @@ app.control.set({
 		}
 		app.view.head.show("buttonTitleButton_head",{"title":"个性化中心","right":"装扮开关"},headDone);
 		app.view.foot.hide(footDone);
-		app.view.main.sugest("diy_page",data,data.state,"size",viewDone);
+		app.view.main.sugest("diy_page",data,data.state,"side",viewDone);
 	}
 });

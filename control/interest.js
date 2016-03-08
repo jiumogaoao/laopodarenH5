@@ -26,6 +26,6 @@ app.control.set({
 		}
 		app.view.head.show("buttonTitleButton_head",{"title":"兴趣部落","right":"搜索"},headDone);
 		app.view.foot.hide(footDone);
-		app.view.main.sugest("interest_page",data,data.state,"size",viewDone);
+		app.view.main.sugest("interest_page",data,data.state,"side",viewDone);
 	}
 });

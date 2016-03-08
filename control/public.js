@@ -15,6 +15,6 @@ app.control.set({
 		}
 		app.view.head.show("buttonTitleButton_head",{title:"公众号",right:"添加"},headDone);
 		app.view.foot.hide(footDone);
-		app.view.main.sugest("public_page",data,data.state,"size",viewDone);
+		app.view.main.sugest("public_page",data,data.state,"side",viewDone);
 	}
 });

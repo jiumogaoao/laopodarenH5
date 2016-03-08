@@ -15,6 +15,6 @@ app.control.set({
 		}
 		app.view.head.show("buttonTitleIcon_head",{title:"新朋友",right:[{id:"",src:"img/list.jpg"}]},headDone);
 		app.view.foot.hide(footDone);
-		app.view.main.sugest("newFriend_page",data,data.state,"size",viewDone);
+		app.view.main.sugest("newFriend_page",data,data.state,"side",viewDone);
 	}
 });

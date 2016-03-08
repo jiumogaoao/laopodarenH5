@@ -15,6 +15,6 @@ app.control.set({
 		}
 		app.view.head.show("buttonTitleIcon_head",{title:"某人",right:[{id:"",src:"img/headButtonA.jpg"},{id:"",src:"img/headButtonB.jpg"}]},headDone);
 		app.view.foot.show("talk_foot",{hl:"1"},footDone);
-		app.view.main.sugest("detail_page",data,data.state,"size",viewDone);
+		app.view.main.sugest("detail_page",data,data.state,"top",viewDone);
 	}
 });

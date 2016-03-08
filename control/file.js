@@ -16,6 +16,6 @@ app.control.set({
 		}
 		app.view.head.show("title_head",{"title":"我的文件"},headDone);
 		app.view.foot.hide(footDone);
-		app.view.main.sugest("file_page",data,data.state,"size",viewDone);
+		app.view.main.sugest("file_page",data,data.state,"side",viewDone);
 	}
 });

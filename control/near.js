@@ -34,6 +34,6 @@ app.control.set({
 		}
 		app.view.head.show("buttonTitleButton_head",{title:"附近",right:"筛选"},headDone);
 		app.view.foot.hide(footDone);
-		app.view.main.sugest("near_page",data,data.state,"size",viewDone);
+		app.view.main.sugest("near_page",data,data.state,"side",viewDone);
 	}
 });

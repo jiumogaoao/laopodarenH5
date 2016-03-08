@@ -135,6 +135,11 @@
 						obj.side.hide();
 						window.location.hash="file";
 					});
+					$("#sideFrame #set").unbind("tap").bind("tap",function(){
+						$("body").attr("sideopen","0");
+						obj.side.hide();
+						window.location.hash="set";
+					});
 					$("#sideFrame").attr("haveload","1");
 					sideShow(fn);
 				});

@@ -15,6 +15,6 @@ app.control.set({
 		}
 		app.view.head.show("buttonTitleButton_head",{title:"特别关心",right:"管理"},headDone);
 		app.view.foot.hide(footDone);
-		app.view.main.sugest("care_page",data,data.state,"size",viewDone);
+		app.view.main.sugest("care_page",data,data.state,"side",viewDone);
 	}
 });
