@@ -105,6 +105,36 @@
 				getTem("side_tem",function(tem){
 					var sideStr=_.template(tem)({});
 					$("#sideFrame").html(sideStr);
+					$("#sideFrame #vip").unbind("tap").bind("tap",function(){
+						$("body").attr("sideopen","0");
+						obj.side.hide();
+						window.location.hash="vip";
+					});
+					$("#sideFrame #money").unbind("tap").bind("tap",function(){
+						$("body").attr("sideopen","0");
+						obj.side.hide();
+						window.location.hash="money";
+					});
+					$("#sideFrame #diyShow").unbind("tap").bind("tap",function(){
+						$("body").attr("sideopen","0");
+						obj.side.hide();
+						window.location.hash="diyShow";
+					});
+					$("#sideFrame #collect").unbind("tap").bind("tap",function(){
+						$("body").attr("sideopen","0");
+						obj.side.hide();
+						window.location.hash="collect";
+					});
+					$("#sideFrame #album").unbind("tap").bind("tap",function(){
+						$("body").attr("sideopen","0");
+						obj.side.hide();
+						window.location.hash="album";
+					});
+					$("#sideFrame #file").unbind("tap").bind("tap",function(){
+						$("body").attr("sideopen","0");
+						obj.side.hide();
+						window.location.hash="file";
+					});
 					$("#sideFrame").attr("haveload","1");
 					sideShow(fn);
 				});
