@@ -17,7 +17,7 @@ app.control.set({
 		function footDone(){
 
 		}
-		app.view.head.show("buttonNavIcon_head",{"hl":"1","right":[{id:"",src:"img/headAdd.jpg"}]},headDone);
+		app.view.head.show("buttonNavIcon_head",{"hl":"1","right":[{id:"",src:"img/headAdd.png"}]},headDone);
 		app.view.foot.hide(footDone);
 		app.view.main.sugest("lastest_page",data,data.state,"size",viewDone);
 	}

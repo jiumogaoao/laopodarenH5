@@ -15,7 +15,7 @@ app.control.set({
 		function footDone(){
 
 		}
-		app.view.head.show("buttonTitleIcon_head",{"title":"开通会员","right":[{"id":"","src":"img/list.jpg"}]},headDone);
+		app.view.head.show("buttonTitleIcon_head",{"title":"开通会员","right":[{"id":"","src":"img/list.png"}]},headDone);
 		app.view.foot.hide(footDone);
 		app.view.main.sugest("vip_page",data,data.state,"side",viewDone);
 	}

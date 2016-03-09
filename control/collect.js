@@ -14,7 +14,7 @@ app.control.set({
 		function footDone(){
 
 		}
-		app.view.head.show("buttonTitleIcon_head",{"title":"我的收藏 &or;",right:[{id:"",src:"img/headAdd.jpg"}]},headDone);
+		app.view.head.show("buttonTitleIcon_head",{"title":"我的收藏 &or;",right:[{id:"",src:"img/headAdd.png"}]},headDone);
 		app.view.foot.hide(footDone);
 		app.view.main.sugest("collect_page",data,data.state,"side",viewDone);
 	}
