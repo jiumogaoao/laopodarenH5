@@ -3,7 +3,14 @@ app.control.set({
 	par:[],
 	fn:function(data){
 		function viewDone(){
-			//var myScroll = new IScroll('#groupMain', {  });
+			var myScrollA = new IScroll('#myGroup', {  });
+			var myScrollB = new IScroll('#talkGroup', {  });
+			$('#myGroup img').on("load",function(){
+				myScrollA.refresh();
+			});
+			$('#talkGroup img').on("load",function(){
+				myScrollB.refresh();
+			});
 			var offset=0;
 			$(".group_page #groupMain").unbind("swipeleft").bind("swipeleft",function(){
 				if(offset<$(".group_page .subPage").length-1){

@@ -4,6 +4,9 @@ app.control.set({
 	fn:function(data){
 		function viewDone(){
 			var myScroll = new IScroll('#phoneListMain', {  });
+			$('img').on("load",function(){
+				myScroll.refresh();
+			});
 			$(".phoneList_page .topPoint").unbind("tap").bind("tap",function(){
 				window.location.hash="phoneListSub";
 			});

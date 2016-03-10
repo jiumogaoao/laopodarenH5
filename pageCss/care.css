@@ -8,6 +8,20 @@
 	right:0px;
 	background-color: #fff;
 }
+.care_page #careMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	overflow: hidden;
+}
+.care_page #careRoll{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	width:100%;
+}
 .care_page #send{
 	height: 90px;
 	line-height: 90px;

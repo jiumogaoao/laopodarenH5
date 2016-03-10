@@ -3,8 +3,10 @@ app.control.set({
 	par:[],
 	fn:function(data){
 		function viewDone(){
-			var myScroll = new IScroll('#aboutMeMain', {  });
-			
+			var myScroll = new IScroll('#fileMain', {  });
+			$('img').on("load",function(){
+				myScroll.refresh();
+			});
 		}
 		function headDone(){
 			$(".head_module .left").unbind("tap").bind("tap",function(){

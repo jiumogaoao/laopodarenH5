@@ -3,7 +3,18 @@ app.control.set({
 	par:[],
 	fn:function(data){
 		function viewDone(){
-			//var myScroll = new IScroll('#phoneListMain', {  });
+			var myScrollA = new IScroll('#planMain', {  });
+			var myScrollB = new IScroll('#cartMain', {  });
+			var myScrollC = new IScroll('#textMain', {  });
+			$('#planMain img').on("load",function(){
+				myScrollA.refresh();
+			});
+			$('#cartMain img').on("load",function(){
+				myScrollB.refresh();
+			});
+			$('#textMain img').on("load",function(){
+				myScrollC.refresh();
+			});
 			var offset=0;
 			$(".phoneListSub_page #phoneListSubMain").unbind("swipeleft").bind("swipeleft",function(){
 				if(offset<$(".phoneListSub_page .subPage").length-1){

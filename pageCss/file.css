@@ -8,6 +8,20 @@
 	right:0px;
 	background-color: #fff;
 }
+.file_page #fileMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	overflow: hidden;
+}
+.file_page #fileRoll{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	width: 100%;
+}
 .file_page #topFrame{
 	margin-top: 40px;
 }

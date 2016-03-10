@@ -24,8 +24,8 @@ module.exports = function(grunt){
         cssmin: {
             options: {                                       //配置
             },
-            module:{src: ['css/module/*.css'], dest: 'cache/module.css'},
-            page:{src: ['css/page/*.css'], dest: 'cache/page.css'},
+            module:{src: ['moduleCss/*.css'], dest: 'cache/module.css'},
+            page:{src: ['pageCss/*.css'], dest: 'cache/page.css'},
             combin: {src: ['css/common.css','cache/module.css','cache/page.css'], dest: 'dist/css/css.css'}
         },
         uglify: {

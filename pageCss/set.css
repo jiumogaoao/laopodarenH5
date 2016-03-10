@@ -8,6 +8,20 @@
 	right:0px;
 	background-color: #ecedf1;
 }
+.set_page #setMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	right: 0px;
+	bottom:0px;
+	overflow: hidden;
+}
+.set_page #setRoll{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	width: 100%;
+}
 .set_page .other{
 	position: absolute;
     top: 25px;

@@ -4,6 +4,9 @@ app.control.set({
 	fn:function(data){
 		function viewDone(){
 			var myScroll = new IScroll('#linkListFrame', {  });
+			$('img').on("load",function(){
+				myScroll.refresh();
+			});
 			$(".linkmanList_page .dropDownHead").unbind("tap").bind("tap",function(){
 				$(this).parents(".dropDownPoint").toggleClass("hl");
 				myScroll.refresh();

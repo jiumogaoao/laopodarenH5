@@ -4,7 +4,9 @@ app.control.set({
 	fn:function(data){
 		function viewDone(){
 			var myScroll = new IScroll('#moneyMain', {  });
-			
+			$('img').on("load",function(){
+				myScroll.refresh();
+			});
 		}
 		function headDone(){
 			$(".head_module .left").unbind("tap").bind("tap",function(){

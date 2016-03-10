@@ -32,6 +32,11 @@
     height: 56px;
     background-position: -6px -5px;
 }
+.zoneIcon.addB{
+    width: 55px;
+    height: 56px;
+    background-position: -79px -7px;
+}
 .zoneIcon.copyButton{
     width: 100px;
     height: 50px;

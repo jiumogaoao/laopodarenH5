@@ -8,6 +8,20 @@
 	right:0px;
 	background-color: #fff;
 }
+.collect_page #collectMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	overflow: hidden;
+}
+.collect_page #collectRoll{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	width: 100%;
+}
 .collect_page #search{
 	float: left;
 	margin-top: 16px;

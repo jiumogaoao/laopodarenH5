@@ -4,6 +4,9 @@ app.control.set({
 	fn:function(data){
 		function viewDone(){
 			var myScroll = new IScroll('#actionListFrame', {  });
+			$('img').on("load",function(){
+				myScroll.refresh();
+			});
 			$(".actionList_page #sideHandle").unbind("swiperight").bind("swiperight",function(){
 				if($("body").attr("sideOpen")!=="1"){
 					$("body").attr("sideOpen","1");

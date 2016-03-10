@@ -3,7 +3,26 @@ app.control.set({
 	par:[],
 	fn:function(data){
 		function viewDone(){
-			var myScroll = new IScroll('#found', {  });
+			var myScrollA = new IScroll('#interestGroup', {  });
+			var myScrollB = new IScroll('#nearest', {  });
+			var myScrollC = new IScroll('#orderLeft', {  });
+			var myScrollD = new IScroll('#orderRight', {  });
+			var myScrollE = new IScroll('#found', {  });
+			$('#groupNew img').on("load",function(){
+				myScrollA.refresh();
+			});
+			$('#nearest img').on("load",function(){
+				myScrollB.refresh();
+			});
+			$('#orderLeft img').on("load",function(){
+				myScrollC.refresh();
+			});
+			$('#orderRight img').on("load",function(){
+				myScrollD.refresh();
+			});
+			$('#found img').on("load",function(){
+				myScrollE.refresh();
+			});
 			var offset=0;
 			function pageRun(){
 				$(".nav_module .nav_point").removeClass('hl');

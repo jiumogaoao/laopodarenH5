@@ -3,6 +3,10 @@ app.control.set({
 	par:[],
 	fn:function(data){
 		function viewDone(){
+			var myScroll = new IScroll('#phoneMain', {  });
+			$('img').on("load",function(){
+				myScroll.refresh();
+			});
 			$(".phone_page #sideHandle").unbind("swiperight").bind("swiperight",function(){
 				if($("body").attr("sideOpen")!=="1"){
 					$("body").attr("sideOpen","1");

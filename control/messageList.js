@@ -4,6 +4,9 @@ app.control.set({
 	fn:function(data){
 		function viewDone(){
 			var myScroll = new IScroll('#listFrame', {  });
+			$('img').on("load",function(){
+				myScroll.refresh();
+			});
 			$(".messageList_page .list_module").unbind("swipeleft").bind("swipeleft",function(){
 				if($(this).attr("open")!=="1"){
 					$(this).attr("open","1");
