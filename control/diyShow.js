@@ -2,8 +2,10 @@ app.control.set({
 	name:"diyShow",
 	par:[],
 	fn:function(data){
-		function viewDone(){
+		function viewDone(){/*主区加载完成*/
+			/*添加滚动*/
 			var myScroll = new IScroll('#diyShowMain', { probeType: 3 });
+			/*随滚动改变头部颜色*/
 			$(".head_module").css("background-color","rgba(18,183,245,0)");
 			myScroll.on("scroll",function(){
 				if(this.y<-200){
@@ -15,21 +17,26 @@ app.control.set({
 					$(".head_module").css("background-color","rgba(18,183,245,"+color+")");
 				}
 			});
+			/*每当图片加载完成，刷新滚动控件*/
 			$('img').on("load",function(){
 				myScroll.refresh();
 			});
+			/*绑定事件*/
 			$(".head_module .left").unbind("tap").bind("tap",function(){
 				app.control.back();
 			});
 		}
-		function headDone(){
+		function headDone(){/*头部加载完成*/
 			
 		}
-		function footDone(){
+		function footDone(){/*脚部加载完成*/
 
 		}
+		/*不用这个放头部*/
 		app.view.head.hide(headDone);
+		/*加载脚部，传入参数*/
 		app.view.foot.show("diyShow_foot",{},footDone);
+		/*加载主区，传入参数*/
 		app.view.main.sugest("diyShow_page",data,data.state,"side",viewDone);
 	}
 });

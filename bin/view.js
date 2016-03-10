@@ -1,9 +1,16 @@
 (function ($, obj, config) {
+	/*V层*/
+	/*转场类型栈*/
 	var typeArry=[];
+	/*转场延时句柄*/
 	var segestDelay="";
+	/*头部动画延时句柄*/
 	var headDelay="";
+	/*脚部动画延时句柄*/
 	var footDelay="";
+	/*侧栏动画延时句柄*/
 	var sideDelay="";
+	/*新旧页面重置*/
 	function pageChange(){
 		$("#pageOld").attr("id","pageHide");
 						$("#pageHide").attr("style","");
@@ -12,23 +19,27 @@
 						$("#pageHide").attr("id","pageNew");
 						$("#pageNew").empty();
 	}
+	/*获取view模版*/
 	function getTem(tem,fn){
+		/*如果有缓存，缓存拿*/
 		if(domAll.find("#"+tem).length){
-			if(fn){
+			if(fn){/*返回模版给它*/
 				fn(domAll.find("#"+tem).html());
 			}
-		}else{
+		}else{/*如果没有，打开loading，自动获取*/
+			app.loading.on();
 			$.ajax({
                 url: "view/" + tem + ".html",
                 dataType: "html",
                 data:{v:config.version},
                 cache: true,
-                error: function (err) {
+                error: function (err) {/*错了就报*/
                     app.loading.Off();
                     app.err();
                     window.location.hash = "";
                 },
                 success: function (data) {
+                	/*成功了关掉loading,放缓存，再拿给它*/
                     app.loading.off();
                     domAll.append(data);
                     fn(domAll.find("#"+tem).html());
@@ -36,26 +47,36 @@
             });
 		}
 	}
+	/*头部操作*/
 	obj.head={
+		/*显示头部*/
 		show:function(tem,data,callback){
+			/*去拿模版*/
 			getTem(tem,function(temReturn){
+				/*拿完了把信息和模版合成*/
 				var headString = _.template(temReturn)({data:data});
+				/*放进头部*/
 				$("#head").html(headString);
+				/*播动画*/
 				$("#head").attr("style","transform:translate(0px, -100%) translateZ(0px);opacity: 0");
 				$("#main").css("top",$("#head").height()/app.size);
 				$("#head").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)", "transition-duration": "1000ms","transform":"translate(0px, 0px) translateZ(0px)","opacity": 1});
 				headDelay=setTimeout(function(){
 				if(callback){
+					/*完了告诉它*/
 					callback();
 				}	
 				},1000);
 				
 			});
 		},
+		/*隐藏头部*/
 		hide:function(callback){
+			/*播动画*/
 			$("#main").css("top","0px");
 			$("#head").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)", "transition-duration": "1000ms","transform":"translate(0px, -100%) translateZ(0px)","opacity": 0});
 			headDelay=setTimeout(function(){
+				/*播完清空头部，重置样式，再告诉它*/
 				$("#head").empty();
 				$("#head").attr("style","transform:translate(0px, -100%) translateZ(0px)");
 				if(callback){
@@ -64,25 +85,34 @@
 				},1000);
 		}
 	};
+	/*脚部操作*/
 	obj.foot={
+		/*显示脚部*/
 		show:function(tem,data,callback){
+			/*去拿模版*/
 			getTem(tem,function(temReturn){
+				/*拿完了合成数据*/
 				var headString = _.template(temReturn)({data:data});
+				/*放到脚部*/
 				$("#foot").html(headString);
+				/*播动画*/
 				$("#foot").attr("style","transform:translate(0px, 100%) translateZ(0px);opacity: 0");
 				$("#main").css("bottom",$("#foot").height()/app.size);
 				$("#foot").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)", "transition-duration": "1000ms","transform":"translate(0px, 0px) translateZ(0px)","opacity": 1});
 				footDelay=setTimeout(function(){
-				if(callback){
+				if(callback){/*播完告诉它*/
 					callback();
 				}	
 				},1000);
 			});
 		},
+		/*隐藏脚部*/
 		hide:function(callback){
+			/*播动画*/
 			$("#main").css("bottom","0px");
 			$("#foot").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)", "transition-duration": "1000ms","transform":"translate(0px, 100%) translateZ(0px)","opacity": 0});
 			footDelay=setTimeout(function(){
+				/*播完清空，重置，再告诉它*/
 				$("#foot").empty();
 				$("#foot").attr("style","transform:translate(0px, 100%) translateZ(0px);opacity: 0");
 				if(callback){
@@ -91,20 +121,27 @@
 				},1000);
 		}
 	};
+	/*打开侧栏方法*/
 	function sideShow(fn){
+		/*播动画*/
 		$("#main,#sideFrame,#head,#foot").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)","transition-duration": "1000ms","transform":"translate(614px, 0px) translateZ(0px)"});
-			sideDelay=setTimeout(function(){
+			sideDelay=setTimeout(function(){/*播完告诉它*/
 				if(fn){fn();}
 			},1000);
 	}
+	/*侧栏操作*/
 	obj.side={
+		/*显示侧栏*/
 		show:function(fn){
-			if($("#sideFrame").attr("haveload")==="1"){
+			if($("#sideFrame").attr("haveload")==="1"){/*如果已经加载了，直接打开*/
 				sideShow(fn);
-			}else{
+			}else{/*如果没加载，先去拿模版*/
 				getTem("side_tem",function(tem){
+					/*放数据*/
 					var sideStr=_.template(tem)({});
+					/*放进侧栏*/
 					$("#sideFrame").html(sideStr);
+					/*绑定事件*/
 					$("#sideFrame #vip").unbind("tap").bind("tap",function(){
 						$("body").attr("sideopen","0");
 						obj.side.hide();
@@ -145,53 +182,65 @@
 						obj.side.hide();
 						window.location.hash="myDetail";
 					});
+					/*做个标记*/
 					$("#sideFrame").attr("haveload","1");
+					/*然后打开*/
 					sideShow(fn);
 				});
 			}
 		},
-		hide:function(fn){
+		/*隐藏侧栏*/
+		hide:function(fn){/*直接播动画，播完告诉它*/
 			$("#main,#sideFrame,#head,#foot").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)","transition-duration": "1000ms","transform":"translate(0px, 0px) translateZ(0px)"});
 			sideDelay=setTimeout(function(){
 				if(fn){fn();}
 			},1000);
 		}
 	};
+	/*主区操作*/
 	obj.main={
-		tem:"",
-		sugest:function(tem,data,state,type,callback){
+		tem:"",/*用于记录当前模版，方便重刷*/
+		sugest:function(tem,data,state,type,callback){/*转场*/
+			/*先去获取view模版*/
 			getTem(tem,function(temReturn){
+				/*记下来*/
 				obj.main.tem=temReturn;
+				/*然后合数据*/
 				var mainString=_.template(obj.main.tem)({data:data});
-				if(state){
+				/*查看状态*/
+				if(state){/*如果不是刷新或直接进入*/
+					/*先放在新页层*/
 					$("#pageNew").html(mainString);
-					if(state===1){
+					if(state===1){/*如果是正向进入，入栈，播正向转场动画*/
 						typeArry.push(type);
 						sugest[type](state);
-					}else{
+					}else{/*如果是回退，播回退动画，出栈*/
 						sugest[_.last(typeArry)](state);
 						typeArry=_.initial(typeArry);
 					}
-				}else{
+				}else{/*刷新或直接进入，直接放*/
 					$("#pageOld").html(mainString);
 				}
+				/*搞完了告诉它*/
 				if(callback){callback();}
 			});
 		},
-		reflash:function(data){
+		/*重刷*/
+		reflash:function(data){/*从标记中拿模版，合上新数据，刷*/
 			var reflashString=_.template(obj.main.tem)({data:data});
 			$("#pageOld").html(reflashString);
 		}
 	};
+	/*转场库*/
 	var sugest={
-			show:function(state){
+			show:function(state){/*显隐渐变，正反向一样*/
 					$("#pageOld").attr("style","transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 1000ms;opacity: 0;");
 					segestDelay=setTimeout(function(){
 						pageChange();
 					},1000);
 			},
-			side:function(state){
-				if(state===1){
+			side:function(state){/*侧滑*/
+				if(state===1){/*正向*/
 					$("#pageNew").attr("style","z-index:3;transform:translate(100%, 0px) translateZ(0px)");
 					segestDelay=setTimeout(function(){
 						$("#pageNew").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)", "transition-duration": "1000ms","transform":"translate(0px, 0px) translateZ(0px)","opacity": 1});
@@ -199,7 +248,7 @@
 							pageChange();
 						},1000);
 					},50);
-				}else{
+				}else{/*回退*/
 					$("#pageNew").attr("style","opacity: 1;");
 					$("#pageOld").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)", "transition-duration": "1000ms","transform":"translate(100%, 0px) translateZ(0px)","opacity": 0});
 					segestDelay=setTimeout(function(){
@@ -207,8 +256,8 @@
 					},1000);
 				}
 			},
-			top:function(state){
-				if(state===1){
+			top:function(state){/*上下*/
+				if(state===1){/*正向*/
 					$("#pageNew").attr("style","z-index:3;transform:translate(0px, -100%) translateZ(0px);opacity: 0");
 					segestDelay=setTimeout(function(){
 					$("#pageNew").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)", "transition-duration": "1000ms","transform":"translate(0px, 0px) translateZ(0px)","opacity": 1});
@@ -216,7 +265,7 @@
 						pageChange();
 					},1000);
 					},50);
-				}else{
+				}else{/*回退*/
 					$("#pageNew").attr("style","opacity: 1;");
 					segestDelay=setTimeout(function(){
 					$("#pageOld").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)", "transition-duration": "1000ms","transform":"translate(0px, -100%) translateZ(0px)","opacity": 0});
@@ -226,8 +275,8 @@
 					},50);
 				}
 			},
-			size:function(state){
-				if(state===1){
+			size:function(state){/*缩放*/
+				if(state===1){/*正向*/
 					$("#pageNew").attr("style","z-index:3;transform: scale(0.1);opacity: 0;");
 					segestDelay=setTimeout(function(){
 					$("#pageNew").css({"transition-timing-function": "cubic-bezier(0.5, 0.1, 0.5, 1)", "transition-duration": "1000ms","transform":"scale(1)","opacity": 1,"z-index":3});
@@ -235,7 +284,7 @@
 						pageChange();
 					},1000);
 				},50);	
-				}else{
+				}else{/*回退*/
 					$("#pageNew").attr("style","opacity: 1;");
 					$("#pageOld").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)", "transition-duration": "1000ms","transform":"scale(0.1)","opacity": 0});
 					segestDelay=setTimeout(function(){

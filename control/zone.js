@@ -2,11 +2,14 @@ app.control.set({
 	name:"zone",
 	par:[],
 	fn:function(data){
-		function viewDone(){
+		function viewDone(){/*主区加载完成*/
+			/*添加滚动*/
 			var myScroll = new IScroll('#zoneMain', { probeType: 3 });
+			/*每当图片加载完成，刷新滚动控件*/
 			$('img').on("load",function(){
 				myScroll.refresh();
 			});
+			/*通过滚动控制头部改变*/
 			$(".head_module").css("background-color","rgba(18,183,245,0)");
 			myScroll.on("scroll",function(){
 				if(this.y<-200){
@@ -37,14 +40,17 @@ app.control.set({
 				window.location.hash="aboutMe";
 			});
 		}
-		function headDone(){
+		function headDone(){/*头部加载完成*/
 			 
 		}
-		function footDone(){
+		function footDone(){/*脚部加载完成*/
 
 		}
+		/*头部不放那*/
 		app.view.head.hide(headDone);
+		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
+		/*加载主区，传入参数*/
 		app.view.main.sugest("zone_page",data,data.state,"side",viewDone);
 	}
 });

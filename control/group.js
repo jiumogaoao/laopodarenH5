@@ -2,16 +2,21 @@ app.control.set({
 	name:"group",
 	par:[],
 	fn:function(data){
-		function viewDone(){
+		function viewDone(){/*主区加载完成*/
+			/*添加滚动*/
 			var myScrollA = new IScroll('#myGroup', {  });
 			var myScrollB = new IScroll('#talkGroup', {  });
+			/*每当图片加载完成，刷新滚动控件*/
 			$('#myGroup img').on("load",function(){
 				myScrollA.refresh();
 			});
 			$('#talkGroup img').on("load",function(){
 				myScrollB.refresh();
 			});
+			/*绑定事件*/
+			/*用于记录子页面步数*/
 			var offset=0;
+			/*向左滑换页面*/
 			$(".group_page #groupMain").unbind("swipeleft").bind("swipeleft",function(){
 				if(offset<$(".group_page .subPage").length-1){
 					offset++;
@@ -21,6 +26,7 @@ app.control.set({
 					$(".group_page #groupRoll").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)", "transition-duration": "1000ms","transform":"translate(-"+(offset*750)+"px,0px ) translateZ(0px)"});
 				}
 			});
+			/*向右滑换页面*/
 			$(".group_page #groupMain").unbind("swiperight").bind("swiperight",function(){
 				if(offset>0){
 					offset--;
@@ -31,16 +37,20 @@ app.control.set({
 				}
 			});
 		}
-		function headDone(){
+		function headDone(){/*头部加载完成*/
+			/*绑定事件*/
 			$(".head_module .left").unbind("tap").bind("tap",function(){
 				app.control.back();
 			});
 		}
-		function footDone(){
+		function footDone(){/*脚部加载完成*/
 
 		}
+		/*加载头部，传入参数*/
 		app.view.head.show("buttonTitleIcon_head",{title:"群组",right:[{id:"",src:"img/list.png"}]},headDone);
+		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
+		/*加载主区，传入参数*/
 		app.view.main.sugest("group_page",data,data.state,"side",viewDone);
 	}
 });

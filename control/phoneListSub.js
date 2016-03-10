@@ -2,10 +2,12 @@ app.control.set({
 	name:"phoneListSub",
 	par:[],
 	fn:function(data){
-		function viewDone(){
+		function viewDone(){/*主区加载完成*/
+			/*添加滚动*/
 			var myScrollA = new IScroll('#planMain', {  });
 			var myScrollB = new IScroll('#cartMain', {  });
 			var myScrollC = new IScroll('#textMain', {  });
+			/*每当图片加载完成，刷新滚动控件*/
 			$('#planMain img').on("load",function(){
 				myScrollA.refresh();
 			});
@@ -15,7 +17,9 @@ app.control.set({
 			$('#textMain img').on("load",function(){
 				myScrollC.refresh();
 			});
+			/*用于记录子页步数*/
 			var offset=0;
+			/*主区向左切换子页*/
 			$(".phoneListSub_page #phoneListSubMain").unbind("swipeleft").bind("swipeleft",function(){
 				if(offset<$(".phoneListSub_page .subPage").length-1){
 					offset++;
@@ -25,6 +29,7 @@ app.control.set({
 					$(".phoneListSub_page #phoneListSubRoll").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)", "transition-duration": "1000ms","transform":"translate(-"+(offset*750)+"px,0px ) translateZ(0px)"});
 				}
 			});
+			/*主区向右切换子页*/
 			$(".phoneListSub_page #phoneListSubMain").unbind("swiperight").bind("swiperight",function(){
 				if(offset>0){
 					offset--;
@@ -35,16 +40,20 @@ app.control.set({
 				}
 			});
 		}
-		function headDone(){
+		function headDone(){/*头部加载完成*/
+			/*绑定事件*/
 			$(".head_module .left").unbind("tap").bind("tap",function(){
 				app.control.back();
 			});
 		}
-		function footDone(){
+		function footDone(){/*脚部加载完成*/
 
 		}
+		/*加载头部，传入参数*/
 		app.view.head.show("title_head",{title:"交通出行"},headDone);
+		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
+		/*加载主区，传入参数*/
 		app.view.main.sugest("phoneListSub_page",data,data.state,"side",viewDone);
 	}
 });

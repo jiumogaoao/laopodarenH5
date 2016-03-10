@@ -2,31 +2,39 @@ app.control.set({
 	name:"phone",
 	par:[],
 	fn:function(data){
-		function viewDone(){
+		function viewDone(){/*主区加载完成*/
+			/*添加滚动*/
 			var myScroll = new IScroll('#phoneMain', {  });
+			/*每当图片加载完成，刷新滚动控件*/
 			$('img').on("load",function(){
 				myScroll.refresh();
 			});
+			/*绑定事件*/
+			/*左边右划*/
 			$(".phone_page #sideHandle").unbind("swiperight").bind("swiperight",function(){
 				if($("body").attr("sideOpen")!=="1"){
 					$("body").attr("sideOpen","1");
 					app.view.side.show();
 				}
 			});
+			/*左边左划*/
 			$(".phone_page #sideHandle").unbind("swipeleft").bind("swipeleft",function(){
 				if($("body").attr("sideOpen")==="1"){
 					$("body").attr("sideOpen","0");
 					app.view.side.hide();
 				}
 			});
+			/*点击电话本*/
 			$(".phone_page #phone").unbind("tap").bind("tap",function(){
 				window.location.hash="phoneList";
 			});
+			/*点击通讯录*/
 			$(".phone_page #directory").unbind("tap").bind("tap",function(){
 				window.location.hash="directoryList";
 			});
 		}
-		function headDone(){
+		function headDone(){/*头部加载完成*/
+			/*绑定事件*/
 			$(".head_module .left").unbind("tap").bind("tap",function(){
 			if($("body").attr("sideOpen")!=="1"){
 					$("body").attr("sideOpen","1");
@@ -37,7 +45,8 @@ app.control.set({
 				window.location.hash="messageList";
 			});
 		}
-		function footDone(){
+		function footDone(){/*脚部加载完成*/
+			/*绑定事件*/
 			$(".foot_module .navPoint.center").unbind("tap").bind("tap",function(){
 				window.location.hash="linkmanList";
 			});
@@ -45,8 +54,11 @@ app.control.set({
 				window.location.hash="actionList";
 			});
 		}
+		/*加载头部，传入参数*/
 		app.view.head.show("iconNavButton_head",{hl:"1"},headDone);
+		/*加载脚部，传入参数*/
 		app.view.foot.show("treeNav_foot",{hl:"0"},footDone);
+		/*加载主区，传入参数*/
 		app.view.main.sugest("phone_page",data,data.state,"size",viewDone);
 	}
 });
