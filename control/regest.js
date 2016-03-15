@@ -3,9 +3,36 @@ app.control.set({
 	par:[],
 	fn:function(data){
 		function viewDone(){/*主区加载完成*/
+			/*用于操作M层*/
+			var user={};
+			/*数据同步状态*/
+			var userLoaded=0;
+			var modelCallback=function(model){/*M层准备好了*/
+				user=model;
+				userLoaded=1;
+			};
+			app.model.get("user",modelCallback);
 			/*绑定事件*/
 			$(".regest_page #Send").unbind("tap").bind("tap",function(){
-				window.location.hash="saveCode";
+				if(!userLoaded){
+					app.pop.on("数据未同步成功，请稍后再试");
+					return false;
+				}
+				if(!$("#phone input").val()){
+					app.pop.on("请输入手机号");
+					return false;
+				}
+				if(!$("#key input").val()){
+					app.pop.on("请输入密码");
+					return false;
+				}
+				/*开始注册*/
+				user.regest($("#phone input").val(),$("#key input").val(),function(returnData){
+					if(returnData){
+						app.pop.on("注册成功");
+						window.location.hash="index";
+					}
+				});
 			});
 		}
 		function headDone(){/*头部加载完成*/

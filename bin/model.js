@@ -6,9 +6,7 @@
         /*如果有缓存*/
 		if(modelArry[name]){
             /*给它*/
-			if(fn){
-				fn(modelArry[name]);
-			}
+            modelArry[name].get(fn);
 		}else{/*如果没有，打开loading*/
 			app.loading.on();
             /*去拿*/
@@ -25,19 +23,15 @@
                 success: function (data) {
                     /*成功了关掉loading*/
                     app.loading.off();
-                    /*初始model*/
-                    modelArry[name].init(
-                    	function(){/*初始玩再给它*/
-                    		if(fn){
-								fn(modelArry[name]);
-							}
-                    	}
-                    );
-                    
+                    /*初始model,然后给它*/
+                    modelArry[name].get(fn);
                 }
             });
 		}
 	};
+    obj.get = function(name,fn){
+        get(name,fn);
+    };
     /*把model放缓存*/
 	var set = function (data) {
         if (data && data.name) {

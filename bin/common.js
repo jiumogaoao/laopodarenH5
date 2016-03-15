@@ -33,8 +33,8 @@
     /*弹出方法*/
     app.pop = {
         /*弹出打开*/
-        on: function (view, data, fn) {
-            
+        on: function (data) {
+            alert(data);
         },
         /*弹出关闭*/
         off: function () {
@@ -54,13 +54,17 @@
     };
     /*本机缓存*/
     app.cache = function (key, value, remove) {
+        if(!window.localStorage){
+            alert("浏览器不支持本地缓存");
+            return false;
+        }
         if (value && typeof(value) === "object") {
             localStorage.setItem("h5qq_" + key, JSON.stringify(value));
         } else if (localStorage.getItem("h5qq_" + key)) {
             if (remove) {
                 localStorage.removeItem("h5qq_" + key);
             } else {
-                return JSON.parse(localStorage.getItem("lvbh_" + key));
+                return JSON.parse(localStorage.getItem("h5qq_" + key));
             }
         } else {
             return false;

@@ -1,0 +1,44 @@
+app.model.set({
+	name:"user",
+	cache:{},
+	init:0,
+	save:function(){/*把数据推送到数据源*/
+		app.cache(this.name,this.cache);
+	},
+	get:function(callback){/*提供实例接口*/
+		/*初始方法，同步数据源数据*/
+		if(!this.init){
+			this.init=1;
+				if(app.cache(this.name)){
+				this.cache=app.cache(this.name);
+			}else{
+				this.save();
+			}
+		}
+		var returnObj={};/*返回的接口*/
+		var that=this;
+		/*登录*/
+		returnObj.login=function(name,key,fn){
+			if(_.findWhere(that.cache,{name:name,key:key})){
+				fn(true);
+			}else{
+				app.pop.on("账号或密码错误");
+				fn(false);
+			}
+		};
+		returnObj.regest=function(name,key,fn){
+			if(_.findWhere(that.cache,{name:name})){
+				app.pop.on("注册手机已有");
+				fn(false);
+			}else{/*写入*/
+				var newId=app.uuid();
+				that.cache[newId]={id:newId,name:name,key:key};
+				that.save();
+				fn(true);
+			}
+		};
+		if(callback){/*返回*/
+			callback(returnObj);
+		}
+	}
+});

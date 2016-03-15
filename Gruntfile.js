@@ -12,7 +12,8 @@ module.exports = function(grunt){
 		  }
 		},
 		bin:['bin/common.js','bin/config.js','bin/control.js','bin/model.js','bin/view.js'],
-		control:['control/**/*.js']
+		control:['control/**/*.js'],
+		model:['model/**/*.js']
 	},
 		clean:{
 			all:['dist/**/*'],
@@ -33,8 +34,9 @@ module.exports = function(grunt){
             },
 			bin: {src: ['bin/zepto.js','bin/event.js','bin/ajax.js','bin/touch.js','bin/underscore.js','bin/iscroll.js','bin/config.js','bin/common.js','bin/control.js','bin/model.js','bin/view.js'], dest: 'cache/bin.js'},
 			control: {src: ['control/*.js'], dest: 'cache/control.js'},
+			model: {src: ['model/*.js'], dest: 'cache/model.js'},
 			include:{src: ['include/*.js'], dest: 'cache/include.js'},
-			combin:{src: ['cache/bin.js','cache/control.js','bin/runGrunt.js','cache/include.js'], dest: 'dist/js/js.js'}
+			combin:{src: ['cache/bin.js','cache/control.js','cache/model.js','bin/runGrunt.js','cache/include.js'], dest: 'dist/js/js.js'}
             },
         concat:{
         	options: {},
