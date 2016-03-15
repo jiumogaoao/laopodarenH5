@@ -20,7 +20,7 @@ app.control.set({
 
 		}
 		/*加载头部，传入参数*/
-		app.view.head.show("buttonTitleButton_head",{title:"特别关心",right:"管理"},headDone);
+		app.view.head.show("head_template",{"left":{type:"back",text:"返回"},"center":{"type":"title","text":"特别关心"},"right":{"type":"button","text":"管理"}},headDone);
 		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
 		/*加载主区，传入参数*/

@@ -20,7 +20,7 @@ app.control.set({
 
 		}
 		/*加载头部，传入参数*/
-		app.view.head.show("buttonTitleIcon_head",{title:"某人",right:[{id:"",src:"img/headButtonA.png"},{id:"",src:"img/headButtonB.png"}]},headDone);
+		app.view.head.show("head_template",{"left":{type:"back",text:"返回"},"center":{type:"title",text:"某人"},"right":{type:"icon",icon:[{name:"group"},{name:"detail"}]}},headDone);
 		/*加载脚部，传入参数*/
 		app.view.foot.show("talk_foot",{hl:"1"},footDone);
 		/*加载主区，传入参数*/

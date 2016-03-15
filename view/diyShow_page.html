@@ -15,123 +15,85 @@
 	</div>
 	<div id="diyShowMain">
 		<div id="diyShowRoll">
-			<img id="banner" src="img/diyShowBg.jpg"/>
+			<img id="banner" src="<%= data.banner %>"/>
 			<div id="topFrame">
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-					<div class="name">女生节装扮</div>
-					<div class="dsc">活动中心</div>
-				</div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-					<div class="name">超萌家族</div>
-					<div class="dsc">QQfamily</div>
-				</div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-					<div class="name">免费装扮</div>
-					<div class="dsc">服务号有礼</div>
-				</div>
+				<% if(data.top&&data.top.length){
+					_.each(data.top,function(top){ %>
+						<div class="point">
+							<img src="<%= top.icon %>" class="pic"/>
+							<div class="name"><%= top.name %></div>
+							<div class="dsc"><%= top.dsc %></div>
+						</div>
+				<% })
+				} %>
 				<div class="clear"></div>
 			</div>
 			<div class="frame" id="face">
 				<div class="title">热门表情</div>
 				<div class="more">更多 &gt;</div>
 				<div class="clear"></div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-					<div class="name">麦啦风女生节</div>
-				</div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-					<div class="name">蜡笔漫画</div>
-				</div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-					<div class="name">Emily</div>
-				</div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-					<div class="name">买买菌</div>
-				</div>
+				<% if(data.face&&data.face.length){
+					_.each(data.face,function(face){ %>
+					<div class="point">
+						<img src="<%= face.icon %>" class="pic"/>
+						<div class="name"><%= face.name %></div>
+					</div>	
+				<% })
+				} %>
 				<div class="clear"></div>
 			</div>
 			<div class="frame" id="pao">
 				<div class="title">热门气泡</div>
 				<div class="more">更多 &gt;</div>
 				<div class="clear"></div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-				</div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-				</div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-				</div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-				</div>
+				<% if(data.pao&&data.pao.length){
+					_.each(data.pao,function(pao){ %>
+					<div class="point">
+						<img src="<%= pao.icon %>" class="pic"/>
+					</div>
+				<% })
+				} %>
 				<div class="clear"></div>
 			</div>
 			<div class="frame" id="redpackage">
 				<div class="title">热门红包</div>
 				<div class="more">更多 &gt;</div>
 				<div class="clear"></div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-					<div class="name">飞龙底纹</div>
-				</div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-					<div class="name">福</div>
-				</div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-					<div class="name">点赞卡纳</div>
-				</div>
+				<% if(data.redpackage&&data.redpackage.length){
+					_.each(data.redpackage,function(redpackage){ %>
+					<div class="point">
+						<img src="<%= redpackage.icon %>" class="pic"/>
+						<div class="name"><%= redpackage.name %></div>
+					</div>	
+				<% })
+				} %>
 				<div class="clear"></div>
 			</div>
 			<div class="frame" id="font">
 				<div class="title">热门字体</div>
 				<div class="more">更多 &gt;</div>
 				<div class="clear"></div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-				</div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-				</div>
+				<% if(data.font&&data.font.length){
+					_.each(data.font,function(font){ %>
+						<div class="point">
+							<img src="<%= font.icon %>" class="pic"/>
+						</div>
+				<% })
+				} %>
 				<div class="clear"></div>
 			</div>
 			<div class="frame" id="style">
 				<div class="title">热门主题</div>
 				<div class="more">更多 &gt;</div>
 				<div class="clear"></div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-					<div class="name">奇迹暖暖</div>
-				</div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-					<div class="name">hello kitty</div>
-				</div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-					<div class="name">echi</div>
-				</div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-					<div class="name">长草颜文字</div>
-				</div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-					<div class="name">emily</div>
-				</div>
-				<div class="point">
-					<img src="img/head.jpg" class="pic"/>
-					<div class="name">墨白</div>
-				</div>
+				<% if(data.style&&data.style.length){
+					_.each(data.style,function(style){ %>
+					<div class="point">
+						<img src="<%= style.icon %>" class="pic"/>
+						<div class="name"><%= style.name %></div>
+					</div>	
+				<% })
+				} %>
 				<div class="clear"></div>
 			</div>
 		</div>

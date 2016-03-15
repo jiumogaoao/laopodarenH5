@@ -67,7 +67,7 @@ app.control.set({
 
 		}
 		/*加载头部，传入参数*/
-		app.view.head.show("buttonTitleButton_head",{"title":"个性化中心","right":"装扮开关"},headDone);
+		app.view.head.show("head_template",{"left":{type:"back",text:"返回"},"center":{type:"title",text:"个性化中心"},right:{type:"button",text:"装扮开关"}},headDone);
 		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
 		/*加载主区，传入参数*/

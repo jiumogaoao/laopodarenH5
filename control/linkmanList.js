@@ -69,7 +69,7 @@ app.control.set({
 			});
 		}
 		/*使用iconTitleButton_head的view作为头部，传入参数*/
-		app.view.head.show("iconTitleButton_head",{title:"联系人",right:"添加"},headDone);
+		app.view.head.show("head_template",{"left":{"type":"icon","src":"img/head.jpg"},"center":{type:"title",text:"联系人"},"right":{type:"button",text:"添加"}},headDone);
 		/*使用treeNav_foot作为脚部，传入参数*/
 		app.view.foot.show("treeNav_foot",{hl:"1"},footDone);
 		/*转出linkmanList_page的view*/

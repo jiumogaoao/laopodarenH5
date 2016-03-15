@@ -21,7 +21,7 @@ app.control.set({
 
 		}
 		/*加载头部，传入参数*/
-		app.view.head.show("buttonTitleIcon_head",{"title":"开通会员","right":[{"id":"","src":"img/list.png"}]},headDone);
+		app.view.head.show("head_template",{"left":{type:"back",text:"返回"},"center":{type:"title",text:"开通会员"},"right":{type:"icon",icon:[{name:"list"}]},headDone);
 		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
 		/*加载主区，传入参数*/

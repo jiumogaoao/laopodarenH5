@@ -3,83 +3,17 @@
 	<div id="albumMain">
 		<div id="albumRoll">
 			<div class="album_point" id="new"></div>
-			<div class="album_point">
-				<img src="img/head.jpg"/>
-				<div class="clear"></div>
-				<div class="title">相册名</div>
-				<div class="num">23</div>
-				<div class="clear"></div>
-			</div>
-			<div class="album_point">
-				<img src="img/head.jpg"/>
-				<div class="clear"></div>
-				<div class="title">相册名</div>
-				<div class="num">23</div>
-				<div class="clear"></div>
-			</div>
-			<div class="album_point">
-				<img src="img/head.jpg"/>
-				<div class="clear"></div>
-				<div class="title">相册名</div>
-				<div class="num">23</div>
-				<div class="clear"></div>
-			</div>
-			<div class="album_point">
-				<img src="img/head.jpg"/>
-				<div class="clear"></div>
-				<div class="title">相册名</div>
-				<div class="num">23</div>
-				<div class="clear"></div>
-			</div>
-			<div class="album_point">
-				<img src="img/head.jpg"/>
-				<div class="clear"></div>
-				<div class="title">相册名</div>
-				<div class="num">23</div>
-				<div class="clear"></div>
-			</div>
-			<div class="album_point">
-				<img src="img/head.jpg"/>
-				<div class="clear"></div>
-				<div class="title">相册名</div>
-				<div class="num">23</div>
-				<div class="clear"></div>
-			</div>
-			<div class="album_point">
-				<img src="img/head.jpg"/>
-				<div class="clear"></div>
-				<div class="title">相册名</div>
-				<div class="num">23</div>
-				<div class="clear"></div>
-			</div>
-			<div class="album_point">
-				<img src="img/head.jpg"/>
-				<div class="clear"></div>
-				<div class="title">相册名</div>
-				<div class="num">23</div>
-				<div class="clear"></div>
-			</div>
-			<div class="album_point">
-				<img src="img/head.jpg"/>
-				<div class="clear"></div>
-				<div class="title">相册名</div>
-				<div class="num">23</div>
-				<div class="clear"></div>
-			</div>
-			<div class="album_point">
-				<img src="img/head.jpg"/>
-				<div class="clear"></div>
-				<div class="title">相册名</div>
-				<div class="num">23</div>
-				<div class="clear"></div>
-			</div>
-			<div class="album_point">
-				<img src="img/head.jpg"/>
-				<div class="clear"></div>
-				<div class="title">相册名</div>
-				<div class="num">23</div>
-				<div class="clear"></div>
-			</div>
+			<% if(data.album&&data.album.length){
+				_.each(data.album,function(album){ %>
+				<div class="album_point">
+					<img src="<%= album.icon %>"/>
+					<div class="clear"></div>
+					<div class="title"><%= album.name %></div>
+					<div class="num"><%= album.count %></div>
+					<div class="clear"></div>
+				</div>
+			<% })
+			} %>
 			<div class="clear"></div>
 		</div>
 	</div>

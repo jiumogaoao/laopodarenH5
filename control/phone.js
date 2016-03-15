@@ -55,7 +55,7 @@ app.control.set({
 			});
 		}
 		/*加载头部，传入参数*/
-		app.view.head.show("iconNavButton_head",{hl:"1"},headDone);
+		app.view.head.show("head_template",{"left":{type:"icon",src:"img/head.jpg"},"center":{type:"nav",nav:[{text:"消息"},{text:"电话",hl:true}]},right:{type:"icon",icon:[name:"add"]}},headDone);
 		/*加载脚部，传入参数*/
 		app.view.foot.show("treeNav_foot",{hl:"0"},footDone);
 		/*加载主区，传入参数*/

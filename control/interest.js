@@ -50,7 +50,7 @@ app.control.set({
 
 		}
 		/*加载头部，传入参数*/
-		app.view.head.show("buttonTitleButton_head",{"title":"兴趣部落","right":"搜索"},headDone);
+		app.view.head.show("head_template",{"left":{type:"back",text:"返回"},"center":{type:"title",text:"兴趣部落"},"right":{type:"button",text:"搜索"}},headDone);
 		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
 		/*加载主区，传入参数*/

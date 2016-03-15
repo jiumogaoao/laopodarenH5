@@ -12,14 +12,14 @@
 	font-size: 32px;
 	z-index: 3;
 }
-.head_module .leftIcon{
+.head_module .backIcon{
 	float: left;
 	line-height: 44px;
 }
 .head_module .leftText{
 	float: left;
 }
-.head_module .title{
+.head_module .center{
 	width: 100%;
 	position: absolute;
 	left: 0px;
@@ -28,22 +28,19 @@
 	font-size: 34px;
 	font-weight: bolder;
 }
-.head_module.iconNavButton_head .left{
-	bottom: 7px;
-}
-.head_module.iconNavButton_head .left .leftIcon{
+.head_module .left .headIcon{
 	width: 74px;
 	height:74px;
 	border-radius: 74px;
 }
-.head_module.iconNavButton_head .nav,.head_module.buttonNavIcon_head .nav{
+.head_module .nav{
 	width: 240px;
 	height: 60px;
 	position: absolute;
 	left: 255px;
 	bottom:15px;
 }
-.head_module.iconNavButton_head .navPoint,.head_module.buttonNavIcon_head .navPoint{
+.head_module .navPoint{
 	width: 120px;
 	height: 60px;
 	line-height: 58px;
@@ -54,44 +51,26 @@
 	border-top: 2px solid #fff;
 	font-size: 26px;
 }
-.head_module.iconNavButton_head .navPoint.hl,.head_module.buttonNavIcon_head .navPoint.hl{
+.head_module .navPoint.hl{
 	background-color: #fff;
 	color: #12b7f5;
 }
-.head_module.iconNavButton_head .navLeft,.head_module.buttonNavIcon_head .navLeft{
+.head_module .navLeft{
 	border-left: 2px solid #fff;
 	border-radius: 15px 0px 0px 15px;
 }
-.head_module.iconNavButton_head .navRight,.head_module.buttonNavIcon_head .navRight{
+.head_module .navRight{
 	border-right: 2px solid #fff;
 	border-radius: 0px 15px 15px 0px;
 }
-.head_module.iconNavButton_head .right{
-	font-size: 37px;
-	font-weight: bolder;
+.head_module .right{
+	font-size: 32px;
 	position: absolute;
 	right: 27px;
 	bottom: 26px;
 	z-index: 3;
 }
-.head_module.iconNavButton_head.iconTitleButton_head .right{
-	font-weight:normal;
-	font-size: 32px;
-}
-.head_module.buttonTitleIcon_head .rightPoint,.head_module.buttonNavIcon_head .rightPoint{
+.head_module .rightPoint{
 	float: right;
 	margin-left: 31px;
-}
-.head_module.buttonTitleIcon_head .right,.head_module.buttonNavIcon_head .right{
-	position: absolute;
-	right: 15px;
-	bottom:18px;
-}
-.head_module.buttonTitleButton_head .right{
-	font-weight:normal;
-	font-size: 32px;
-	position: absolute;
-	right: 27px;
-	bottom: 26px;
-	z-index: 3;
 }

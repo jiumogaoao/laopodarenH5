@@ -11,25 +11,37 @@
 					<div id="groupRoll">
 						<div class="subPage" id="myGroup">
 							<div class="subRoll">
-								<div class="text_module listTitle textGay_module">我创建的群</div>	
-									<div class="list_module listM_module listSingle_module">
-										<img class="left" src="img/head.jpg"/>
-										<div class="right">
-											<div class="title">群的名字</div>
-										</div>
-										<div class="clear"></div>
-								</div>
+							<% if(data.mine&&data.mine.length){
+								_.each(data.mine,function(group){ %>
+									<div class="text_module listTitle textGay_module"><%= group.title %></div>
+									<% if(group.list&&group.list.length){
+										_.each(group.list,function(point){ %>
+											<div class="list_module listM_module listSingle_module">
+												<img class="left" src="<%= point.icon %>"/>
+												<div class="right">
+													<div class="title"><%= point.name %></div>
+												</div>
+												<div class="clear"></div>
+											</div>
+										<% })
+									}
+							})
+							} %>
 							</div>
 						</div>
 						<div class="subPage" id="talkGroup">
 							<div class="subRoll">
-								<div class="list_module listM_module listSingle_module">
-									<img class="left" src="img/head.jpg"/>
-									<div class="right">
-										<div class="title">群的名字</div>
-									</div>
-									<div class="clear"></div>
-								</div>
+								<% if(data.talk&&data.talk.length){
+									_.each(data.talk,function(point){ %>
+										<div class="list_module listM_module listSingle_module">
+											<img class="left" src="<%= point.icon %>"/>
+											<div class="right">
+												<div class="title"><%= point.name %></div>
+											</div>
+											<div class="clear"></div>
+										</div>
+								<% })
+								} %>
 							</div>
 						</div>
 						<div class="clear"></div>

@@ -2,247 +2,47 @@
 <div class="aboutMe_page">
 	<div id="aboutMeMain">
 		<div id="aboutMeRoll">
-			<div class="zone_module">
+			<% if(data.list&&data.list.length){
+				_.each(data.list,function(point){%>
+					<div class="zone_module">
 				<div class="answer">回复</div>
 				<div class="top">
-					<img src="img/head.jpg"/>
-					<div class="name">某人</div>
-					<div class="time">今天19:23</div>
+					<img src="<%= point.icon %>"/>
+					<div class="name"><%= point.name %></div>
+					<div class="time"><%= point.time %></div>
 				</div>
 				<div class="middle">
-					<div class="text">说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多</div>
+					<div class="text"><%= point.main %></div>
 					<div class="picFrame">
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
+						<% if(point.pic&&point.pic.length){
+							_.each(point.pic,function(pic){ %>
+							<img src="<%= pic %>" class="pic"/>	
+						<% })
+						} %>
 						<div class="clear"></div>
 					</div>
 				</div>
 				<div class="bottom">
 					<div class="readed">
 						<div class="zoneIcon read"></div>
-						<div class="readNumber">浏览9次</div>
+						<div class="readNumber">浏览<%= point.readNumber %>次</div>
 						<div class="clear"></div>
 					</div>
-					<div class="praised">
-						<div class="zoneIcon praise"></div>
-						<div class="praiseName">某人</div>
-						<div class="praiseName">某人</div>
-						<div class="praiseName">某人</div>
-						<div class="clear"></div>
-					</div>
+					<% if(point.parise&&point.parise.length){ %>
+						<div class="praised">
+							<div class="zoneIcon praise"></div>
+							<% _.each(point.parise,function(parise){ %>
+								<div class="praiseName"><%= parise.name %></div>
+							<% }) %>
+							<div class="clear"></div>
+						</div>
+					<% } %>
 				</div>
 			</div>
-			<div class="zone_module">
-				<div class="answer">回复</div>
-				<div class="top">
-					<img src="img/head.jpg"/>
-					<div class="name">某人</div>
-					<div class="time">今天19:23</div>
-				</div>
-				<div class="middle">
-					<div class="text">说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多</div>
-					<div class="picFrame">
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<div class="clear"></div>
-					</div>
-				</div>
-				<div class="bottom">
-					<div class="readed">
-						<div class="zoneIcon read"></div>
-						<div class="readNumber">浏览9次</div>
-						<div class="clear"></div>
-					</div>
-					<div class="praised">
-						<div class="zoneIcon praise"></div>
-						<div class="praiseName">某人</div>
-						<div class="praiseName">某人</div>
-						<div class="praiseName">某人</div>
-						<div class="clear"></div>
-					</div>
-				</div>
-			</div>
-			<div class="zone_module">
-				<div class="answer">回复</div>
-				<div class="top">
-					<img src="img/head.jpg"/>
-					<div class="name">某人</div>
-					<div class="time">今天19:23</div>
-				</div>
-				<div class="middle">
-					<div class="text">说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多</div>
-					<div class="picFrame">
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<div class="clear"></div>
-					</div>
-				</div>
-				<div class="bottom">
-					<div class="readed">
-						<div class="zoneIcon read"></div>
-						<div class="readNumber">浏览9次</div>
-						<div class="clear"></div>
-					</div>
-					<div class="praised">
-						<div class="zoneIcon praise"></div>
-						<div class="praiseName">某人</div>
-						<div class="praiseName">某人</div>
-						<div class="praiseName">某人</div>
-						<div class="clear"></div>
-					</div>
-				</div>
-			</div>
-			<div class="zone_module">
-				<div class="answer">回复</div>
-				<div class="top">
-					<img src="img/head.jpg"/>
-					<div class="name">某人</div>
-					<div class="time">今天19:23</div>
-				</div>
-				<div class="middle">
-					<div class="text">说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多</div>
-					<div class="picFrame">
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<div class="clear"></div>
-					</div>
-				</div>
-				<div class="bottom">
-					<div class="readed">
-						<div class="zoneIcon read"></div>
-						<div class="readNumber">浏览9次</div>
-						<div class="clear"></div>
-					</div>
-					<div class="praised">
-						<div class="zoneIcon praise"></div>
-						<div class="praiseName">某人</div>
-						<div class="praiseName">某人</div>
-						<div class="praiseName">某人</div>
-						<div class="clear"></div>
-					</div>
-				</div>
-			</div>
-			<div class="zone_module">
-				<div class="answer">回复</div>
-				<div class="top">
-					<img src="img/head.jpg"/>
-					<div class="name">某人</div>
-					<div class="time">今天19:23</div>
-				</div>
-				<div class="middle">
-					<div class="text">说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多</div>
-					<div class="picFrame">
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<div class="clear"></div>
-					</div>
-				</div>
-				<div class="bottom">
-					<div class="readed">
-						<div class="zoneIcon read"></div>
-						<div class="readNumber">浏览9次</div>
-						<div class="clear"></div>
-					</div>
-					<div class="praised">
-						<div class="zoneIcon praise"></div>
-						<div class="praiseName">某人</div>
-						<div class="praiseName">某人</div>
-						<div class="praiseName">某人</div>
-						<div class="clear"></div>
-					</div>
-				</div>
-			</div>
-			<div class="zone_module">
-				<div class="answer">回复</div>
-				<div class="top">
-					<img src="img/head.jpg"/>
-					<div class="name">某人</div>
-					<div class="time">今天19:23</div>
-				</div>
-				<div class="middle">
-					<div class="text">说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多</div>
-					<div class="picFrame">
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<div class="clear"></div>
-					</div>
-				</div>
-				<div class="bottom">
-					<div class="readed">
-						<div class="zoneIcon read"></div>
-						<div class="readNumber">浏览9次</div>
-						<div class="clear"></div>
-					</div>
-					<div class="praised">
-						<div class="zoneIcon praise"></div>
-						<div class="praiseName">某人</div>
-						<div class="praiseName">某人</div>
-						<div class="praiseName">某人</div>
-						<div class="clear"></div>
-					</div>
-				</div>
-			</div>
-			<div class="zone_module">
-				<div class="answer">回复</div>
-				<div class="top">
-					<img src="img/head.jpg"/>
-					<div class="name">某人</div>
-					<div class="time">今天19:23</div>
-				</div>
-				<div class="middle">
-					<div class="text">说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多说了很多很多很多</div>
-					<div class="picFrame">
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<img src="img/head.jpg" class="pic"/>
-						<div class="clear"></div>
-					</div>
-				</div>
-				<div class="bottom">
-					<div class="readed">
-						<div class="zoneIcon read"></div>
-						<div class="readNumber">浏览9次</div>
-						<div class="clear"></div>
-					</div>
-					<div class="praised">
-						<div class="zoneIcon praise"></div>
-						<div class="praiseName">某人</div>
-						<div class="praiseName">某人</div>
-						<div class="praiseName">某人</div>
-						<div class="clear"></div>
-					</div>
-				</div>
-			</div>
+				<% })
+			} %>
 		</div>
 	</div>
-	
 </div>
 </script>
 

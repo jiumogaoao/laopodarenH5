@@ -1,0 +1,43 @@
+<script type="text/x-template" id="head_template">
+<div class="head_module">
+	<% if(data.left){ %>
+		<div class="left">
+		<% if(data.left.type=="back"){ %>
+			<div class="backIcon"></div>
+			<div class="leftText" id="<%= data.left.id %>"><%= data.left.text %></div>
+			<div class="clear"></div>
+		<% }else if(data.left.type=="icon"){ %>
+			<img src="<%= data.left.src %>" class="headIcon"/>
+		<% }else if(data.left.type=="button"){ %>
+			<div class="leftButton" id="<%= data.left.id %>"><%= data.left.text %></div>
+		<% } %>
+		</div>
+	<% } %>
+	<% if(data.center){ %>
+		<div class=="center">
+		<% if(data.center.type=="nav"){ %>
+			<div class="nav">
+				<div class="navPoint navLeft <% if(data.center.nav[0].hl){print("hl")} %>" id="<%= data.center.nav[0].id %>"><%= data.center.nav[0].text %></div>
+				<div class="navPoint navRight <% if(data.center.nav[1].hl){print("hl")} %>" id="<%= data.center.nav[1].id %>"><%= data.center.nav[1].text %></div>
+				<div class="clear"></div>
+			</div>
+			<% }else if(data.center.type=="title"){ %>
+			<div class="title"><%= data.center.text %></div>	
+			<% } %>
+		</div>
+	<% } %>
+	<% if(data.right){ %>
+		<div class="right">
+		<% if(data.right.type=="button"){ %>
+			<div class="rightButton" id="<%= data.right.id %>"><%= data.right.text %></div>
+		<% }else if(data.right.type=="icon"){ 
+			_.each(data.right.icon,function(icon){ %>
+			<div class="rightIcon <%= icon.name %>" id="<%= icon.id %>"></div>
+		<% }) %>
+			<div class="clear"></div>
+		<% } %>
+		</div>
+	<% } %>
+</div>
+</script>
+

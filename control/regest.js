@@ -18,7 +18,7 @@ app.control.set({
 
 		}
 		/*加载头部，传入参数*/
-		app.view.head.show("title_head",{title:"验证手机号码"},headDone);
+		app.view.head.show("head_template",{"left":{type:"back",text:"返回"},"center":{type:"title",text:"验证手机号码"}},headDone);
 		/*隐藏脚部*/
 		app.view.foot.hide();
 		/*加载主区，传入参数*/

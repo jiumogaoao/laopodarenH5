@@ -5,26 +5,27 @@
 			<img id="search" src="img/searchMButton.png"/>
 			<div class="text_module" id="edit">编辑</div>
 			<div class="clear"></div>
-			<div class="point">
-				<img class="left" src="img/head.jpg"/>
-				<div class="right">
-					<div class="name">某人</div>
-					<div class="time">01-01</div>
-					<div class="clear"></div>
-					<img class="pic" src="img/head.jpg"/>
-				</div>
-				<div class="clear"></div>
-			</div>	
-			<div class="point">
-				<img class="left" src="img/head.jpg"/>
-				<div class="right">
-					<div class="name">某人</div>
-					<div class="time">01-01</div>
-					<div class="clear"></div>
-					<div class="text"/>dsfsggfhfdhgf</div>
-				</div>
-				<div class="clear"></div>
-			</div>
+			<% if(data.list&&data.list.length){
+				_.each(data.list,function(point){ %>
+						<div class="point">
+							<img class="left" src="<%= point.icon %>"/>
+							<div class="right">
+								<div class="name"><%= point.name %></div>
+								<div class="time"><%= point.time %></div>
+								<div class="clear"></div>
+							<% if(point.pic&&point.pic.length){
+									_.each(point.pic,function(pic){ %>
+										<img class="pic" src="<%= pic %>"/>
+									<% })
+								} %>
+							<% if(point.text){ %>
+									<div class="text"/><%= point.text %></div>
+							<% } %>
+							</div>
+							<div class="clear"></div>
+						</div>	
+			<%  })
+			} %>
 		</div>
 	</div>				
 </div>

@@ -20,7 +20,7 @@ app.control.set({
 
 		}
 		/*加载头部，传入参数*/
-		app.view.head.show("buttonTitleIcon_head",{"title":"QQ钱包",right:[{id:"",src:"img/self.png"}]},headDone);
+		app.view.head.show("head_template",{"left":{type:"back",text:"返回"},"center":{type:"title",text:"QQ钱包"},right:{type:"icon",icon:[{nav:"self"}]}}},headDone);
 		/*隐藏脚部*/
 		app.view.foot.show("money_foot",{},footDone);
 		/*加载主区，传入参数*/
