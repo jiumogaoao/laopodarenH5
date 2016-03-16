@@ -11,23 +11,23 @@
 				</div>
 	<div id="myDetailMain">
 		<div id="myDetailRoll">
-			<img src="img/myDetailBg.jpg" id="headBg"/>
+			<img src="<%= data.bg %>" id="headBg"/>
 			<img id="play" src="img/play.png"/>
 			<div id="priseFrame">
 				<img src="img/prise.png"/>
-				<div id="priseNum">0</div>
+				<div id="priseNum"><%= data.prise %></div>
 				<div class="clear"></div>
 			</div>
 			<div class="frame" id="base">
 				<div class="left">
-					<img src="img/head.jpg"/>
+					<img src="<%= data.prise %>"/>
 				</div>
 				<div class="right">
-					<div class="name">某人</div>
-					<div class="dsc">男 29岁 广东 广州</div>
+					<div class="name"><%= data.name %></div>
+					<div class="dsc"><%= data.sex %> <%= data.age %>岁 <%= data.province %> <%= data.city %></div>
 					<div class="vipFrame">
-						<img src="img/vipType.png"/>
-						<div class="vipNum">35天</div>
+						<img src="<%= data.vipType %>"/>
+						<div class="vipNum"><%= data.vipTime %></div>
 						<div class="clear"></div>
 					</div>
 				</div>
@@ -38,17 +38,14 @@
 					账号信息
 				</div>
 				<div class="right">
-					<div class="name">394127821</div>
-					<img src="img/lian.png" class="lian"/>
-					<img src="img/vipNo.png" class="vip"/>
+					<div class="name"><%= data.id %></div>
+					<img src="<%= data.lian %>" class="lian"/>
+					<img src="<%= data.vipType %>" class="vip"/>
 					<div class="clear"></div>
-					<div class="step sun"></div>
-					<div class="step sun"></div>
-					<div class="step moon"></div>
-					<div class="step moon"></div>
-					<div class="step star"></div>
-					<div class="step star"></div>
-					<div class="speed">慢速中</div>
+					<% _.each(data.step,function(step){ %>
+						<div class="step <%= step %>"></div>
+					<% }) %>
+					<div class="speed"><%= data.stepSpeed %></div>
 					<div class="clear"></div>
 					<img class="tag" src="img/tag.png"/>
 				</div>
@@ -57,7 +54,7 @@
 			<div class="frame" id="sign">
 				<div class="left">个性签名</div>
 				<div class="right">
-					<div class="dsc">说了很多很多</div>
+					<div class="dsc"><%= data.sign %></div>
 					<img class="tag" src="img/tag.png"/>
 				</div>
 				<div class="clear"></div>
@@ -78,39 +75,26 @@
 			<div class="frame" id="zone">
 				<div class="left">QQ空间</div>
 				<div class="right">
-					<div class="dsc">某人的空间</div>
-					<img src="img/head.jpg" class="point"/>
-					<img src="img/head.jpg" class="point"/>
-					<img src="img/head.jpg" class="point"/>
-					<img src="img/head.jpg" class="point"/>
+					<div class="dsc"><%= data.zoneName %></div>
+					<img src="<%= data.pic[0] %>" class="point"/>
+					<img src="<%= data.pic[1] %>" class="point"/>
+					<img src="<%= data.pic[2] %>" class="point"/>
+					<img src="<%= data.pic[3] %>" class="point"/>
 					<div class="clear"></div>
 					<img class="tag" src="img/tag.png"/>
 				</div>
 				<div class="clear"></div>
 			</div>
 			<div class="frame" id="mine">
-				<div class="point">
-					<img src="img/myInterest.png" class="icon"/>
-					<div class="name">我的兴趣</div>
-					<div class="dsc">英雄联盟</div>
-				</div>
-				<div class="point">
-					<img src="img/myMusic.png" class="icon"/>
-					<div class="name">我喜欢听</div>
-				</div>
-				<div class="point">
-					<img src="img/idol.png" class="icon"/>
-					<div class="name">我的偶像</div>
-				</div>
-				<div class="point">
-					<img src="img/myRead.png" class="icon"/>
-					<div class="name">最近在读</div>
-				</div>
-				<div class="point">
-					<img src="img/myHear.png" class="icon"/>
-					<div class="name">在听电台</div>
-					<div class="dsc">真实鬼故事</div>
-				</div>
+				<% if(data.mine&&data.mine.length){
+					_.each(data.mine,function(point){ %>
+						<div class="point">
+							<img src="<%= point.icon %>" class="icon"/>
+							<div class="name"><%= point.name %></div>
+							<div class="dsc"><%= point.dsc %></div>
+						</div>
+				<%	})
+				} %>
 				<div class="clear"></div>
 			</div>
 		</div>

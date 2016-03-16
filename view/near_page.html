@@ -15,111 +15,25 @@
 					<div id="nearManRoll">
 						<div id="topThreeFrame">
 							<img src="img/topTree.jpg" class="topThree"/>
-							<img src="img/head.jpg" class="topThree"/>
-							<img src="img/head.jpg" class="topThree"/>
-							<img src="img/head.jpg" class="topThree last"/>
+							<img src="<%= data.nearMan.head[0] %>" class="topThree"/>
+							<img src="<%= data.nearMan.head[1] %>" class="topThree"/>
+							<img src="<%= data.nearMan.head[2] %>" class="topThree last"/>
 							<div class="clear"></div>
 						</div>
-						<div class="list_module listL_module">
-							<img class="left" src="img/head.jpg"/>
-							<div class="right">
-								<div class="title">某人</div>
-								<div class="request">男 29岁 天蝎座</div>
-								<div class="dsc">好吧，是的，就这样</div>
-								<div class="state">0.02km 4小时</div>
+						<% if(data.nearMan.list&&data.nearMan.list.length){
+							_.each(data.nearMan.list,function(point){ %>
+							<div class="list_module listL_module">
+								<img class="left" src="<%= point.icon %>"/>
+								<div class="right">
+									<div class="title"><%= point.name %></div>
+									<div class="request"><%= point.sex %> <%= point.age %>岁 <%= point.star %>座</div>
+									<div class="dsc"><%= point.dsc %></div>
+									<div class="state"><%= point.distance %>km <%= point.time %>小时</div>
+								</div>
+								<div class="clear"></div>
 							</div>
-							<div class="clear"></div>
-						</div>
-						<div class="list_module listL_module">
-							<img class="left" src="img/head.jpg"/>
-							<div class="right">
-								<div class="title">某人</div>
-								<div class="request">男 29岁 天蝎座</div>
-								<div class="dsc">好吧，是的，就这样</div>
-								<div class="state">0.02km 4小时</div>
-							</div>
-							<div class="clear"></div>
-						</div>
-						<div class="list_module listL_module">
-							<img class="left" src="img/head.jpg"/>
-							<div class="right">
-								<div class="title">某人</div>
-								<div class="request">男 29岁 天蝎座</div>
-								<div class="dsc">好吧，是的，就这样</div>
-								<div class="state">0.02km 4小时</div>
-							</div>
-							<div class="clear"></div>
-						</div>
-						<div class="list_module listL_module">
-							<img class="left" src="img/head.jpg"/>
-							<div class="right">
-								<div class="title">某人</div>
-								<div class="request">男 29岁 天蝎座</div>
-								<div class="dsc">好吧，是的，就这样</div>
-								<div class="state">0.02km 4小时</div>
-							</div>
-							<div class="clear"></div>
-						</div>
-						<div class="list_module listL_module">
-							<img class="left" src="img/head.jpg"/>
-							<div class="right">
-								<div class="title">某人</div>
-								<div class="request">男 29岁 天蝎座</div>
-								<div class="dsc">好吧，是的，就这样</div>
-								<div class="state">0.02km 4小时</div>
-							</div>
-							<div class="clear"></div>
-						</div>
-						<div class="list_module listL_module">
-							<img class="left" src="img/head.jpg"/>
-							<div class="right">
-								<div class="title">某人</div>
-								<div class="request">男 29岁 天蝎座</div>
-								<div class="dsc">好吧，是的，就这样</div>
-								<div class="state">0.02km 4小时</div>
-							</div>
-							<div class="clear"></div>
-						</div>
-						<div class="list_module listL_module">
-							<img class="left" src="img/head.jpg"/>
-							<div class="right">
-								<div class="title">某人</div>
-								<div class="request">男 29岁 天蝎座</div>
-								<div class="dsc">好吧，是的，就这样</div>
-								<div class="state">0.02km 4小时</div>
-							</div>
-							<div class="clear"></div>
-						</div>
-						<div class="list_module listL_module">
-							<img class="left" src="img/head.jpg"/>
-							<div class="right">
-								<div class="title">某人</div>
-								<div class="request">男 29岁 天蝎座</div>
-								<div class="dsc">好吧，是的，就这样</div>
-								<div class="state">0.02km 4小时</div>
-							</div>
-							<div class="clear"></div>
-						</div>
-						<div class="list_module listL_module">
-							<img class="left" src="img/head.jpg"/>
-							<div class="right">
-								<div class="title">某人</div>
-								<div class="request">男 29岁 天蝎座</div>
-								<div class="dsc">好吧，是的，就这样</div>
-								<div class="state">0.02km 4小时</div>
-							</div>
-							<div class="clear"></div>
-						</div>
-						<div class="list_module listL_module">
-							<img class="left" src="img/head.jpg"/>
-							<div class="right">
-								<div class="title">某人</div>
-								<div class="request">男 29岁 天蝎座</div>
-								<div class="dsc">好吧，是的，就这样</div>
-								<div class="state">0.02km 4小时</div>
-							</div>
-							<div class="clear"></div>
-						</div>
+						<%	})
+						} %>
 					</div> 
 				</div>
 			</div>

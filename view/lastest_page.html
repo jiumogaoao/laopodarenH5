@@ -2,101 +2,34 @@
 <div class="lastest_page">
 	<div id="lastestMain">
 		<div id="lastestRoll">
-			<div class="lastestGroup">
-				<div class="year">
-					<div class="number">2015</div>
-				</div>
-				<div class="lastestPoint">
-					<div class="date">12月10日</div>
-					<div class="picFrame">
-						<img src="img/head.jpg" class="picFour lt"/>
-						<img src="img/head.jpg" class="picFour rt"/>
-						<img src="img/head.jpg" class="picFour lb"/>
-						<img src="img/head.jpg" class="picFour rb"/>
+			<% if(data.group&&data.group.length){
+				_.each(data.group,function(group){ %>
+					<div class="lastestGroup">
+						<div class="year">
+							<div class="number">group.time</div>
+						</div>
+						<% if(group.list&&group.list.length){
+							_.each(group.list,function(point){ %>
+							<div class="lastestPoint">
+								<div class="date"><%= point.time %></div>
+								<div class="picFrame">
+									<img src="<%= point.pic[0] %>" class="picFour lt"/>
+									<img src="<%= point.pic[1] %>" class="picFour rt"/>
+									<img src="<%= point.pic[2] %>" class="picFour lb"/>
+									<img src="<%= point.pic[3] %>" class="picFour rb"/>
+								</div>
+								<div class="right">
+									<div class="title"><%= point.name %></div>
+									<div class="dsc"><%= point.dsc %></div>
+									<div class="picNum"><%= point.picNum %></div>
+								</div>
+								<div class="clear"></div>
+							</div>
+						<%	})
+						} %>
 					</div>
-					<div class="right">
-						<div class="title">相册名</div>
-						<div class="dsc">描述</div>
-						<div class="picNum">共1张</div>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="lastestPoint">
-					<div class="date">12月10日</div>
-					<div class="picFrame">
-						<img src="img/head.jpg" class="picFour lt"/>
-						<img src="img/head.jpg" class="picFour rt"/>
-						<img src="img/head.jpg" class="picFour lb"/>
-						<img src="img/head.jpg" class="picFour rb"/>
-					</div>
-					<div class="right">
-						<div class="title">相册名</div>
-						<div class="dsc">描述</div>
-						<div class="picNum">共1张</div>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="lastestPoint">
-					<div class="date">12月10日</div>
-					<div class="picFrame">
-						<img src="img/head.jpg" class="picFour lt"/>
-						<img src="img/head.jpg" class="picFour rt"/>
-						<img src="img/head.jpg" class="picFour lb"/>
-						<img src="img/head.jpg" class="picFour rb"/>
-					</div>
-					<div class="right">
-						<div class="title">相册名</div>
-						<div class="dsc">描述</div>
-						<div class="picNum">共1张</div>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="lastestPoint">
-					<div class="date">12月10日</div>
-					<div class="picFrame">
-						<img src="img/head.jpg" class="picFour lt"/>
-						<img src="img/head.jpg" class="picFour rt"/>
-						<img src="img/head.jpg" class="picFour lb"/>
-						<img src="img/head.jpg" class="picFour rb"/>
-					</div>
-					<div class="right">
-						<div class="title">相册名</div>
-						<div class="dsc">描述</div>
-						<div class="picNum">共1张</div>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="lastestPoint">
-					<div class="date">12月10日</div>
-					<div class="picFrame">
-						<img src="img/head.jpg" class="picFour lt"/>
-						<img src="img/head.jpg" class="picFour rt"/>
-						<img src="img/head.jpg" class="picFour lb"/>
-						<img src="img/head.jpg" class="picFour rb"/>
-					</div>
-					<div class="right">
-						<div class="title">相册名</div>
-						<div class="dsc">描述</div>
-						<div class="picNum">共1张</div>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="lastestPoint">
-					<div class="date">12月10日</div>
-					<div class="picFrame">
-						<img src="img/head.jpg" class="picFour lt"/>
-						<img src="img/head.jpg" class="picFour rt"/>
-						<img src="img/head.jpg" class="picFour lb"/>
-						<img src="img/head.jpg" class="picFour rb"/>
-					</div>
-					<div class="right">
-						<div class="title">相册名</div>
-						<div class="dsc">描述</div>
-						<div class="picNum">共1张</div>
-					</div>
-					<div class="clear"></div>
-				</div>
-			</div>
+			<%	})
+			} %>
 		</div>
 	</div>
 	
