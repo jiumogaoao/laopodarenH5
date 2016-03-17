@@ -2,361 +2,42 @@
 <div class="phoneListSub_page">
 	<img src="img/searchButton.png" id="search"/>
 	<div class="nav_module" id="nav">
-		<div class="nav_point hl">机票</div>
-		<div class="nav_point">车票</div>
-		<div class="nav_point">打车</div>
+		<% if(data.page&&data.page.length){
+			_.each(data.page,function(page){ %>
+				<div class="nav_point"><%= page.name %></div>
+		<%	})
+		} %>
 		<div class="clear"></div>
 		<div class="heightLine"></div>
 	</div>
 	<div id="phoneListSubMain">
-		<div id="phoneListSubRoll" style="width:300%;">
-			<div id="planMain" class="subPage" style="width:33.3%">
-				<div id="phoneListRoll">
-					<div class="list_module listS_module listSingle_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<img src="img/tag.png" class="tag"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="text_module textGay_module textM_module listTitle">热门号码</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/tel.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/telList.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/tel.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/telList.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/tel.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/telList.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/tel.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/telList.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/tel.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/telList.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/tel.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/telList.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
+		<div id="phoneListSubRoll" style="width:<%= data.page.length %>00%;">
+			<% if(data.page&&data.page.length){
+			_.each(data.page,function(page){ %>
+				<div id="<%= page.id %>" class="subPage" style="width:<%= 1/data.page.length %>%">
+					<div id="phoneListRoll">
+						<% if(page.group&&page.group.length){
+							_.each(page.group,function(group){ %>
+							<div class="text_module textGay_module textM_module listTitle"><%= group.title %></div>
+								<% if(group.list&&group.list.length){
+									_.each(group.list,function(point){ %>
+										<div class="list_module listS_module">
+											<img class="left" src="<%= point.icon %>"/>
+											<div class="right">
+												<div class="title"><%= point.name %></div>
+												<div class="dsc"><%= point.dsc %></div>
+												<img src="<%= point.state %>" class="phone"/>
+											</div>
+											<div class="clear"></div>
+										</div>
+								<%	})
+								} %>	
+						<%	})
+						} %>
 					</div>
 				</div>
-			</div>
-			<div id="cartMain" class="subPage" style="width:33.3%">
-				<div id="phoneListRoll">
-					<div class="text_module textGay_module textM_module listTitle">热门号码</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/tel.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/telList.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/tel.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/telList.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/tel.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/telList.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/tel.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/telList.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/tel.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/telList.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/tel.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/telList.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-				</div>
-			</div>
-			<div id="textMain" class="subPage" style="width:33.3%">
-				<div id="phoneListRoll">
-					<div class="text_module textGay_module textM_module listTitle">热门号码</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/tel.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/telList.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/tel.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/telList.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/tel.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/telList.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/tel.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/telList.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/tel.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/telList.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/tel.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="list_module listS_module">
-						<img class="left" src="img/head.jpg"/>
-						<div class="right">
-							<div class="title">群的名字</div>
-							<div class="dsc">好吧，是的，就这样</div>
-							<img src="img/telList.png" class="phone"/>
-						</div>
-						<div class="clear"></div>
-					</div>
-				</div>
-			</div>
+			<%	})
+			} %>
 			<div class="clear"></div>
 		</div>
 	</div>

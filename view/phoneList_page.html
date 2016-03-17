@@ -41,114 +41,19 @@
 	<div id="phoneListMain">
 			<div id="phoneListRoll">
 				<div class="text_module textGay_module textM_module" id="title">热门号码</div>
-				<div class="list_module listS_module">
-					<img class="left" src="img/head.jpg"/>
-					<div class="right">
-						<div class="title">群的名字</div>
-						<div class="dsc">好吧，是的，就这样</div>
-						<img src="img/tel.png" class="phone"/>
+				<% if(data.list&&data.list.length){
+					_.each(data.list,function(point){ %>
+					<div class="list_module listS_module">
+						<img class="left" src="<%= point.icon %>"/>
+						<div class="right">
+							<div class="title"><%= point.name %></div>
+							<div class="dsc"><%= point.dsc %></div>
+							<img src="<%= point.state %>" class="phone"/>
+						</div>
+						<div class="clear"></div>
 					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="list_module listS_module">
-					<img class="left" src="img/head.jpg"/>
-					<div class="right">
-						<div class="title">群的名字</div>
-						<div class="dsc">好吧，是的，就这样</div>
-						<img src="img/telList.png" class="phone"/>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="list_module listS_module">
-					<img class="left" src="img/head.jpg"/>
-					<div class="right">
-						<div class="title">群的名字</div>
-						<div class="dsc">好吧，是的，就这样</div>
-						<img src="img/tel.png" class="phone"/>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="list_module listS_module">
-					<img class="left" src="img/head.jpg"/>
-					<div class="right">
-						<div class="title">群的名字</div>
-						<div class="dsc">好吧，是的，就这样</div>
-						<img src="img/telList.png" class="phone"/>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="list_module listS_module">
-					<img class="left" src="img/head.jpg"/>
-					<div class="right">
-						<div class="title">群的名字</div>
-						<div class="dsc">好吧，是的，就这样</div>
-						<img src="img/tel.png" class="phone"/>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="list_module listS_module">
-					<img class="left" src="img/head.jpg"/>
-					<div class="right">
-						<div class="title">群的名字</div>
-						<div class="dsc">好吧，是的，就这样</div>
-						<img src="img/telList.png" class="phone"/>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="list_module listS_module">
-					<img class="left" src="img/head.jpg"/>
-					<div class="right">
-						<div class="title">群的名字</div>
-						<div class="dsc">好吧，是的，就这样</div>
-						<img src="img/tel.png" class="phone"/>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="list_module listS_module">
-					<img class="left" src="img/head.jpg"/>
-					<div class="right">
-						<div class="title">群的名字</div>
-						<div class="dsc">好吧，是的，就这样</div>
-						<img src="img/telList.png" class="phone"/>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="list_module listS_module">
-					<img class="left" src="img/head.jpg"/>
-					<div class="right">
-						<div class="title">群的名字</div>
-						<div class="dsc">好吧，是的，就这样</div>
-						<img src="img/tel.png" class="phone"/>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="list_module listS_module">
-					<img class="left" src="img/head.jpg"/>
-					<div class="right">
-						<div class="title">群的名字</div>
-						<div class="dsc">好吧，是的，就这样</div>
-						<img src="img/telList.png" class="phone"/>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="list_module listS_module">
-					<img class="left" src="img/head.jpg"/>
-					<div class="right">
-						<div class="title">群的名字</div>
-						<div class="dsc">好吧，是的，就这样</div>
-						<img src="img/tel.png" class="phone"/>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="list_module listS_module">
-					<img class="left" src="img/head.jpg"/>
-					<div class="right">
-						<div class="title">群的名字</div>
-						<div class="dsc">好吧，是的，就这样</div>
-						<img src="img/telList.png" class="phone"/>
-					</div>
-					<div class="clear"></div>
-				</div>
+				<%	})
+				} %>
 			</div>
 		</div>
 	

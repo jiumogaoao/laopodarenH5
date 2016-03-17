@@ -1,21 +1,19 @@
 <script type="text/x-template" id="side_tem">
 <div class="side_tem">
-	<img src="img/head.jpg" class="head"/>
-	<div class="name" id="myDetail">某人</div>
+	<img src="<%= data.icon %>" class="head"/>
+	<div class="name" id="myDetail"><%= data.name %></div>
 	<div class="stepFrame">
-		<div class="step sun"></div>
-		<div class="step sun"></div>
-		<div class="step sun"></div>
-		<div class="step moon"></div>
-		<div class="step moon"></div>
-		<div class="step moon"></div>
-		<div class="step star"></div>
+		<% if(data.step&&data.step.length){
+			_.each(data.step,function(step){ %>
+				<div class="step <%= step %>"></div>	
+		<%	})
+		} %>
 		<div class="clear"></div>
 	</div>
 	<div class="dsc">
-		说了很多很多
+		<%= data.dsc %>
 	</div>
-	<img class="ercode" src="img/erCode.jpg"/>
+	<img class="ercode" src="<%= data.ercode %>"/>
 	<div class="list">
 		<div class="point" id="vip">
 			<img src="img/vip.png" class="icon"/>
@@ -59,7 +57,7 @@
 		<div class="label">夜间</div>
 		<div class="clear"></div>
 	</div>
-	<div class="place">广州</div>
+	<div class="place"><%= data.place %></div>
 </div>
 </script>
 
