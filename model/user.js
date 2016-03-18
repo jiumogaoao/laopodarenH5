@@ -19,8 +19,9 @@ app.model.set({
 		var that=this;
 		/*登录*/
 		returnObj.login=function(name,key,fn){
-			if(_.findWhere(that.cache,{name:name,key:key})){
-				fn(true);
+			var result=_.findWhere(that.cache,{name:name,key:key});
+			if(result){
+				fn(result);
 			}else{
 				app.pop.on("账号或密码错误");
 				fn(false);
@@ -32,11 +33,174 @@ app.model.set({
 				fn(false);
 			}else{/*写入*/
 				var newId=app.uuid();
-				that.cache[newId]={id:newId,name:name,key:key};
+				that.cache[newId]={
+					id:newId,
+					name:name,
+					key:key,
+					step:["star"],
+					stepDay:0,
+					icon:"",
+					dsc:"",
+					sex:0,
+					age:0,
+					province:"",
+					city:"",
+					birthday:0,
+					job:"",
+					company:"",
+					school:"",
+					hometown:"",
+					email:"",
+					mine:{
+						interested:"",
+						music:"",
+						idol:"",
+						readed:"",
+						heared:""
+					},
+					album:[],
+					friend:[],
+					group:[],
+					money:0,
+					vip:null,
+					vipDay:0,
+					diy:{
+						pop:null,
+						redpacket:null,
+						style:null,
+						font:null,
+						ticket:null,
+						call:null,
+						background:null,
+						face:null,
+						music:null,
+						suit:null,
+						pandant:null
+					},
+					collection:[],
+					file:[],
+					praise:[],
+					attention:[],
+					readed:[],
+					share:[],
+					reply:[],
+					friend:{
+						checked:[],
+						request:[],
+						response:[],
+						reject:[]
+					}
+				};
 				that.save();
 				fn(true);
 			}
 		};
+		var zone={}
+		app.model.get("zone",function(returnData){
+			zone=returnData;
+		})
+		/*添加好友*/
+		returnObj.addFriend=function(from,to,fn){
+			if(!_.contains(that.cache[to].friend.reject, from)){
+				that.cache[from].friend.request.push(to);
+				that.cache[to].friend.response.push(from);
+				if(fn){fn(true)}
+			}else{
+				if(fn){fn(false)}
+			}
+		}
+		/*拒绝添加好友*/
+		returnObj.rejectFriend=function(from,to,fn){
+			that.cache[to].friend.reject.push(from);
+			that.cache[from].friend.request=_.without(that.cache[from].friend.request,to);
+			that.cache[to].friend.response=_.without(that.cache[from].friend.response,from);
+			if(fn){fn(true)}
+		}
+		/*确认添加好友*/
+		returnObj.checkFriend=function(from,to,fn){
+			that.cache[from].friend.checked.push(to);
+			that.cache[to].friend.checked.push(from);
+			that.cache[from].friend.request=_.without(that.cache[from].friend.request,to);
+			that.cache[to].friend.response=_.without(that.cache[from].friend.response,from);
+			if(fn){fn(true)}
+		}
+		/*删除好友*/
+		returnObj.removeFriend=function(from,to,fn){
+			that.cache[to].friend.reject.push(from);
+			that.cache[from].friend.checked=_.without(that.cache[from].friend.checked,to);
+			that.cache[to].friend.checked=_.without(that.cache[from].friend.checked,from);
+			if(fn){fn(true)}
+		}
+		/*赞*/
+		returnObj.praise=function(zid,id,fn,end){
+			that.cache[id].praise.push(zid);
+			that.save();
+			if(end){
+				if(fn){fn(true)}
+			}else{
+				zone.praise(zid,id,fn,true);	
+			}
+		}
+		/*取消赞*/
+		returnObj.cancelPraise=function(zid,id,fn,end){
+			that.cache[id].praise=_.without(that.cache[id].praise,zid);
+			that.save();
+			if(end){
+				if(fn){fn(true)}
+			}else{
+			zone.cancelPraise(zid,id,fn,true);
+			}
+		}
+		/*关注*/
+		returnObj.attention=function(zid,id,fn,end){
+			that.cache[id].attention.push(zid);
+			that.save();
+			if(end){
+				if(fn){fn(true)}
+			}else{
+			zone.attention(zid,id,fn,true);
+			}
+		}
+		/*取消关注*/
+		returnObj.cancelAttention=function(zid,id,fn,end){
+			that.cache[id].attention=_.without(that.cache[id].attention,zid);
+			that.save();
+			if(end){
+				if(fn){fn(true)}
+			}else{
+			zone.cancelAttention(zid,id,fn,true);
+			}
+		}
+		/*看了*/
+		returnObj.readed=function(zid,id,fn,end){
+			that.cache[id].readed.push(zid);
+			that.save();
+			if(end){
+				if(fn){fn(true)}
+			}else{
+			zone.readed(zid,id,fn,true);
+			}
+		}
+		/*分享*/
+		returnObj.share=function(zid,id,fn,end){
+			that.cache[id].share.push(zid);
+			that.save();
+			if(end){
+				if(fn){fn(true)}
+			}else{
+			zone.share(zid,id,fn,true);
+			}
+		}
+		/*回复*/
+		returnObj.reply=function(zid,id,to,text,fn,end){
+			that.cache[id].reply.push({form:id,to:to,text:text,readed:false,time:new Date().getTime(),zid:zid});
+			that.save();
+			if(end){
+				if(fn){fn(true)}
+			}else{
+			zone.reply(zid,id,to,text,fn,true);
+			}
+		}
 		if(callback){/*返回*/
 			callback(returnObj);
 		}
