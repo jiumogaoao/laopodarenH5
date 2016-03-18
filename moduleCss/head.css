@@ -7,9 +7,8 @@
 }
 .head_module .left{
 	position: absolute;
-	bottom: 30px;
-	left: 18px;
-	font-size: 32px;
+	bottom: 0px;
+	left: 0px;
 	z-index: 3;
 }
 .head_module .backIcon{
@@ -23,22 +22,29 @@
 	width: 100%;
 	position: absolute;
 	left: 0px;
-	bottom:28px;
+	bottom:0px;
+}
+.head_module .center .title{
 	text-align: center;
 	font-size: 34px;
+	color: #fff;
 	font-weight: bolder;
+	position: relative;
+	bottom:27px;
 }
 .head_module .left .headIcon{
 	width: 74px;
 	height:74px;
 	border-radius: 74px;
+	position: absolute;
+	left: 24px;
+	bottom:7px;
 }
 .head_module .nav{
-	width: 240px;
+	width: 100%;
 	height: 60px;
-	position: absolute;
-	left: 255px;
-	bottom:15px;
+	position: relative;
+	margin: auto;
 }
 .head_module .navPoint{
 	width: 120px;
@@ -46,7 +52,6 @@
 	line-height: 58px;
 	text-align: center;
 	color: #fff;
-	float: left;
 	border-bottom:2px solid #fff;
 	border-top: 2px solid #fff;
 	font-size: 26px;
@@ -56,21 +61,42 @@
 	color: #12b7f5;
 }
 .head_module .navLeft{
+	position: absolute;
+	right: 375px;
+	bottom:14px;
 	border-left: 2px solid #fff;
 	border-radius: 15px 0px 0px 15px;
 }
 .head_module .navRight{
+	position: absolute;
+	left: 374px;
+	bottom:14px;
 	border-right: 2px solid #fff;
 	border-radius: 0px 15px 15px 0px;
 }
 .head_module .right{
-	font-size: 32px;
 	position: absolute;
-	right: 27px;
-	bottom: 26px;
+	right: 0px;
+	bottom: 0px;
 	z-index: 3;
 }
-.head_module .rightPoint{
+.head_module .rightIcon{
 	float: right;
-	margin-left: 31px;
+	margin-right: 29px;
+	width: 58px;
+	height: 58px;
+	background-image: url(../img/headIcon.png);
+	background-repeat: no-repeat;
+	position: relative;
+	bottom:12px;
+}
+.head_module .rightIcon.add{
+	background-position: 0px -405px;
+}
+.head_module .rightButton{
+	font-size: 32px;
+	color: #fff;
+	margin-right: 19px;
+	position: relative;
+	bottom: 28px;
 }

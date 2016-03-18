@@ -73,7 +73,7 @@ app.control.set({
 			});
 		}
 		/*使用iconNavButton_head的view作为头部，传入参数hl=0*/
-		app.view.head.show("head_template",{"left":{"type":"icon","src":"img/head.jpg"},"center":{type:"nav",nav:[{text:"消息",hl:true},{text:"电话"}],right:{type:"icon",icon:[{nav:"add"}]}}},headDone);
+		app.view.head.show("head_template",{"left":{"type":"icon","src":"img/head.jpg"},"center":{type:"nav",nav:[{text:"消息",hl:true},{text:"电话"}]},right:{type:"icon",icon:[{name:"add"}]}},headDone);
 		/*使用treeNav_foot作为脚部，传入参数hl=0*/
 		app.view.foot.show("treeNav_foot",{hl:"0"},footDone);
 		/*转出messageList_page的view*/
