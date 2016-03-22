@@ -24,6 +24,41 @@ app.control.set({
 		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
 		/*加载主区，传入参数*/
-		app.view.main.sugest("public_page",data,data.state,"side",viewDone);
+		app.view.main.sugest("public_page",{
+			group:[
+			{
+				"title":"A",
+				"list":[
+					{"icon":"img/head.jpg","name":"A开头的","dsc":"描述而已"},
+					{"icon":"img/head.jpg","name":"A开头的","dsc":"描述而已"},
+					{"icon":"img/head.jpg","name":"A开头的","dsc":"描述而已"}
+				]
+			},
+			{
+				"title":"B",
+				"list":[
+					{"icon":"img/head.jpg","name":"B开头的","dsc":"描述而已"},
+					{"icon":"img/head.jpg","name":"B开头的","dsc":"描述而已"},
+					{"icon":"img/head.jpg","name":"B开头的","dsc":"描述而已"}
+				]
+			},
+			{
+				"title":"C",
+				"list":[
+					{"icon":"img/head.jpg","name":"C开头的","dsc":"描述而已"},
+					{"icon":"img/head.jpg","name":"C开头的","dsc":"描述而已"},
+					{"icon":"img/head.jpg","name":"C开头的","dsc":"描述而已"}
+				]
+			},
+			{
+				"title":"D",
+				"list":[
+					{"icon":"img/head.jpg","name":"D开头的","dsc":"描述而已"},
+					{"icon":"img/head.jpg","name":"D开头的","dsc":"描述而已"},
+					{"icon":"img/head.jpg","name":"D开头的","dsc":"描述而已"}
+				]
+			}
+			]
+		},data.state,"side",viewDone);
 	}
 });

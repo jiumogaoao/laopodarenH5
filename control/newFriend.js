@@ -24,6 +24,11 @@ app.control.set({
 		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
 		/*加载主区，传入参数*/
-		app.view.main.sugest("newFriend_page",data,data.state,"side",viewDone);
+		app.view.main.sugest("newFriend_page",{
+			list:[
+			{"icon":"img/head.jpg","name":"某人","dsc":"你就加了吧","state":"已经加为好友"},
+			{"icon":"img/head.jpg","name":"某人","dsc":"你就加了吧","state":"已经加为好友"}
+			]
+		},data.state,"side",viewDone);
 	}
 });

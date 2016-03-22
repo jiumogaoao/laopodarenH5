@@ -24,6 +24,33 @@ app.control.set({
 		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
 		/*加载主区，传入参数*/
-		app.view.main.sugest("aboutMe_page",data,data.state,"side",viewDone);
+		app.view.main.sugest("aboutMe_page",{
+			list:[
+				{name:"某人",time:"某年某月",main:"说了很多很多",pic:[
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"}
+				],readNumber:99,parise:["另一个人","另一个人","另一个人","另一个人"]},
+				{name:"某人",time:"某年某月",main:"说了很多很多",pic:[
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"}
+				],readNumber:99,parise:["另一个人","另一个人","另一个人","另一个人"]},
+				{name:"某人",time:"某年某月",main:"说了很多很多",pic:[
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"}
+				],readNumber:99,parise:["另一个人","另一个人","另一个人","另一个人"]},
+				{name:"某人",time:"某年某月",main:"说了很多很多",pic:[
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"}
+				],readNumber:99,parise:["另一个人","另一个人","另一个人","另一个人"]}
+			]
+		},data.state,"side",viewDone);
 	}
 });

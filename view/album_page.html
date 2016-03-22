@@ -3,8 +3,8 @@
 	<div id="albumMain">
 		<div id="albumRoll">
 			<div class="album_point" id="new"></div>
-			<% if(data.album&&data.album.length){
-				_.each(data.album,function(album){ %>
+			<% if(data.list&&data.list.length){
+				_.each(data.list,function(album){ %>
 				<div class="album_point">
 					<img src="<%= album.icon %>"/>
 					<div class="clear"></div>

@@ -72,6 +72,32 @@ app.control.set({
 		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
 		/*加载主区，传入参数*/
-		app.view.main.sugest("group_page",data,data.state,"side",viewDone);
+		app.view.main.sugest("group_page",{
+			mine:[{
+				title:"我创建的群组",
+				list:[
+				{icon:"img/head.jpg",name:"某个群组"},
+				{icon:"img/head.jpg",name:"某个群组"}
+				]
+			},
+			{
+				title:"我管理的群组",
+				list:[
+				{icon:"img/head.jpg",name:"某个群组"},
+				{icon:"img/head.jpg",name:"某个群组"}
+				]
+			},
+			{
+				title:"我加入的群组",
+				list:[
+				{icon:"img/head.jpg",name:"某个群组"},
+				{icon:"img/head.jpg",name:"某个群组"}
+				]
+			}
+			],
+			talk:[
+			{"icon":"img/head.jpg","name":"某个讨论组"},{"icon":"img/head.jpg","name":"某个讨论组"}
+			]
+		},data.state,"side",viewDone);
 	}
 });

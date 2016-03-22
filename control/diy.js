@@ -71,6 +71,30 @@ app.control.set({
 		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
 		/*加载主区，传入参数*/
-		app.view.main.sugest("diy_page",data,data.state,"side",viewDone);
+		app.view.main.sugest("diy_page",{
+			banner:[
+			{src:"img/head.jpg"},
+			{src:"img/head.jpg"},
+			{src:"img/head.jpg"},
+			{src:"img/head.jpg"}
+			],
+			top:[
+			{icon:"img/bgMusic.png",name:"背景音乐"},
+			{icon:"img/phoneSign.png",name:"手机标识"},
+			{icon:"img/zoneDsc.png",name:"空间描述"},
+			{icon:"img/actionName.png",name:"动态昵称"},
+			],
+			bgText:"选我所爱，百变背景",
+			bgPic:"img/head.jpg",
+			diy:[
+			{title:"标题",dsc:"描述",icon:"img/head.jpg"},
+			{title:"标题",dsc:"描述",icon:"img/head.jpg"}
+			],
+			bottom:[
+			{title:"标题",dsc:"描述",icon:"img/head.jpg"},
+			{title:"标题",dsc:"描述",icon:"img/head.jpg"},
+			{title:"标题",dsc:"描述",icon:"img/head.jpg"}
+			]
+		},data.state,"side",viewDone);
 	}
 });

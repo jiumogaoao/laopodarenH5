@@ -55,6 +55,32 @@ app.control.set({
 		/*使用treeNav_foot作为脚部，传入参数*/
 		app.view.foot.show("treeNav_foot",{hl:"2"},footDone);
 		/*转出actionList_page的view*/
-		app.view.main.sugest("actionList_page",data,data.state,"size",viewDone);
+		app.view.main.sugest("actionList_page",{
+			nav:[
+				{icon:"img/action.png",name:"好友动态",id:"zone"},
+				{icon:"img/near.png",name:"附近",id:"near"},
+				{icon:"img/interest.png",name:"兴趣部落",id:"interest"}
+			],
+			group:[
+				{
+					list:[
+					{"icon":"img/game.png","name":"游戏"},
+					{"icon":"img/shopping.png","name":"购物"},
+					{"icon":"img/read.png","name":"阅读"},
+					{"icon":"img/music.png","name":"音乐"},
+					{"icon":"img/hot.png","name":"热门活动"}
+					]
+				},
+				{
+					list:[
+					{"icon":"img/neargroup.png","name":"附近的群"},
+					{"icon":"img/footC.png","name":"吃喝玩乐"},
+					{"icon":"img/savecity.png","name":"同城服务"},
+					{"icon":"img/news.png","name":"腾讯新闻"},
+					{"icon":"img/healthy.png","name":"健康"}
+					]
+				}
+			]
+		},data.state,"size",viewDone);
 	}
 });

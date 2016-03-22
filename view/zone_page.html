@@ -1,14 +1,17 @@
 <script type="text/x-template" id="zone_page">
 <div class="zone_page">
-	<div class="head_module buttonTitleIcon_head">
+	<div class="head_module">
+
 		<div class="left">
-			<img src="img/back.png" class="leftIcon"/>
+			<div class="backIcon"></div>
 			<div class="leftText">返回</div>
 			<div class="clear"></div>
 		</div>
+		<div class="center">
 		<div class="title">好友动态</div>
+		</div>
 		<div class="right">
-			<div class="rightPoint zoneIcon add"></div>
+			<div class="rightIcon add"></div>
 		<div class="clear"></div>
 		</div>
 	</div>
@@ -64,7 +67,7 @@
 							<div class="picFrame">
 							<% if(point.pic&&point.pic.length){
 								_.each(point.pic,function(pic){ %>
-								<img src="<%= pic %>" class="pic"/>
+								<img src="<%= pic.src %>" class="pic"/>
 							<%	})
 							} %>
 								<div class="clear"></div>

@@ -8,7 +8,7 @@
 			_.each(data.nav,function(nav){ %>
 			<div class="linkNavPoint" id="<%= nav.id %>">
 				<img src="<%= nav.icon %>" class="icon"/>
-				<div class="name"><%= nav.text %></div>
+				<div class="name"><%= nav.name %></div>
 			</div>
 		<% }) 
 		} %>
@@ -24,7 +24,7 @@
 					<div class="tagPoint">
 						<img src="<%= point.icon %>" class="left"/>
 						<div class="right">
-							<div class="title"><%= point.text %></div>
+							<div class="title"><%= point.name %></div>
 							<img src="img/tag.png" class="icon"/>
 						</div>
 						<div class="clear"></div>

@@ -51,6 +51,38 @@ app.control.set({
 		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
 		/*加载主区，传入参数*/
-		app.view.main.sugest("zone_page",data,data.state,"side",viewDone);
+		app.view.main.sugest("zone_page",{
+			bg:"img/zoneBg.jpg",
+			icon:"img/head.jpg",
+			step:["sun","sun","sun","moon","moon","start","start"],
+			readedNum:10,
+			totalReadedNum:100,
+			list:[
+				{icon:"img/head.jpg",name:"某人",time:"1月1日",text:"说了很多很多",pic:[
+					{src:"img/head.jpg"},
+					{src:"img/head.jpg"},
+					{src:"img/head.jpg"},
+					{src:"img/head.jpg"}
+				],readed:1,praise:["另外的人","另外的人","另外的人","另外的人"]},
+				{icon:"img/head.jpg",name:"某人",time:"1月1日",text:"说了很多很多",pic:[
+					{src:"img/head.jpg"},
+					{src:"img/head.jpg"},
+					{src:"img/head.jpg"},
+					{src:"img/head.jpg"}
+				],readed:1,praise:["另外的人","另外的人","另外的人","另外的人"]},
+				{icon:"img/head.jpg",name:"某人",time:"1月1日",text:"说了很多很多",pic:[
+					{src:"img/head.jpg"},
+					{src:"img/head.jpg"},
+					{src:"img/head.jpg"},
+					{src:"img/head.jpg"}
+				],readed:1,praise:["另外的人","另外的人","另外的人","另外的人"]},
+				{icon:"img/head.jpg",name:"某人",time:"1月1日",text:"说了很多很多",pic:[
+					{src:"img/head.jpg"},
+					{src:"img/head.jpg"},
+					{src:"img/head.jpg"},
+					{src:"img/head.jpg"}
+				],readed:1,praise:["另外的人","另外的人","另外的人","另外的人"]}
+			]
+		},data.state,"side",viewDone);
 	}
 });

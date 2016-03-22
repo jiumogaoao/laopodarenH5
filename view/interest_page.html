@@ -42,7 +42,7 @@
 								<% if(data.nearest.top&&data.nearest.top.length){
 									_.each(data.nearest.top,function(point){ %>
 										<div class="topPoint">
-											<div class="number"><%= point.icon %></div>
+											<div class="number"><%= point.num %></div>
 											<div class="name"><%= point.name %></div>
 										</div>
 							    <%	})
@@ -114,8 +114,8 @@
 				<div id="order">
 					<div id="orderLeft">
 						<div class="subRoll">
-							<% if(data.nearest.order.group&&data.nearest.order.group.length){
-								_.each(data.nearest.order.group,function(group){ %>
+							<% if(data.order.group&&data.order.group.length){
+								_.each(data.order.group,function(group){ %>
 									<div class="orderType"><%= group.title %></div>
 							<% })
 							} %>
@@ -123,14 +123,14 @@
 					</div>
 					<div id="orderRight">
 						<div class="subRoll">
-							<img src="<%= data.nearest.order.banner %>" id="orderBanner"/>
-							<% if(data.nearest.order.list&&data.nearest.order.list.length){
-								_.each(data.nearest.order.list,function(point){ %>
+							<img src="<%= data.order.banner %>" id="orderBanner"/>
+							<% if(data.order.list&&data.order.list.length){
+								_.each(data.order.list,function(point){ %>
 								<div class="list_module listXL_module listM_module">
 									<img class="left" src="<%= point.icon %>"/>
 									<div class="right">
 										<div class="title"><%= point.name %></div>
-										<div class="dsc"><%= point.name %></div>
+										<div class="dsc"><%= point.dsc %></div>
 										<% if(point.attention){ %>
 												<div class="button">取消关注</div>
 											<% }else{ %>

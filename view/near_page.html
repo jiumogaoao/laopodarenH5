@@ -53,7 +53,7 @@
 									<div class="picFrame">
 										<% if(point.pic&&point.pic.length){
 											_.each(point.pic,function(pic){ %>
-											<img src="<%= pic %>" class="pic"/>
+											<img src="<%= pic.src %>" class="pic"/>
 										<%	})
 										} %>
 										<div class="clear"></div>
@@ -107,15 +107,15 @@
 							<div id="roomRoll">
 								<% if(data.hotTalk.room&&data.hotTalk.room.length){
 									_.each(data.hotTalk.room,function(point){ %>
-									<img src="<%= point %>"/>	
+									<img src="<%= point.icon %>"/>	
 								<%	})
 								} %>
 								<div class="clear"></div>
 							</div>
 						</div>
 						<div class="text_module listTitle textGay_module">公共热聊房间</div>
-						<% if(data.hotTalk.public&&data.hotTalk.public.length){
-							_.each(data.hotTalk.public,function(point){ %>
+						<% if(data.hotTalk.publics&&data.hotTalk.publics.length){
+							_.each(data.hotTalk.publics,function(point){ %>
 									<div class="list_module listS_module nodeg">
 										<img class="left" src="<%= point.icon %>"/>
 										<div class="right">

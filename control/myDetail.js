@@ -42,6 +42,31 @@ app.control.set({
 		/*加载脚部，传入参数*/
 		app.view.foot.show("myDetail_foot",{},footDone);
 		/*加载主区，传入参数*/
-		app.view.main.sugest("myDetail_page",data,data.state,"side",viewDone);
+		app.view.main.sugest("myDetail_page",{
+			bg:"img/myDetailBg.jpg",
+			prise:99,
+			icon:"img/head.jpg",
+			name:"某人",
+			sex:"男",
+			age:33,
+			province:"广东",
+			city:"广州",
+			daren:"img/vipType.png",
+			vipTime:"99天",
+			id:"1233",
+			lian:"img/lian.png",
+			vipType:"img/vipNo.png",
+			step:["sun","sun","moon","moon","star","star"],
+			stepSpeed:"慢速",
+			sign:"个性签名",
+			zoneName:"空间名",
+			pic:[{src:"img/head.jpg"},{src:"img/head.jpg"},{src:"img/head.jpg"},{src:"img/head.jpg"}],
+			mine:[
+			{icon:"img/head.jpg",name:"某人",dsc:"描述"},
+			{icon:"img/head.jpg",name:"某人",dsc:"描述"},
+			{icon:"img/head.jpg",name:"某人",dsc:"描述"},
+			{icon:"img/head.jpg",name:"某人",dsc:"描述"}
+			]
+		},data.state,"side",viewDone);
 	}
 });

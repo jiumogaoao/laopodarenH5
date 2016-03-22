@@ -210,7 +210,12 @@
 			}else{/*如果没加载，先去拿模版*/
 				getTem("side_tem",function(tem){
 					/*放数据*/
-					var sideStr=_.template(tem)({});
+					var sideStr=_.template(tem)({data:{
+						icon:"img/head.jpg",
+						name:"某人",
+						step:["sun","sun","moon","moon","star","star"],
+						ercode:"img/erCode.jpg"
+					}});
 					/*放进侧栏*/
 					$("#sideFrame").html(sideStr);
 					/*绑定事件*/

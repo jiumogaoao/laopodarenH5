@@ -20,13 +20,13 @@
 			</div>
 			<div class="frame" id="base">
 				<div class="left">
-					<img src="<%= data.prise %>"/>
+					<img src="<%= data.icon %>"/>
 				</div>
 				<div class="right">
 					<div class="name"><%= data.name %></div>
 					<div class="dsc"><%= data.sex %> <%= data.age %>岁 <%= data.province %> <%= data.city %></div>
 					<div class="vipFrame">
-						<img src="<%= data.vipType %>"/>
+						<img src="<%= data.daren %>"/>
 						<div class="vipNum"><%= data.vipTime %></div>
 						<div class="clear"></div>
 					</div>
@@ -76,10 +76,10 @@
 				<div class="left">QQ空间</div>
 				<div class="right">
 					<div class="dsc"><%= data.zoneName %></div>
-					<img src="<%= data.pic[0] %>" class="point"/>
-					<img src="<%= data.pic[1] %>" class="point"/>
-					<img src="<%= data.pic[2] %>" class="point"/>
-					<img src="<%= data.pic[3] %>" class="point"/>
+					<img src="<%= data.pic[0].src %>" class="point"/>
+					<img src="<%= data.pic[1].src %>" class="point"/>
+					<img src="<%= data.pic[2].src %>" class="point"/>
+					<img src="<%= data.pic[3].src %>" class="point"/>
 					<div class="clear"></div>
 					<img class="tag" src="img/tag.png"/>
 				</div>

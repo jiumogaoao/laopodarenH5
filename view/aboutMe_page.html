@@ -16,7 +16,7 @@
 					<div class="picFrame">
 						<% if(point.pic&&point.pic.length){
 							_.each(point.pic,function(pic){ %>
-							<img src="<%= pic %>" class="pic"/>	
+							<img src="<%= pic.src %>" class="pic"/>	
 						<% })
 						} %>
 						<div class="clear"></div>
@@ -32,7 +32,7 @@
 						<div class="praised">
 							<div class="zoneIcon praise"></div>
 							<% _.each(point.parise,function(parise){ %>
-								<div class="praiseName"><%= parise.name %></div>
+								<div class="praiseName"><%= parise %></div>
 							<% }) %>
 							<div class="clear"></div>
 						</div>

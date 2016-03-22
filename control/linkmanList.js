@@ -73,6 +73,27 @@ app.control.set({
 		/*使用treeNav_foot作为脚部，传入参数*/
 		app.view.foot.show("treeNav_foot",{hl:"1"},footDone);
 		/*转出linkmanList_page的view*/
-		app.view.main.sugest("linkmanList_page",{group:[]},data.state,"size",viewDone);
+		app.view.main.sugest("linkmanList_page",{group:[
+		{list:[
+		{name:"我的设备",num:"2/2",list:[
+		{"icon":"img/head.jpg","name":"某人的手机","dsc":"就是个描述","state":"2G"},
+		{"icon":"img/head.jpg","name":"某人的手机","dsc":"就是个描述","state":"2G"}
+		]},
+		{name:"手机通讯录",num:"2/2",list:[
+		{"icon":"img/head.jpg","name":"某人的手机","dsc":"就是个描述","state":"2G"},
+		{"icon":"img/head.jpg","name":"某人的手机","dsc":"就是个描述","state":"2G"}
+		]}
+		]},
+		{list:[
+		{name:"我的好友",num:"2/2",list:[
+		{"icon":"img/head.jpg","name":"某人的手机","dsc":"就是个描述","state":"2G"},
+		{"icon":"img/head.jpg","name":"某人的手机","dsc":"就是个描述","state":"2G"}
+		]},
+		{name:"某个分组",num:"2/2",list:[
+		{"icon":"img/head.jpg","name":"某人的手机","dsc":"就是个描述","state":"2G"},
+		{"icon":"img/head.jpg","name":"某人的手机","dsc":"就是个描述","state":"2G"}
+		]}
+		]}
+		]},data.state,"size",viewDone);
 	}
 });

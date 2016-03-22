@@ -111,6 +111,65 @@ app.control.set({
 		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
 		/*加载主区，传入参数*/
-		app.view.main.sugest("near_page",data,data.state,"side",viewDone);
+		app.view.main.sugest("near_page",{
+			nearMan:{
+				head:["img/head.jpg","img/head.jpg","img/head.jpg"],
+				list:[
+				{icon:"img/head.jpg",name:"某人",sex:"男",age:"18",star:"双子",dsc:"描述",distance:"3",time:"某年某月"},
+				{icon:"img/head.jpg",name:"某人",sex:"男",age:"18",star:"双子",dsc:"描述",distance:"3",time:"某年某月"},
+				{icon:"img/head.jpg",name:"某人",sex:"男",age:"18",star:"双子",dsc:"描述",distance:"3",time:"某年某月"},
+				{icon:"img/head.jpg",name:"某人",sex:"男",age:"18",star:"双子",dsc:"描述",distance:"3",time:"某年某月"},
+				{icon:"img/head.jpg",name:"某人",sex:"男",age:"18",star:"双子",dsc:"描述",distance:"3",time:"某年某月"},
+				{icon:"img/head.jpg",name:"某人",sex:"男",age:"18",star:"双子",dsc:"描述",distance:"3",time:"某年某月"},
+				{icon:"img/head.jpg",name:"某人",sex:"男",age:"18",star:"双子",dsc:"描述",distance:"3",time:"某年某月"},
+				{icon:"img/head.jpg",name:"某人",sex:"男",age:"18",star:"双子",dsc:"描述",distance:"3",time:"某年某月"}
+				]
+			},
+			newThink:[
+				{icon:"img/head.jpg",name:"某人",time:"某年某月",text:"说了很多很多",pic:[
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"}
+				],readedNum:9,praise:["另一个人","另一个人","另一个人","另一个人"]},
+				{icon:"img/head.jpg",name:"某人",time:"某年某月",text:"说了很多很多",pic:[
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"}
+				],readedNum:9,praise:["另一个人","另一个人","另一个人","另一个人"]},
+				{icon:"img/head.jpg",name:"某人",time:"某年某月",text:"说了很多很多",pic:[
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"}
+				],readedNum:9,praise:["另一个人","另一个人","另一个人","另一个人"]},
+				{icon:"img/head.jpg",name:"某人",time:"某年某月",text:"说了很多很多",pic:[
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"},
+				{src:"img/head.jpg"}
+				],readedNum:9,praise:["另一个人","另一个人","另一个人","另一个人"]}
+			],
+			hotTalk:{
+				banner:["img/head.jpg","img/head.jpg","img/head.jpg","img/head.jpg"],
+				room:[{icon:"img/head.jpg"},{icon:"img/head.jpg"},{icon:"img/head.jpg"},{icon:"img/head.jpg"},{icon:"img/head.jpg"}],
+				publics:[
+				{icon:"img/head.jpg",name:"房间名",dsc:"描述"},
+				{icon:"img/head.jpg",name:"房间名",dsc:"描述"},
+				{icon:"img/head.jpg",name:"房间名",dsc:"描述"},
+				{icon:"img/head.jpg",name:"房间名",dsc:"描述"},
+				{icon:"img/head.jpg",name:"房间名",dsc:"描述"}
+				],
+				mine:[
+				{icon:"img/head.jpg",name:"房间名",dsc:"描述"},
+				{icon:"img/head.jpg",name:"房间名",dsc:"描述"},
+				{icon:"img/head.jpg",name:"房间名",dsc:"描述"},
+				{icon:"img/head.jpg",name:"房间名",dsc:"描述"},
+				{icon:"img/head.jpg",name:"房间名",dsc:"描述"}
+				]
+			}
+
+		},data.state,"side",viewDone);
 	}
 });

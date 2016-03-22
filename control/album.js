@@ -33,6 +33,12 @@ app.control.set({
 		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
 		/*加载主区，传入参数*/
-		app.view.main.sugest("album_page",data,data.state,"side",viewDone);
+		app.view.main.sugest("album_page",{list:[
+			{"icon":"img/head.jpg","name":"相册","count":"99"},
+			{"icon":"img/head.jpg","name":"相册","count":"99"},
+			{"icon":"img/head.jpg","name":"相册","count":"99"},
+			{"icon":"img/head.jpg","name":"相册","count":"99"},
+			{"icon":"img/head.jpg","name":"相册","count":"99"}
+			]},data.state,"side",viewDone);
 	}
 });

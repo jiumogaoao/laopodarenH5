@@ -24,6 +24,38 @@ app.control.set({
 		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
 		/*加载主区，传入参数*/
-		app.view.main.sugest("say_page",data,data.state,"side",viewDone);
+		app.view.main.sugest("say_page",{
+			list:[
+				{
+					icon:"img/head.jpg",
+					name:"某人",
+					time:"某月某日",
+					text:"说了很多很多",
+					readedNum:9,
+					praise:["另一人","另一人","另一人","另一人","另一人"]
+				},{
+					icon:"img/head.jpg",
+					name:"某人",
+					time:"某月某日",
+					text:"说了很多很多",
+					readedNum:9,
+					praise:["另一人","另一人","另一人","另一人","另一人"]
+				},{
+					icon:"img/head.jpg",
+					name:"某人",
+					time:"某月某日",
+					text:"说了很多很多",
+					readedNum:9,
+					praise:["另一人","另一人","另一人","另一人","另一人"]
+				},{
+					icon:"img/head.jpg",
+					name:"某人",
+					time:"某月某日",
+					text:"说了很多很多",
+					readedNum:9,
+					praise:["另一人","另一人","另一人","另一人","另一人"]
+				}
+			]
+		},data.state,"side",viewDone);
 	}
 });
