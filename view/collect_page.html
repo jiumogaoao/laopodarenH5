@@ -15,11 +15,11 @@
 								<div class="clear"></div>
 							<% if(point.pic&&point.pic.length){
 									_.each(point.pic,function(pic){ %>
-										<img class="pic" src="<%= pic %>"/>
+										<img class="pic" src="<%= pic.src %>"/>
 									<% })
 								} %>
 							<% if(point.text){ %>
-									<div class="text"/><%= point.text %></div>
+									<div class="text"><%= point.text %></div>
 							<% } %>
 							</div>
 							<div class="clear"></div>

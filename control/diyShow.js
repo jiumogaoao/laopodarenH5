@@ -37,6 +37,42 @@ app.control.set({
 		/*加载脚部，传入参数*/
 		app.view.foot.show("diyShow_foot",{},footDone);
 		/*加载主区，传入参数*/
-		app.view.main.sugest("diyShow_page",data,data.state,"side",viewDone);
+		app.view.main.sugest("diyShow_page",{
+			banner:"img/diyShowBg.jpg",
+			top:[
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"}
+			],
+			face:[
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"}
+			],
+			pao:[
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"}
+			],
+			redpackage:[
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"}
+			],
+			font:[
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"}
+			],
+			style:[
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"}
+			]
+		},data.state,"side",viewDone);
 	}
 });

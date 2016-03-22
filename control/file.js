@@ -24,6 +24,18 @@ app.control.set({
 		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
 		/*加载主区，传入参数*/
-		app.view.main.sugest("file_page",data,data.state,"side",viewDone);
+		app.view.main.sugest("file_page",{
+			top:[
+			{icon:"img/pc.png",name:"传文件/照片到电脑"},
+			{icon:"img/file2.png",name:"面对面快传（面流量）"},
+			{icon:"img/cloud.png",name:"备份相册到微云"}
+			],
+			file:[
+			{name:"最近文件"},
+			{name:"本机文件"},
+			{name:"电脑文件"},
+			{name:"微云文件"}
+			]
+		},data.state,"side",viewDone);
 	}
 });

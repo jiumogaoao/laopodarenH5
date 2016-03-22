@@ -21,10 +21,47 @@ app.control.set({
 
 		}
 		/*加载头部，传入参数*/
-		app.view.head.show("head_template",{"left":{type:"back",text:"返回"},"center":{type:"title",text:"开通会员"},"right":{type:"icon",icon:[{name:"list"}]},headDone);
+		app.view.head.show("head_template",{
+			"left":{
+				type:"back",
+				text:"返回"
+			},
+			"center":{
+				type:"title",
+				text:"开通会员"
+			},
+			"right":{
+				type:"icon",
+				icon:[{name:"list"}]
+			}
+		},headDone);
 		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
 		/*加载主区，传入参数*/
-		app.view.main.sugest("vip_page",data,data.state,"side",viewDone);
+		app.view.main.sugest("vip_page",{
+			top:[{src:"img/head.jpg"},{src:"img/head.jpg"},{src:"img/head.jpg"},{src:"img/head.jpg"}],
+			game:[
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"}
+			],
+			function:[
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"},
+			{icon:"img/head.jpg",name:"名字",dsc:"描述"}
+			],
+			style:{
+				top:[
+				{icon:"img/head.jpg",name:"名字",dsc:"表情"},
+				{icon:"img/head.jpg",name:"名字",dsc:"挂件"},
+				{icon:"img/head.jpg",name:"名字",dsc:"主题"}
+				],
+				bottom:[
+				{src:"img/head.jpg"},{src:"img/head.jpg"}
+				]
+			}
+		},data.state,"side",viewDone);
 	}
 });

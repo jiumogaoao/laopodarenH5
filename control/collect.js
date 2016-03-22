@@ -33,6 +33,37 @@ app.control.set({
 		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
 		/*加载主区，传入参数*/
-		app.view.main.sugest("collect_page",data,data.state,"side",viewDone);
+		app.view.main.sugest("collect_page",{
+			list:[
+			{
+				icon:"img/head.jpg",
+				name:"标题",
+				time:"某年某月",
+				pic:[{src:"img/head.jpg"},{src:"img/head.jpg"},{src:"img/head.jpg"},{src:"img/head.jpg"}],
+				text:"说了很多很多"
+			},
+			{
+				icon:"img/head.jpg",
+				name:"标题",
+				time:"某年某月",
+				pic:[{src:"img/head.jpg"},{src:"img/head.jpg"},{src:"img/head.jpg"},{src:"img/head.jpg"}],
+				text:"说了很多很多"
+			},
+			{
+				icon:"img/head.jpg",
+				name:"标题",
+				time:"某年某月",
+				pic:[{src:"img/head.jpg"},{src:"img/head.jpg"},{src:"img/head.jpg"},{src:"img/head.jpg"}],
+				text:"说了很多很多"
+			},
+			{
+				icon:"img/head.jpg",
+				name:"标题",
+				time:"某年某月",
+				pic:[{src:"img/head.jpg"},{src:"img/head.jpg"},{src:"img/head.jpg"},{src:"img/head.jpg"}],
+				text:"说了很多很多"
+			}
+			]
+		},data.state,"side",viewDone);
 	}
 });

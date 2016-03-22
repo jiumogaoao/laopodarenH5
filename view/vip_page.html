@@ -10,7 +10,7 @@
 				<div id="topFrameMain">
 				<% if(data.top&&data.top.length){
 					_.each(data.top,function(point){ %>
-						<img src="<%= point %>" class="point"/>
+						<img src="<%= point.src %>" class="point"/>
 				<%	})
 				} %>
 					<div class="clear"></div>
@@ -66,7 +66,7 @@
 				<div class="clear"></div>
 				<% if(data.style.bottom&&data.style.bottom.length){
 					_.each(data.style.bottom,function(point){ %>
-						<img class="point2" src="<%= point %>"/>
+						<img class="point2" src="<%= point.src %>"/>
 				<%	})
 				} %>
 				<div class="clear"></div>
