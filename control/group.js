@@ -47,7 +47,28 @@ app.control.set({
 
 		}
 		/*加载头部，传入参数*/
-		app.view.head.show("head_template",{"left":{type:"back",text:"返回"},"center":{type:"title",text:"群组"},"right":{type:"icon",icon:[{name:"list"}]}},headDone);
+		app.view.head.show("head_template",{
+			"left":{
+				type:"back",
+				text:"返回"
+			},
+			"center":{
+				type:"title",
+				text:"群组"
+			},
+			"right":{
+				type:"icon",
+				icon:[
+				{name:"list"}
+				],
+				list:[
+					{"icon":"group","text":"创建群"},
+					{"icon":"findGroup","text":"查找群"},
+					{"icon":"groupSet","text":"群消息设置"},
+					{"icon":"creatTalkGroup","text":"创建讨论组"}
+				]
+			}
+		},headDone);
 		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
 		/*加载主区，传入参数*/

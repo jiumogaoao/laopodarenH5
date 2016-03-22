@@ -95,12 +95,12 @@ app.model.set({
 				fn(true);
 			}
 		};
-		var zone={}
+		/*添加好友*/
+		returnObj.addFriend=function(from,to,fn){
+			var zone={}
 		app.model.get("zone",function(returnData){
 			zone=returnData;
 		})
-		/*添加好友*/
-		returnObj.addFriend=function(from,to,fn){
 			if(!_.contains(that.cache[to].friend.reject, from)){
 				that.cache[from].friend.request.push(to);
 				that.cache[to].friend.response.push(from);
@@ -111,6 +111,10 @@ app.model.set({
 		}
 		/*拒绝添加好友*/
 		returnObj.rejectFriend=function(from,to,fn){
+			var zone={}
+		app.model.get("zone",function(returnData){
+			zone=returnData;
+		})
 			that.cache[to].friend.reject.push(from);
 			that.cache[from].friend.request=_.without(that.cache[from].friend.request,to);
 			that.cache[to].friend.response=_.without(that.cache[from].friend.response,from);
@@ -118,6 +122,10 @@ app.model.set({
 		}
 		/*确认添加好友*/
 		returnObj.checkFriend=function(from,to,fn){
+			var zone={}
+		app.model.get("zone",function(returnData){
+			zone=returnData;
+		})
 			that.cache[from].friend.checked.push(to);
 			that.cache[to].friend.checked.push(from);
 			that.cache[from].friend.request=_.without(that.cache[from].friend.request,to);
@@ -126,6 +134,10 @@ app.model.set({
 		}
 		/*删除好友*/
 		returnObj.removeFriend=function(from,to,fn){
+			var zone={}
+		app.model.get("zone",function(returnData){
+			zone=returnData;
+		})
 			that.cache[to].friend.reject.push(from);
 			that.cache[from].friend.checked=_.without(that.cache[from].friend.checked,to);
 			that.cache[to].friend.checked=_.without(that.cache[from].friend.checked,from);
@@ -133,6 +145,10 @@ app.model.set({
 		}
 		/*赞*/
 		returnObj.praise=function(zid,id,fn,end){
+		var zone={}
+		app.model.get("zone",function(returnData){
+			zone=returnData;
+		})
 			that.cache[id].praise.push(zid);
 			that.save();
 			if(end){
@@ -143,6 +159,10 @@ app.model.set({
 		}
 		/*取消赞*/
 		returnObj.cancelPraise=function(zid,id,fn,end){
+		var zone={}
+		app.model.get("zone",function(returnData){
+			zone=returnData;
+		})
 			that.cache[id].praise=_.without(that.cache[id].praise,zid);
 			that.save();
 			if(end){
@@ -153,6 +173,10 @@ app.model.set({
 		}
 		/*关注*/
 		returnObj.attention=function(zid,id,fn,end){
+		var zone={}
+		app.model.get("zone",function(returnData){
+			zone=returnData;
+		})
 			that.cache[id].attention.push(zid);
 			that.save();
 			if(end){
@@ -163,6 +187,10 @@ app.model.set({
 		}
 		/*取消关注*/
 		returnObj.cancelAttention=function(zid,id,fn,end){
+		var zone={}
+		app.model.get("zone",function(returnData){
+			zone=returnData;
+		})
 			that.cache[id].attention=_.without(that.cache[id].attention,zid);
 			that.save();
 			if(end){
@@ -173,6 +201,10 @@ app.model.set({
 		}
 		/*看了*/
 		returnObj.readed=function(zid,id,fn,end){
+		var zone={}
+		app.model.get("zone",function(returnData){
+			zone=returnData;
+		})
 			that.cache[id].readed.push(zid);
 			that.save();
 			if(end){
@@ -183,6 +215,10 @@ app.model.set({
 		}
 		/*分享*/
 		returnObj.share=function(zid,id,fn,end){
+		var zone={}
+		app.model.get("zone",function(returnData){
+			zone=returnData;
+		})
 			that.cache[id].share.push(zid);
 			that.save();
 			if(end){
@@ -193,6 +229,10 @@ app.model.set({
 		}
 		/*回复*/
 		returnObj.reply=function(zid,id,to,text,fn,end){
+		var zone={}
+		app.model.get("zone",function(returnData){
+			zone=returnData;
+		})
 			that.cache[id].reply.push({form:id,to:to,text:text,readed:false,time:new Date().getTime(),zid:zid});
 			that.save();
 			if(end){

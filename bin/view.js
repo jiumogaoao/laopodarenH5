@@ -52,6 +52,8 @@
 		/*显示头部*/
 		show:function(tem,data,callback){
 			/*去拿模版*/
+			app.view.head.listHide();
+			app.view.head.bottomHide();
 			getTem(tem,function(temReturn){
 				/*拿完了把信息和模版合成*/
 				var headString = _.template(temReturn)({data:data});
@@ -73,6 +75,8 @@
 		/*隐藏头部*/
 		hide:function(callback){
 			/*播动画*/
+			app.view.head.listHide();
+			app.view.head.bottomHide();
 			$("#main").css("top","0px");
 			$("#head").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)", "transition-duration": "1000ms","transform":"translate(0px, -100%) translateZ(0px)","opacity": 0});
 			headDelay=setTimeout(function(){
@@ -83,8 +87,56 @@
 					callback();
 				}	
 				},1000);
+		},
+		/*显示列表*/
+		listShow:function(){
+			$("#head .rightList").show();
+			$("#headBg").show();
+			$("#headBg").unbind("click").bind("click",function(){
+				app.view.head.listHide();
+			})
+		},
+		/*隐藏列表*/
+		listHide:function(){
+			$("#head .rightList").hide();
+			$("#headBg").hide();
+		},
+		/*显示底部菜单*/
+		bottomShow:function(){
+			$("#head .bottom").show();
+			$("#headBg").show();
+			$("#headBg").unbind("click").bind("click",function(){
+				app.view.head.bottomHide();
+			})
+		},
+		/*隐藏底部菜单*/
+		bottomHide:function(){
+			$("#head .bottom").hide();
+			$("#headBg").hide();
 		}
 	};
+	/*头部弹出框*/
+	obj.headPop={
+		show:function(data){
+			var pop=_.template('<% _.each(data.list,function(point){ %>'+
+			'<div class="headBottomPoint headBottomPoint<%= (data.list.length==3)?3:4 %>">'+
+				'<div class="headBottomIcon <%= point.icon %>"></div>'+
+				'<div class="headBottomText"><%= point.text %></div>'+
+			'</div>'+
+			'<% }) %>')({data:data});
+			$("#headPop .headPopMain").html(pop);
+			$("#popBg").show();
+			$("#headPop").show();
+			$("#popBg,#headPop .headPopClose").unbind("click").bind("click",function(){
+				obj.headPop.hide();
+			});
+		},
+		hide:function(){
+			$("#popBg").hide();
+			$("#headPop").hide();
+			$("#headPop .headPopMain").empty();
+		}
+	}
 	/*脚部操作*/
 	obj.foot={
 		/*显示脚部*/
@@ -121,6 +173,26 @@
 				},1000);
 		}
 	};
+	obj.footPop={
+		show:function(data){
+			var pop=_.template(
+				'<% if(data.list&&data.list.length){'+
+					'_.each(data.list,function(point){ %>'+
+						'<div class="footPopPoint" style="color:<%= point.color||"#007aff" %>"><%= point.text %></div>'+
+				'<%	})'+
+				'} %>')({data:data});
+				$("#footPop .footPopMain").html(pop);
+				$("#footPop").show();
+				$("#popBg").show();
+				$("#popBg,#footPop .footPopClose").unbind().bind("click",function(){
+					obj.footPop.hide();
+				});
+		},
+		hide:function(){
+			$("#footPop").hide();
+			$("#popBg").hide();
+		}
+	}
 	/*打开侧栏方法*/
 	function sideShow(fn){
 		/*播动画*/

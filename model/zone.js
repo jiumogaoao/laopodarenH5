@@ -15,14 +15,15 @@ app.model.set({
 				this.save();
 			}
 		}
-		var user={};
-		app.model.get("user",function(returnObj){
-			user=returnObj;
-		});
+		
 		var returnObj={};/*返回的接口*/
 		var that=this;
 		/*获取聊天记录*/
 		returnObj.get=function(id,fn){
+			var user={};
+		app.model.get("user",function(returnObj){
+			user=returnObj;
+		});
 			var result=_.where(that.cache,{user:id});
 			if(result&&result.length){
 				fn(result);
@@ -32,6 +33,10 @@ app.model.set({
 		};
 		/*赞*/
 		returnObj.praise=function(zid,id,fn,end){
+			var user={};
+		app.model.get("user",function(returnObj){
+			user=returnObj;
+		});
 			that.cache[zid].praise.push(id);
 			that.save();
 			if(end){
@@ -42,6 +47,10 @@ app.model.set({
 		}
 		/*取消赞*/
 		returnObj.cancelPraise=function(zid,id,fn,end){
+			var user={};
+		app.model.get("user",function(returnObj){
+			user=returnObj;
+		});
 			that.cache[zid].praise=_.without(that.cache[zid].praise,id);
 			that.save();
 			if(end){
@@ -52,6 +61,10 @@ app.model.set({
 		}
 		/*关注*/
 		returnObj.attention=function(zid,id,fn,end){
+			var user={};
+		app.model.get("user",function(returnObj){
+			user=returnObj;
+		});
 			that.cache[zid].attention.push(id);
 			that.save();
 			if(end){
@@ -62,6 +75,10 @@ app.model.set({
 		}
 		/*取消关注*/
 		returnObj.cancelAttention=function(zid,id,fn,end){
+			var user={};
+		app.model.get("user",function(returnObj){
+			user=returnObj;
+		});
 			that.cache[zid].attention=_.without(that.cache[zid].attention,id);
 			that.save();
 			if(end){
@@ -72,6 +89,10 @@ app.model.set({
 		}
 		/*看了*/
 		returnObj.readed=function(zid,id,fn,end){
+			var user={};
+		app.model.get("user",function(returnObj){
+			user=returnObj;
+		});
 			that.cache[zid].readed.push(id);
 			that.save();
 			if(end){
@@ -82,6 +103,10 @@ app.model.set({
 		}
 		/*分享*/
 		returnObj.share=function(zid,id,fn,end){
+			var user={};
+		app.model.get("user",function(returnObj){
+			user=returnObj;
+		});
 			that.cache[zid].share.push(id);
 			that.save();
 			if(end){
@@ -92,6 +117,10 @@ app.model.set({
 		}
 		/*回复*/
 		returnObj.reply=function(zid,id,to,text,fn,end){
+			var user={};
+		app.model.get("user",function(returnObj){
+			user=returnObj;
+		});
 			that.cache[zid].reply.push({form:id,to:to,text:text,readed:false,time:new Date().getTime()});
 			that.save();
 			if(end){
@@ -102,6 +131,10 @@ app.model.set({
 		}
 		/*发帖*/
 		returnObj.add=function(id,title,text,pic,fn){
+			var user={};
+		app.model.get("user",function(returnObj){
+			user=returnObj;
+		});
 				var newId=app.uuid();
 				that.cache[newId]={
 					id:newId,

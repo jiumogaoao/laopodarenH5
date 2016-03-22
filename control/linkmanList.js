@@ -73,6 +73,6 @@ app.control.set({
 		/*使用treeNav_foot作为脚部，传入参数*/
 		app.view.foot.show("treeNav_foot",{hl:"1"},footDone);
 		/*转出linkmanList_page的view*/
-		app.view.main.sugest("linkmanList_page",data,data.state,"size",viewDone);
+		app.view.main.sugest("linkmanList_page",{group:[]},data.state,"size",viewDone);
 	}
 });

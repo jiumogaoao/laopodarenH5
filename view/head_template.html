@@ -36,8 +36,32 @@
 		<% }) %>
 			<div class="clear"></div>
 		<% } %>
+		<% if(data.right.list&&data.right.list.length){ %>
+			<div class="rightList">
+				<div class="rightListDeg"></div>
+			<% _.each(data.right.list,function(point){ %>
+				<div class="rightPoint">
+					<div class="rightPointIcon <%= point.icon %>"></div>
+					<div class="rightPointText"><%= point.text %></div>
+					<div class="clear"></div>
+				</div>	
+			<% }) %>
+			</div>
+		<% } %>
 		</div>
 	<% } %>
+	<% if(data.bottomList&&data.bottomList.length){ %>
+		<div class="bottom">
+			<% _.each(data.bottomList,function(point){ %>
+			<div class="headBottomPoint headBottomPoint<%= (data.bottomList.length==3)?3:4 %>">
+				<div class="headBottomIcon <%= point.icon %>"></div>
+				<div class="headBottomText"><%= point.text %></div>
+			</div>
+			<% }) %>
+			<div class="clear"></div>
+		</div>
+	<% } %>
+	
 </div>
 </script>
 

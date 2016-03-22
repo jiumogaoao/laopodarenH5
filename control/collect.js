@@ -20,7 +20,16 @@ app.control.set({
 
 		}
 		/*加载头部，传入参数*/
-		app.view.head.show("head_template",{"left":{type:"back",text:"返回"},"center":{type:"title",text:"我的收藏 &or;"},"right":{type:"icon",icon:[{name:"add"}]}},headDone);
+		app.view.head.show("head_template",{"left":{type:"back",text:"返回"},"center":{type:"title",text:"我的收藏 &or;"},"right":{type:"icon",icon:[{name:"add"}]},
+			bottomList:[
+			{icon:"text",text:"文本"},
+			{icon:"sound",text:"语音"},
+			{icon:"pic",text:"图片"},
+			{icon:"photo",text:"拍照"},
+			{icon:"place",text:"位置"},
+			{icon:"copy",text:"粘贴"}
+			]
+	},headDone);
 		/*隐藏脚部*/
 		app.view.foot.hide(footDone);
 		/*加载主区，传入参数*/
