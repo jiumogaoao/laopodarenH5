@@ -2,11 +2,23 @@
     /*用于缓存M层object*/
 	var modelArry={};
     /*获取model*/
+    var initModel=function(name,fn){
+        modelArry[name].inited=1;/*加锁*/
+        modelArry[name].cache={};
+        modelArry[name].exports={};
+                modelArry[name].get(modelArry[name],function(){/*拉一次数据*/
+                    modelArry[name].init(modelArry[name]);/*初始*/
+                    fn(modelArry[name].exports);/*给它*/
+                });
+    };
 	var get = function(name,fn){
         /*如果有缓存*/
 		if(modelArry[name]){
-            /*给它*/
-            modelArry[name].get(fn);
+            if(!modelArry[name].inited){/*如果没初始*/
+               initModel(name,fn);
+            }else{/*如果已经初始了，直接给它*/
+                fn(modelArry[name].exports);
+            }
 		}else{/*如果没有，打开loading*/
 			app.loading.on();
             /*去拿*/
@@ -24,7 +36,7 @@
                     /*成功了关掉loading*/
                     app.loading.off();
                     /*初始model,然后给它*/
-                    modelArry[name].get(fn);
+                    initModel(name,fn);
                 }
             });
 		}

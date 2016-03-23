@@ -1,20 +1,10 @@
 app.model.set({
 	name:"user",
-	cache:{},
-	returnObj:{},
-	inited:0,
-	init:function(){
-		this.inited=1;
-				if(app.cache(this.name)){
-				this.cache=app.cache(this.name);
-				}else{
-				this.save();
-			}
-		var that=this;
-		var zone={}
+	init:function(module){
+		var zone={};
 		/*登录*/
-		this.returnObj.login=function(name,key,fn){
-			var result=_.findWhere(that.cache,{name:name,key:key});
+		module.exports.login=function(name,key,fn){
+			var result=_.findWhere(module.cache,{name:name,key:key});
 			if(result){
 				fn(result);
 			}else{
@@ -22,13 +12,13 @@ app.model.set({
 				fn(false);
 			}
 		};
-		this.returnObj.regest=function(name,key,fn){
-			if(_.findWhere(that.cache,{name:name})){
+		module.exports.regest=function(name,key,fn){
+			if(_.findWhere(module.cache,{name:name})){
 				app.pop.on("注册手机已有");
 				fn(false);
 			}else{/*写入*/
 				var newId=app.uuid();
-				that.cache[newId]={
+				module.cache[newId]={
 					id:newId,
 					name:name,
 					key:key,
@@ -54,7 +44,6 @@ app.model.set({
 						heared:""
 					},
 					album:[],
-					friend:[],
 					group:[],
 					money:0,
 					vip:null,
@@ -86,127 +75,137 @@ app.model.set({
 						reject:[]
 					}
 				};
-				that.save();
-				fn(true);
+				module.set(module,fn);
 			}
 		};
 		/*添加好友*/
-		this.returnObj.addFriend=function(from,to,fn){
-			if(!_.contains(that.cache[to].friend.reject, from)){
-				that.cache[from].friend.request.push(to);
-				that.cache[to].friend.response.push(from);
-				if(fn){fn(true)}
+		module.exports.addFriend=function(from,to,fn){
+			if(!_.contains(module.cache[to].friend.reject, from)){
+				module.cache[from].friend.request.push(to);
+				module.cache[to].friend.response.push(from);
+				module.set(module,fn);
 			}else{
-				if(fn){fn(false)}
+				if(fn){fn(false);}
 			}
-		}
+		};
 		/*拒绝添加好友*/
-		this.returnObj.rejectFriend=function(from,to,fn){
-			that.cache[to].friend.reject.push(from);
-			that.cache[from].friend.request=_.without(that.cache[from].friend.request,to);
-			that.cache[to].friend.response=_.without(that.cache[from].friend.response,from);
-			if(fn){fn(true)}
-		}
+		module.exports.rejectFriend=function(from,to,fn){
+			module.cache[to].friend.reject.push(from);
+			module.cache[from].friend.request=_.without(module.cache[from].friend.request,to);
+			module.cache[to].friend.response=_.without(module.cache[from].friend.response,from);
+			module.set(module,fn);
+		};
 		/*确认添加好友*/
-		this.returnObj.checkFriend=function(from,to,fn){
-			that.cache[from].friend.checked.push(to);
-			that.cache[to].friend.checked.push(from);
-			that.cache[from].friend.request=_.without(that.cache[from].friend.request,to);
-			that.cache[to].friend.response=_.without(that.cache[from].friend.response,from);
-			if(fn){fn(true)}
-		}
+		module.exports.checkFriend=function(from,to,fn){
+			module.cache[from].friend.checked.push(to);
+			module.cache[to].friend.checked.push(from);
+			module.cache[from].friend.request=_.without(module.cache[from].friend.request,to);
+			module.cache[to].friend.response=_.without(module.cache[from].friend.response,from);
+			module.set(module,fn);
+		};
 		/*删除好友*/
-		this.returnObj.removeFriend=function(from,to,fn){
-			that.cache[to].friend.reject.push(from);
-			that.cache[from].friend.checked=_.without(that.cache[from].friend.checked,to);
-			that.cache[to].friend.checked=_.without(that.cache[from].friend.checked,from);
-			if(fn){fn(true)}
-		}
+		module.exports.removeFriend=function(from,to,fn){
+			module.cache[to].friend.reject.push(from);
+			module.cache[from].friend.checked=_.without(module.cache[from].friend.checked,to);
+			module.cache[to].friend.checked=_.without(module.cache[from].friend.checked,from);
+			module.set(module,fn);
+		};
 		/*赞*/
-		this.returnObj.praise=function(zid,id,fn,end){
-			that.cache[id].praise.push(zid);
-			that.save();
-			if(end){
-				if(fn){fn(true)}
-			}else{
-				zone.praise(zid,id,fn,true);	
-			}
-		}
+		module.exports.praise=function(zid,id,fn,end){
+			module.cache[id].praise.push(zid);
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					zone.praise(zid,id,fn,true);	
+				}
+			});	
+		};
 		/*取消赞*/
-		this.returnObj.cancelPraise=function(zid,id,fn,end){
-			that.cache[id].praise=_.without(that.cache[id].praise,zid);
-			that.save();
-			if(end){
-				if(fn){fn(true)}
-			}else{
-			zone.cancelPraise(zid,id,fn,true);
-			}
-		}
+		module.exports.cancelPraise=function(zid,id,fn,end){
+			module.cache[id].praise=_.without(module.cache[id].praise,zid);
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					zone.cancelPraise(zid,id,fn,true);
+				}
+			});
+		};
 		/*关注*/
-		this.returnObj.attention=function(zid,id,fn,end){
-			that.cache[id].attention.push(zid);
-			that.save();
-			if(end){
-				if(fn){fn(true)}
-			}else{
-			zone.attention(zid,id,fn,true);
-			}
-		}
+		module.exports.attention=function(zid,id,fn,end){
+			module.cache[id].attention.push(zid);
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					zone.attention(zid,id,fn,true);
+				}
+			});
+		};
 		/*取消关注*/
-		this.returnObj.cancelAttention=function(zid,id,fn,end){
-			that.cache[id].attention=_.without(that.cache[id].attention,zid);
-			that.save();
-			if(end){
-				if(fn){fn(true)}
-			}else{
-			zone.cancelAttention(zid,id,fn,true);
-			}
-		}
+		module.exports.cancelAttention=function(zid,id,fn,end){
+			module.cache[id].attention=_.without(module.cache[id].attention,zid);
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					zone.cancelAttention(zid,id,fn,true);
+				}
+			});
+		};
 		/*看了*/
-		this.returnObj.readed=function(zid,id,fn,end){
-			that.cache[id].readed.push(zid);
-			that.save();
-			if(end){
-				if(fn){fn(true)}
-			}else{
-			zone.readed(zid,id,fn,true);
-			}
-		}
+		module.exports.readed=function(zid,id,fn,end){
+			module.cache[id].readed.push(zid);
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					zone.readed(zid,id,fn,true);
+				}
+			});
+		};
 		/*分享*/
-		this.returnObj.share=function(zid,id,fn,end){
-			that.cache[id].share.push(zid);
-			that.save();
-			if(end){
-				if(fn){fn(true)}
-			}else{
-			zone.share(zid,id,fn,true);
-			}
-		}
+		module.exports.share=function(zid,id,fn,end){
+			module.cache[id].share.push(zid);
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					zone.share(zid,id,fn,true);
+				}
+			});
+		};
 		/*回复*/
-		this.returnObj.reply=function(zid,id,to,text,fn,end){
-			that.cache[id].reply.push({form:id,to:to,text:text,readed:false,time:new Date().getTime(),zid:zid});
-			that.save();
-			if(end){
-				if(fn){fn(true)}
-			}else{
-			zone.reply(zid,id,to,text,fn,true);
-			}
-		}
+		module.exports.reply=function(zid,id,to,text,fn,end){
+			module.cache[id].reply.push({form:id,to:to,text:text,readed:false,time:new Date().getTime(),zid:zid});
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					zone.reply(zid,id,to,text,fn,true);
+				}
+			});
+		};
 		app.model.get("zone",function(returnData){
 			zone=returnData;
-		})
+		});
 	},
-	save:function(){/*把数据推送到数据源*/
-		app.cache(this.name,this.cache);
-	},
-	get:function(callback){/*提供实例接口*/
-		/*初始方法，同步数据源数据*/
-		if(!this.inited){
-			this.init();
-		}
+	get:function(module,callback){/*从数据源获取数据*/
+		if(app.cache(module.name)){
+				module.cache=app.cache(module.name);
+					if(callback){/*返回*/
+							callback();
+						}
+				}else{
+				module.set(module,callback);
+			}
 		
+	},
+	set:function(module,callback){/*把数据推送到数据源*/
+		app.cache(module.name,module.cache);
 		if(callback){/*返回*/
-			callback(this.returnObj);
+			callback();
 		}
 	}
 });

@@ -1,20 +1,10 @@
 app.model.set({
 	name:"message",
-	cache:{},
-	returnObj:{},
-	inited:0,
-	init:function(){
-				this.inited=1;
-				if(app.cache(this.name)){
-				this.cache=app.cache(this.name);
-				}else{
-				this.save();
-			}
-			var that=this;
+	init:function(module){			
 		/*获取聊天记录*/
-		this.returnObj.get=function(id,to,fn){
-			var result=_.where(that.cache,{from:id,to:to});
-			result.concat(_.where(that.cache,{from:to,to:id}));
+		module.exports.get=function(id,to,fn){
+			var result=_.where(module.cache,{from:id,to:to});
+			result.concat(_.where(module.cache,{from:to,to:id}));
 			
 			if(result&&result.length){
 				fn(result);
@@ -23,9 +13,9 @@ app.model.set({
 			}
 		};
 		/*聊天*/
-		this.returnObj.add=function(from,to,type,main,fn){
+		module.exports.add=function(from,to,type,main,fn){
 				var newId=app.uuid();
-				that.cache[newId]={
+				module.cache[newId]={
 					id:newId,
 					time:new Date().getTime(),
 					from:from,
@@ -34,21 +24,23 @@ app.model.set({
 					main:main,
 					readed:false
 				};
-				that.save();
-				fn(true);
+				module.set(module,fn);
 		};
-
 	},
-	save:function(){/*把数据推送到数据源*/
-		app.cache(this.name,this.cache);
+	get:function(module,callback){/*从数据源获取数据*/
+		if(app.cache(module.name)){
+				module.cache=app.cache(module.name);
+					if(callback){/*返回*/
+						callback();
+					}
+				}else{
+				module.set(module,callback);
+			}
 	},
-	get:function(callback){/*提供实例接口*/
-		/*初始方法，同步数据源数据*/
-		if(!this.inited){
-			this.init();
-		}
+	set:function(module,callback){/*把数据推送到数据源*/
+		app.cache(module.name,module.cache);
 		if(callback){/*返回*/
-			callback(this.returnObj);
+			callback();
 		}
 	}
 });

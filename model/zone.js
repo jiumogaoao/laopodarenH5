@@ -1,20 +1,10 @@
 app.model.set({
 	name:"zone",
-	cache:{},
-	returnObj:{},
-	inited:0,
-	init:function(){
-		this.inited=1;
-				if(app.cache(this.name)){
-				this.cache=app.cache(this.name);
-			}else{
-				this.save();
-			}
-		var that=this;
+	init:function(module){
 		var user={};
 		/*获取聊天记录*/
-		this.returnObj.get=function(id,fn){
-			var result=_.where(that.cache,{user:id});
+		module.exports.get=function(id,fn){
+			var result=_.where(module.cache,{user:id});
 			if(result&&result.length){
 				fn(result);
 			}else{
@@ -22,79 +12,86 @@ app.model.set({
 			}
 		};
 		/*赞*/
-		this.returnObj.praise=function(zid,id,fn,end){
-			that.cache[zid].praise.push(id);
-			that.save();
-			if(end){
-				if(fn){fn(true)}
-			}else{
-				user.praise(zid,id,fn,true);	
-			}
-		}
+		module.exports.praise=function(zid,id,fn,end){
+			module.cache[zid].praise.push(id);
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					user.praise(zid,id,fn,true);	
+				}
+			});
+		};
 		/*取消赞*/
-		this.returnObj.cancelPraise=function(zid,id,fn,end){
-			that.cache[zid].praise=_.without(that.cache[zid].praise,id);
-			that.save();
-			if(end){
-				if(fn){fn(true)}
-			}else{
-			user.cancelPraise(zid,id,fn,true);
-			}
-		}
+		module.exports.cancelPraise=function(zid,id,fn,end){
+			module.cache[zid].praise=_.without(module.cache[zid].praise,id);
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					user.cancelPraise(zid,id,fn,true);
+				}
+			});
+		};
 		/*关注*/
-		this.returnObj.attention=function(zid,id,fn,end){
-			that.cache[zid].attention.push(id);
-			that.save();
-			if(end){
-				if(fn){fn(true)}
-			}else{
-			user.attention(zid,id,fn,true);
-			}
-		}
+		module.exports.attention=function(zid,id,fn,end){
+			module.cache[zid].attention.push(id);
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					user.attention(zid,id,fn,true);
+				}
+			});
+		};
 		/*取消关注*/
-		this.returnObj.cancelAttention=function(zid,id,fn,end){
-			that.cache[zid].attention=_.without(that.cache[zid].attention,id);
-			that.save();
-			if(end){
-				if(fn){fn(true)}
-			}else{
-			user.cancelAttention(zid,id,fn,true);
-			}
-		}
+		module.exports.cancelAttention=function(zid,id,fn,end){
+			module.cache[zid].attention=_.without(module.cache[zid].attention,id);
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					user.cancelAttention(zid,id,fn,true);
+				}
+			});
+		};
 		/*看了*/
-		this.returnObj.readed=function(zid,id,fn,end){
-			that.cache[zid].readed.push(id);
-			that.save();
-			if(end){
-				if(fn){fn(true)}
-			}else{
-			user.readed(zid,id,fn,true);
-			}
-		}
+		module.exports.readed=function(zid,id,fn,end){
+			module.cache[zid].readed.push(id);
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					user.readed(zid,id,fn,true);
+				}
+			});
+		};
 		/*分享*/
-		this.returnObj.share=function(zid,id,fn,end){
-			that.cache[zid].share.push(id);
-			that.save();
-			if(end){
-				if(fn){fn(true)}
-			}else{
-			user.share(zid,id,fn,true);
-			}
-		}
+		module.exports.share=function(zid,id,fn,end){
+			module.cache[zid].share.push(id);
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					user.share(zid,id,fn,true);
+				}
+			});
+		};
 		/*回复*/
-		this.returnObj.reply=function(zid,id,to,text,fn,end){
-			that.cache[zid].reply.push({form:id,to:to,text:text,readed:false,time:new Date().getTime()});
-			that.save();
-			if(end){
-				if(fn){fn(true)}
-			}else{
-			user.reply(zid,id,to,text,fn,true);
-			}
-		}
+		module.exports.reply=function(zid,id,to,text,fn,end){
+			module.cache[zid].reply.push({form:id,to:to,text:text,readed:false,time:new Date().getTime()});
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					user.reply(zid,id,to,text,fn,true);
+				}
+			});
+		};
 		/*发帖*/
-		this.returnObj.add=function(id,title,text,pic,fn){
+		module.exports.add=function(id,title,text,pic,fn){
 				var newId=app.uuid();
-				that.cache[newId]={
+				module.cache[newId]={
 					id:newId,
 					time:new Date().getTime(),
 					user:id,
@@ -107,25 +104,26 @@ app.model.set({
 					share:[],
 					reply:[]	
 				};
-				that.save();
-				fn(true);
+				module.set(module,fn);
 		};
 		app.model.get("user",function(returnObj){
 			user=returnObj;
 		});
 	},
-	save:function(){/*把数据推送到数据源*/
-		app.cache(this.name,this.cache);
+	get:function(module,callback){/*从数据源获取数据*/
+		if(app.cache(module.name)){
+				module.cache=app.cache(module.name);
+				if(callback){/*返回*/
+					callback();
+				}
+				}else{
+				module.set(module,callback);
+			}
 	},
-	get:function(callback){/*提供实例接口*/
-		/*初始方法，同步数据源数据*/
-		if(!this.inited){
-			this.init();
-		}
-		
-		
+	set:function(module,callback){/*把数据推送到数据源*/
+		app.cache(module.name,module.cache);
 		if(callback){/*返回*/
-			callback(this.returnObj);
+			callback();
 		}
 	}
 });

@@ -94,7 +94,7 @@
 			$("#headBg").show();
 			$("#headBg").unbind("click").bind("click",function(){
 				app.view.head.listHide();
-			})
+			});
 		},
 		/*隐藏列表*/
 		listHide:function(){
@@ -107,7 +107,7 @@
 			$("#headBg").show();
 			$("#headBg").unbind("click").bind("click",function(){
 				app.view.head.bottomHide();
-			})
+			});
 		},
 		/*隐藏底部菜单*/
 		bottomHide:function(){
@@ -136,7 +136,7 @@
 			$("#headPop").hide();
 			$("#headPop .headPopMain").empty();
 		}
-	}
+	};
 	/*脚部操作*/
 	obj.foot={
 		/*显示脚部*/
@@ -192,7 +192,7 @@
 			$("#footPop").hide();
 			$("#popBg").hide();
 		}
-	}
+	};
 	/*打开侧栏方法*/
 	function sideShow(fn){
 		/*播动画*/
