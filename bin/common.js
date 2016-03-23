@@ -2,6 +2,7 @@
 ;(function () {/*一切从这开始*/
     /*干掉默认事件*/
     document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+    var errorDelay="";
     /*声明主object*/
     window.app = {};
     /*自适应处理*/
@@ -34,11 +35,18 @@
     app.pop = {
         /*弹出打开*/
         on: function (data) {
-            alert(data);
+            $("#pop").html(data);
+            $("#pop").show();
+            $("#popBg").show();
+            $("#popBg").unbind("tap").bind("tap",function(){
+                app.pop.off();
+            })
         },
         /*弹出关闭*/
         off: function () {
-            
+            $("#pop").hide();
+            $("#popBg").hide();
+            $("#pop").empty();
         }
     };
     /*loading方法*/
@@ -71,5 +79,15 @@
         }
     };
     /*报错方法*/
-    app.err = function (){};
+    app.err = function (data){
+        $("#pop").html(data);
+            $("#pop").show();
+            $("#popBg").show();
+            $("#popBg").unbind("tap").bind("tap",function(){});
+            errorDelay=setTimeout(function(){
+                $("#pop").hide();
+                $("#popBg").hide();
+                $("#pop").empty();
+            },1000);
+    };
 })();
