@@ -3,6 +3,7 @@ app.model.set({
 	init:function(module){
 		var zone={};
 		var group={};
+		var album={};
 		/*登录信息*/
 		var loginMessage=null;
 		/*登录*/
@@ -210,13 +211,67 @@ app.model.set({
 				}
 			});
 		};
-		function joinGroup(gid,fn,end){
-			module.cache[loginMessage.id].group.member.push(gid);
+		function joinGroup(gid,uid,fn,end){
+			module.cache[uid].group.member.push(gid);
 			module.set(module,function(){
 				if(end){
 					if(fn){fn(true);}
 				}else{
-					group.join(gid,fn,true);
+					group.join(gid,uid,fn,true);
+				}
+			});
+		};
+		function outGroup(gid,uid,fn,end){
+			module.cache[uid].group.member=_.without(module.cache[uid].group.member,gid);
+			module.cache[uid].group.creat=_.without(module.cache[uid].group.creat,gid);
+			module.cache[uid].group.admin=_.without(module.cache[uid].group.admin,gid);
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					group.out(gid,uid,fn,true);
+				}
+			});
+		};
+		function addAdminGroup(gid,uid,fn,end){
+			module.cache[uid].group.member=_.without(module.cache[loginMessage.id].group.member,gid);
+			module.cache[uid].group.admin.push(gid);
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					group.addAdmin(gid,uid,fn,true);
+				}
+			});
+		};
+		function cancelAdminGroup(gid,uid,fn,end){
+			module.cache[uid].group.admin=_.without(module.cache[loginMessage.id].group.member,gid);
+			module.cache[uid].group.member.push(gid);
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					group.cancelAdmin(gid,uid,fn,true);
+				}
+			});
+		};
+		function creatAlbum(aid,name,dsc,fn,end){
+			module.cache[loginMessage.id].album.push(aid);
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					album.creat(aid,name,dsc,fn,true);
+				}
+			});
+		};
+		function removeAlbum(aid,fn,end){
+			module.cache[loginMessage.id].album=_.without(module.cache[loginMessage.id].album,aid);
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					album.remove(aid,fn,true);
 				}
 			});
 		};
@@ -265,14 +320,29 @@ app.model.set({
 		module.exports.creatGroup=function(gid,name,fn,end){
 			creatGroup(gid,name,fn,end);
 		};
-		module.exports.joinGroup=function(gid,fn,end){
-			joinGroup(gid,fn,end);
+		module.exports.joinGroup=function(gid,uid,fn,end){
+			joinGroup(gid,uid,fn,end);
+		};
+		module.exports.outGroup=function(gid,uid,fn,end){
+			outGroup(gid,uid,fn,end);
+		};
+		module.exports.addAdminGroup=function(gid,uid,fn,end){
+			addAdminGroup(gid,uid,fn,end);
+		};
+		module.exports.cancelAdminGroup=function(gid,uid,fn,end){
+			cancelAdminGroup(gid,uid,fn,end);
+		};
+		module.exports.removeAlbum=function(aid,fn,end){
+			removeAlbum(aid,fn,end);
 		};
 		app.model.get("zone",function(returnData){
 			zone=returnData;
 		});
 		app.model.get("group",function(returnData){
 			group=returnData;
+		});
+		app.model.get("album",function(returnData){
+			album=returnData;
 		});
 	},
 	get:function(module,callback){/*从数据源获取数据*/

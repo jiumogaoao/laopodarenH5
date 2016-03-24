@@ -28,7 +28,7 @@
                 data:{v:config.version},
                 cache: true,
                 error: function (err) {/*有错就报*/
-                    app.loading.Off();
+                    app.loading.off();
                     app.err();
                     window.location.hash = "";
                 },
