@@ -2,17 +2,22 @@ app.model.set({
 	name:"user",
 	init:function(module){
 		var zone={};
+		var group={};
+		/*登录信息*/
+		var loginMessage=null;
 		/*登录*/
-		module.exports.login=function(name,key,fn){
+		function login(name,key,fn){
 			var result=_.findWhere(module.cache,{name:name,key:key});
 			if(result){
-				fn(result);
+				loginMessage=result;
+				fn(true);
 			}else{
 				app.pop.on("账号或密码错误");
 				fn(false);
 			}
 		};
-		module.exports.regest=function(name,key,fn){
+		/*注册*/
+		function regest(name,key,fn){
 			if(_.findWhere(module.cache,{name:name})){
 				app.pop.on("注册手机已有");
 				fn(false);
@@ -44,7 +49,11 @@ app.model.set({
 						heared:""
 					},
 					album:[],
-					group:[],
+					group:{
+						creat:[],
+						admin:[],
+						member:[]
+					},
 					money:0,
 					vip:null,
 					vipDay:0,
@@ -79,7 +88,7 @@ app.model.set({
 			}
 		};
 		/*添加好友*/
-		module.exports.addFriend=function(from,to,fn){
+		function addFriend(from,to,fn){
 			if(!_.contains(module.cache[to].friend.reject, from)){
 				module.cache[from].friend.request.push(to);
 				module.cache[to].friend.response.push(from);
@@ -89,14 +98,14 @@ app.model.set({
 			}
 		};
 		/*拒绝添加好友*/
-		module.exports.rejectFriend=function(from,to,fn){
+		function rejectFriend(from,to,fn){
 			module.cache[to].friend.reject.push(from);
 			module.cache[from].friend.request=_.without(module.cache[from].friend.request,to);
 			module.cache[to].friend.response=_.without(module.cache[from].friend.response,from);
 			module.set(module,fn);
 		};
 		/*确认添加好友*/
-		module.exports.checkFriend=function(from,to,fn){
+		function checkFriend(from,to,fn){
 			module.cache[from].friend.checked.push(to);
 			module.cache[to].friend.checked.push(from);
 			module.cache[from].friend.request=_.without(module.cache[from].friend.request,to);
@@ -104,14 +113,14 @@ app.model.set({
 			module.set(module,fn);
 		};
 		/*删除好友*/
-		module.exports.removeFriend=function(from,to,fn){
+		function removeFriend(from,to,fn){
 			module.cache[to].friend.reject.push(from);
 			module.cache[from].friend.checked=_.without(module.cache[from].friend.checked,to);
 			module.cache[to].friend.checked=_.without(module.cache[from].friend.checked,from);
 			module.set(module,fn);
 		};
 		/*赞*/
-		module.exports.praise=function(zid,id,fn,end){
+		function praise(zid,id,fn,end){
 			module.cache[id].praise.push(zid);
 			module.set(module,function(){
 				if(end){
@@ -119,10 +128,10 @@ app.model.set({
 				}else{
 					zone.praise(zid,id,fn,true);	
 				}
-			});	
+			});
 		};
 		/*取消赞*/
-		module.exports.cancelPraise=function(zid,id,fn,end){
+		function cancelPraise(zid,id,fn,end){
 			module.cache[id].praise=_.without(module.cache[id].praise,zid);
 			module.set(module,function(){
 				if(end){
@@ -133,7 +142,7 @@ app.model.set({
 			});
 		};
 		/*关注*/
-		module.exports.attention=function(zid,id,fn,end){
+		function attention(zid,id,fn,end){
 			module.cache[id].attention.push(zid);
 			module.set(module,function(){
 				if(end){
@@ -144,7 +153,7 @@ app.model.set({
 			});
 		};
 		/*取消关注*/
-		module.exports.cancelAttention=function(zid,id,fn,end){
+		function cancelAttention(zid,id,fn,end){
 			module.cache[id].attention=_.without(module.cache[id].attention,zid);
 			module.set(module,function(){
 				if(end){
@@ -155,7 +164,7 @@ app.model.set({
 			});
 		};
 		/*看了*/
-		module.exports.readed=function(zid,id,fn,end){
+		function readed(zid,id,fn,end){
 			module.cache[id].readed.push(zid);
 			module.set(module,function(){
 				if(end){
@@ -166,7 +175,7 @@ app.model.set({
 			});
 		};
 		/*分享*/
-		module.exports.share=function(zid,id,fn,end){
+		function share(zid,id,fn,end){
 			module.cache[id].share.push(zid);
 			module.set(module,function(){
 				if(end){
@@ -177,7 +186,7 @@ app.model.set({
 			});
 		};
 		/*回复*/
-		module.exports.reply=function(zid,id,to,text,fn,end){
+		function reply(zid,id,to,text,fn,end){
 			module.cache[id].reply.push({form:id,to:to,text:text,readed:false,time:new Date().getTime(),zid:zid});
 			module.set(module,function(){
 				if(end){
@@ -187,8 +196,83 @@ app.model.set({
 				}
 			});
 		};
+		/*创建组*/
+		function creatGroup(gid,name,fn,end){
+			if(!gid&&!end){
+				gid=app.uuid();
+			}
+			module.cache[loginMessage.id].group.creat.push(gid);
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					group.add(gid,name,fn,true);
+				}
+			});
+		};
+		function joinGroup(gid,fn,end){
+			module.cache[loginMessage.id].group.member.push(gid);
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					group.join(gid,fn,true);
+				}
+			});
+		};
+		module.exports.loginMessage=function(){
+			return loginMessage;
+		}
+		module.exports.login=function(name,key,fn){
+			login(name,key,fn);
+		};
+		module.exports.regest=function(name,key,fn){
+			regest(name,key,fn);
+		};
+		module.exports.addFriend=function(from,to,fn){
+			addFriend(from,to,fn);
+		};
+		module.exports.rejectFriend=function(from,to,fn){
+			rejectFriend(from,to,fn)
+		};
+		module.exports.checkFriend=function(from,to,fn){
+			checkFriend(from,to,fn);
+		};
+		module.exports.removeFriend=function(from,to,fn){
+			removeFriend(from,to,fn);
+		};
+		module.exports.praise=function(zid,id,fn,end){
+			praise(zid,id,fn,end);
+		};
+		module.exports.cancelPraise=function(zid,id,fn,end){
+			cancelPraise(zid,id,fn,end);
+		};
+		module.exports.attention=function(zid,id,fn,end){
+			attention(zid,id,fn,end);
+		};
+		module.exports.cancelAttention=function(zid,id,fn,end){
+			cancelAttention(zid,id,fn,end);
+		};
+		module.exports.readed=function(zid,id,fn,end){
+			readed(zid,id,fn,end);
+		};
+		module.exports.share=function(zid,id,fn,end){
+			share(zid,id,fn,end);
+		};
+		module.exports.reply=function(zid,id,to,text,fn,end){
+			reply(zid,id,to,text,fn,end);
+		};
+		module.exports.creatGroup=function(gid,name,fn,end){
+			creatGroup(gid,name,fn,end);
+		};
+		module.exports.joinGroup=function(gid,fn,end){
+			joinGroup(gid,fn,end);
+		};
 		app.model.get("zone",function(returnData){
 			zone=returnData;
+		});
+		app.model.get("group",function(returnData){
+			group=returnData;
 		});
 	},
 	get:function(module,callback){/*从数据源获取数据*/

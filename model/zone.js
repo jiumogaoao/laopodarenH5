@@ -3,7 +3,7 @@ app.model.set({
 	init:function(module){
 		var user={};
 		/*获取聊天记录*/
-		module.exports.get=function(id,fn){
+		function get(id,fn){
 			var result=_.where(module.cache,{user:id});
 			if(result&&result.length){
 				fn(result);
@@ -12,7 +12,7 @@ app.model.set({
 			}
 		};
 		/*赞*/
-		module.exports.praise=function(zid,id,fn,end){
+		function praise(zid,id,fn,end){
 			module.cache[zid].praise.push(id);
 			module.set(module,function(){
 				if(end){
@@ -23,7 +23,7 @@ app.model.set({
 			});
 		};
 		/*取消赞*/
-		module.exports.cancelPraise=function(zid,id,fn,end){
+		function cancelPraise(zid,id,fn,end){
 			module.cache[zid].praise=_.without(module.cache[zid].praise,id);
 			module.set(module,function(){
 				if(end){
@@ -34,7 +34,7 @@ app.model.set({
 			});
 		};
 		/*关注*/
-		module.exports.attention=function(zid,id,fn,end){
+		function attention(zid,id,fn,end){
 			module.cache[zid].attention.push(id);
 			module.set(module,function(){
 				if(end){
@@ -45,7 +45,7 @@ app.model.set({
 			});
 		};
 		/*取消关注*/
-		module.exports.cancelAttention=function(zid,id,fn,end){
+		function cancelAttention(zid,id,fn,end){
 			module.cache[zid].attention=_.without(module.cache[zid].attention,id);
 			module.set(module,function(){
 				if(end){
@@ -56,7 +56,7 @@ app.model.set({
 			});
 		};
 		/*看了*/
-		module.exports.readed=function(zid,id,fn,end){
+		function readed(zid,id,fn,end){
 			module.cache[zid].readed.push(id);
 			module.set(module,function(){
 				if(end){
@@ -67,7 +67,7 @@ app.model.set({
 			});
 		};
 		/*分享*/
-		module.exports.share=function(zid,id,fn,end){
+		function share(zid,id,fn,end){
 			module.cache[zid].share.push(id);
 			module.set(module,function(){
 				if(end){
@@ -78,7 +78,7 @@ app.model.set({
 			});
 		};
 		/*回复*/
-		module.exports.reply=function(zid,id,to,text,fn,end){
+		function reply(zid,id,to,text,fn,end){
 			module.cache[zid].reply.push({form:id,to:to,text:text,readed:false,time:new Date().getTime()});
 			module.set(module,function(){
 				if(end){
@@ -89,8 +89,8 @@ app.model.set({
 			});
 		};
 		/*发帖*/
-		module.exports.add=function(id,title,text,pic,fn){
-				var newId=app.uuid();
+		function add(id,title,text,pic,fn){
+			var newId=app.uuid();
 				module.cache[newId]={
 					id:newId,
 					time:new Date().getTime(),
@@ -105,6 +105,33 @@ app.model.set({
 					reply:[]	
 				};
 				module.set(module,fn);
+		};
+		module.exports.get=function(id,fn){
+			get(id,fn);
+		};
+		module.exports.praise=function(zid,id,fn,end){
+			praise(zid,id,fn,end);
+		};
+		module.exports.cancelPraise=function(zid,id,fn,end){
+			cancelPraise(zid,id,fn,end);
+		};
+		module.exports.attention=function(zid,id,fn,end){
+			attention(zid,id,fn,end);
+		};
+		module.exports.cancelAttention=function(zid,id,fn,end){
+			cancelAttention(zid,id,fn,end);
+		};
+		module.exports.readed=function(zid,id,fn,end){
+			readed(zid,id,fn,end);
+		};
+		module.exports.share=function(zid,id,fn,end){
+			share(zid,id,fn,end);
+		};
+		module.exports.reply=function(zid,id,to,text,fn,end){
+			reply(zid,id,to,text,fn,end);
+		};
+		module.exports.add=function(id,title,text,pic,fn){
+				add(id,title,text,pic,fn);
 		};
 		app.model.get("user",function(returnObj){
 			user=returnObj;

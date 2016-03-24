@@ -1,0 +1,74 @@
+app.model.set({
+	name:"group",
+	init:function(module){
+		var user={};
+		/*创建组*/
+		function add(gid,name,fn,end){
+			if(!gid&&!end){
+				gid=app.uuid();
+			}
+			var self=user.loginMessage();
+			module.cache[gid]={
+				id:gid,
+				name:name,
+				dsc:"",
+				type:0,
+				file:[],
+				album:[],
+				publics:"",
+				action:[],
+				sign:[],
+				vote:[],
+				link:"",
+				app:[],
+				member:[{id:self.id,nickName:"",type:"owner"}]
+			};
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					user.creatGroup(gid,name,fn,true);	
+				}
+			});
+		};
+		function join(gid,fn,end){
+			var self=user.loginMessage();
+			module.cache[gid].member.push({id:self.id,nickName:"",type:"owner"});
+			module.set(module,function(){
+				if(end){
+					if(fn){fn(true);}
+				}else{
+					user.joinGroup(gid,fn,true);	
+				}
+			});
+		}
+		function out(gid,fn,end){
+
+		}
+		module.exports.add=function(gid,name,fn,end){
+			add(gid,name,fn,end);
+		}
+		module.exports.join=function(gid,fn,end){
+			join(gid,fn,end);
+		}
+		app.model.get("user",function(returnData){
+			user=returnData;
+		});
+	},
+	get:function(module,callback){/*从数据源获取数据*/
+		if(app.cache(module.name)){
+				module.cache=app.cache(module.name);
+					if(callback){/*返回*/
+							callback();
+						}
+				}else{
+				module.set(module,callback);
+			}
+		
+	},
+	set:function(module,callback){/*把数据推送到数据源*/
+		app.cache(module.name,module.cache);
+		if(callback){/*返回*/
+			callback();
+		}
+	}

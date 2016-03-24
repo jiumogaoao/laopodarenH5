@@ -2,7 +2,7 @@ app.model.set({
 	name:"message",
 	init:function(module){			
 		/*获取聊天记录*/
-		module.exports.get=function(id,to,fn){
+		function get(id,to,fn){
 			var result=_.where(module.cache,{from:id,to:to});
 			result.concat(_.where(module.cache,{from:to,to:id}));
 			
@@ -13,8 +13,8 @@ app.model.set({
 			}
 		};
 		/*聊天*/
-		module.exports.add=function(from,to,type,main,fn){
-				var newId=app.uuid();
+		function add(from,to,type,main,fn){
+			var newId=app.uuid();
 				module.cache[newId]={
 					id:newId,
 					time:new Date().getTime(),
@@ -25,6 +25,12 @@ app.model.set({
 					readed:false
 				};
 				module.set(module,fn);
+		};
+		module.exports.get=function(id,to,fn){
+			get(id,to,fn);
+		};
+		module.exports.add=function(from,to,type,main,fn){
+				add(from,to,type,main,fn);
 		};
 	},
 	get:function(module,callback){/*从数据源获取数据*/
