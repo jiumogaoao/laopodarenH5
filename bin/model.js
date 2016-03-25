@@ -29,7 +29,7 @@
                 cache: true,
                 error: function (err) {/*有错就报*/
                     app.loading.off();
-                    app.err();
+                    app.err(err);
                     window.location.hash = "";
                 },
                 success: function (data) {

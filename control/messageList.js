@@ -60,6 +60,14 @@ app.control.set({
 			$(".head_module .navRight").unbind("tap").bind("tap",function(){
 				window.location.hash="phone";
 			});
+			/*点击添加按钮*/
+			$(".head_module #add").unbind("tap").bind("tap",function(){
+				app.view.head.listShow();
+			});
+			/*点击加好友*/
+			$(".head_module #addFriend").unbind("tap").bind("tap",function(){
+				window.location.hash="add";
+			});
 		}
 		function footDone(){/*脚部加载完成*/
 			/*绑定事件*/
@@ -86,14 +94,14 @@ app.control.set({
 					]},
 				"right":{
 					"type":"icon",
-					"icon":[{"name":"add"}],
+					"icon":[{"name":"add","id":"add"}],
 					"list":[
-					{"icon":"scan","text":"扫一扫"},
-					{"icon":"addFriend","text":"加好友"},
-					{"icon":"creatTalkGroup","text":"创建讨论组"},
-					{"icon":"sendToPc","text":"发送到电脑"},
-					{"icon":"faceToFace","text":"面对面快传"},
-					{"icon":"receive","text":"收钱"}
+					{"icon":"scan","text":"扫一扫","id":"scan"},
+					{"icon":"addFriend","text":"加好友","id":"addFriend"},
+					{"icon":"creatTalkGroup","text":"创建讨论组","id":"creatTalkGroup"},
+					{"icon":"sendToPc","text":"发送到电脑","id":"sendToPc"},
+					{"icon":"faceToFace","text":"面对面快传","id":"faceToFace"},
+					{"icon":"receive","text":"收钱","id":"receive"}
 					]
 				}
 			},headDone);

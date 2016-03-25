@@ -35,7 +35,7 @@
                 cache: true,
                 error: function (err) {/*错了就报*/
                     app.loading.Off();
-                    app.err();
+                    app.err(err);
                     window.location.hash = "";
                 },
                 success: function (data) {

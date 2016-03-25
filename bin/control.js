@@ -68,7 +68,7 @@
                 cache: true,
                 error: function (err) {/*出错就报*/
                     app.loading.off();
-                    app.err();
+                    app.err(err);
                     window.location.hash = "";
                 },
                 success: function (data) {/*拿到了关掉loading,启动*/
@@ -112,7 +112,7 @@
                 cache: true,
                 error: function (err) {/*错了就报*/
                     app.loading.off();
-                    app.err();
+                    app.err(err);
                 },
                 success: function (html) {
                     if (html) {/*成功就放缓存*/

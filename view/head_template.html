@@ -40,7 +40,7 @@
 			<div class="rightList">
 				<div class="rightListDeg"></div>
 			<% _.each(data.right.list,function(point){ %>
-				<div class="rightPoint">
+				<div class="rightPoint" id="<%= point.id %>">
 					<div class="rightPointIcon <%= point.icon %>"></div>
 					<div class="rightPointText"><%= point.text %></div>
 					<div class="clear"></div>

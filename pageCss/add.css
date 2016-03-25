@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+.add_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #ecedf1;
+}
+.add_page .fullScreanInput_module{
+	margin-top: 45px;
+}
+.add_page .addMain{
+	position: absolute;
+	top:264px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	overflow: hidden;
+}
+.add_page .addRoll{
+	width: 300%;
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+}
+.add_page .subPage{
+	width: 33.3%;
+	float: left;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+.add_page .subPageRoll{
+	width: 100%;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}

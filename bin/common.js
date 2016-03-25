@@ -53,11 +53,13 @@
     app.loading = {
         /*loading打开*/
         on:function (){
-
+             $("#popBg").show();
+            $("#popBg").unbind("tap").bind("tap",function(){
+            })
         },
         /*loading关闭*/
         off:function(){
-
+            $("#popBg").hide();
         }
     };
     /*本机缓存*/
@@ -80,7 +82,7 @@
     };
     /*报错方法*/
     app.err = function (data){
-        $("#pop").html(data);
+        $("#pop").html(JSON.stringify(data));
             $("#pop").show();
             $("#popBg").show();
             $("#popBg").unbind("tap").bind("tap",function(){});
