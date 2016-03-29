@@ -103,8 +103,11 @@
     };
     /*初始C层*/
     obj.init = function (loadDom) {
-
-        if (loadDom) {/*如果是生产环境，去拿合成好的V层模版*/
+        if (location.href.indexOf("?dev") > 0) {
+            /*开发环境分段自动加载,直接跳页*/
+             changePage();
+        }else{
+            /*如果是生产环境，去拿合成好的V层模版*/
             $.ajax({
                 url: "html/domAll.html",
                 data: {v: config.version},
@@ -122,8 +125,6 @@
                     changePage();
                 }
             });
-        } else {/*其余环境分段自动加载,直接跳页*/
-            changePage();
         }
     };
     /*回退方法*/
