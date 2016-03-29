@@ -172,7 +172,7 @@
 }
 .myDetail_page #zone .tag{
 	position: absolute;
-	top:80px;
+	top:0px;
 	right: 35px;
 }
 .myDetail_page #mine .point{
@@ -181,6 +181,8 @@
 }
 .myDetail_page #mine .icon{
 	margin: auto;
+	width: 100px;
+	height: 100px;
 }
 .myDetail_page #mine .name{
 	margin-top: 15px;

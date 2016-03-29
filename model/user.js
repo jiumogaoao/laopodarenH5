@@ -275,6 +275,9 @@ app.model.set({
 				}
 			});
 		};
+		function searchNotFriend(fn){
+			
+		}
 		module.exports.loginMessage=function(){
 			return loginMessage;
 		}
@@ -334,6 +337,9 @@ app.model.set({
 		};
 		module.exports.removeAlbum=function(aid,fn,end){
 			removeAlbum(aid,fn,end);
+		};
+		module.exports.searchNotFriend=function(fn){
+			searchNotFriend(fn);
 		};
 		app.model.get("zone",function(returnData){
 			zone=returnData;

@@ -1,6 +1,7 @@
 .list_module{
 	width:1218px;
 	height: 132px;
+	background-color: #fff;
 }
 .list_module .left{
 	width: 100px;
@@ -119,6 +120,19 @@
 }
 .list_module.listS_module{
 	height: 124px;
+}
+.list_module.listS_module .addButton{
+	width:116px;
+	height: 60px;
+	border: 1px solid #cbcdcd;
+	color: #00a5e0;
+	font-size: 28px;
+	line-height: 58px;
+	text-align: center;
+	border-radius: 10px;
+	position: absolute;
+	top:32px;
+	right: 60px;
 }
 .list_module.listS_module .left{
 	margin-top: 12px;

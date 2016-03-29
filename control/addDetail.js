@@ -1,5 +1,5 @@
 app.control.set({
-	name:"myDetail",
+	name:"addDetail",
 	par:[],
 	fn:function(data){
 		function viewDone(){/*主区加载完成*/
@@ -40,9 +40,9 @@ app.control.set({
 		/*头部不放那*/
 		app.view.head.hide(headDone);
 		/*加载脚部，传入参数*/
-		app.view.foot.show("myDetail_foot",{},footDone);
+		app.view.foot.show("addDetail_foot",{},footDone);
 		/*加载主区，传入参数*/
-		app.view.main.sugest("myDetail_page",{
+		app.view.main.sugest("addDetail_page",{
 			bg:"img/myDetailBg.jpg",
 			prise:99,
 			icon:"img/head.jpg",

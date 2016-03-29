@@ -32,6 +32,28 @@
 	top:30px;
 	right: 30px;
 }
+.tag_module.tagM_module .tagPoint{
+	height: 120px;
+}
+.tag_module.tagM_module .left{
+	margin-left: 37px;
+	margin-top: 40px;
+}
+.tag_module.tagM_module .right{
+	height: 120px;
+}
+.tag_module.tagM_module .icon{
+	top:45px;
+}
+.tag_module.tagM_module .title{
+	top:28px;
+}
+.tag_module.tagM_module .dsc{
+	position: relative;
+	top:76px;
+	left: 3px;
+	color: #999999;
+}
 .tag_module.tagL_module .tagPoint{
 	height: 132px;
 }
