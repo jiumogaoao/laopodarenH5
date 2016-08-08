@@ -8,7 +8,7 @@
     /*自适应处理*/
 	function resize(){
     app.size=$(window).width()/750;
-	$("html").css({
+	$("#all").css({
 		"-webkit-transform":"scale("+app.size+")",
 		"transform":"scale("+app.size+")",
 		"height":(($(window).height()/$(window).width())*750)+"px"

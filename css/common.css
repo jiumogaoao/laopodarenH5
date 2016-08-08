@@ -33,26 +33,25 @@ font-size:25px;
 } 
 img{
 	display:block;}
-html {
-  width: 750px;
-  height: 100%;
-  -webkit-transform-origin: top left;
-  transform-origin: top left;
-  font-family:"Microsoft YaHei"}
 .clear{
   clear: both;
 }
 body {
-  width: 750px;
-  height:100%;
-  position: relative; 
-  background-color: #fff;
+-webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    height:100%;
+    width:100%;
 }
 #all{
-	 width: 750px;
-  height:100%;
-  position: relative; 
-  overflow:hidden;
+width:750px;
+    background-color:red;
+    position:absolute;
+    top:0px;
+    left:0px;
+    bottom:0px;
+    transform-origin:top left;
+    -webkit-transform-origin:top left;
 	}
 #main{
 	 width: 750px;
